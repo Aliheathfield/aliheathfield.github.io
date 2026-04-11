@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Ali — Ali Heathfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --white: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e0ddd8;
+    --accent: #c8593a;
+    --accent-light: #f9ede9;
+    --teal: #3a9b8a;
+    --teal-light: #e8f5f2;
+    --heading-font: 'Lora', Georgia, serif;
+    --body-font: 'Source Sans 3', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  .nav-brand {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    color: var(--text);
+    text-decoration: none;
+    font-style: italic;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+  .page-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: var(--heading-font);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  /* PHOTO + INTRO */
+  .intro-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .photo-wrap {
+    float: right;
+    margin: 0 0 28px 36px;
+    width: 240px;
+  }
+  .photo-wrap img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    border: 1px solid var(--border);
+  }
+  .photo-caption {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .intro-section p {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .intro-section p:first-of-type {
+    font-family: var(--heading-font);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text);
+  }
+  .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* STORY */
+  .story-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .story-section .section-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+  .story-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+  .story-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+
+  /* HIGHLIGHT QUOTE */
+  .inline-quote {
+    border-left: 3px solid var(--accent);
+    padding: 20px 28px;
+    margin: 32px 0;
+    background: var(--accent-light);
+    border-radius: 0 4px 4px 0;
+  }
+  .inline-quote p {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* WHAT I OFFER */
+  .offer-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .offer-section .section-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+  .offer-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+  .offer-section > p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 28px;
+    max-width: 640px;
+  }
+  .offer-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .offer-list li {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    padding: 18px 20px;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .offer-list li strong {
+    display: block;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-family: var(--heading-font);
+  }
+
+  /* THE PERSON */
+  .person-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .person-section .section-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .person-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+  .person-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  footer a { color: var(--text-light); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .photo-wrap { float: none; width: 100%; margin: 0 0 28px 0; }
+    .offer-list { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 2rem; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Ali Heathfield</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="archive.html">Archive</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-header">
+    <p class="eyebrow">About</p>
+    <h1>Ali Heathfield</h1>
+  </div>
+
+  <section class="intro-section clearfix">
+    <div class="photo-wrap">
+      <!-- Replace src with your actual photo path e.g. images/ali-heathfield.jpg -->
+      <img src="images/ali-collage.jpg" alt="Ali Heathfield">
+      <p class="photo-caption">Ali in Portugal</p>
+    </div>
+    <p>Ali Heathfield listens. She sits with you, works to understand what is really going on, and then walks alongside you using the map she developed for Living Life Well.</p>
+    <p>She weaves in her knowledge of positive psychology, coaching and life wisdom until you have found what works best for you at this particular stage of life.</p>
+    <p>Ali holds an MSc in Positive Psychology with Distinction from Buckinghamshire New University and brings decades of coaching experience working with individuals through transition and growth. Trained deeply in how people think, communicate and change, she hears what is beneath the surface as much as what is said — working with the whole person, not just the presenting question.</p>
+  </section>
+
+  <section class="story-section">
+    <p class="section-label">The Story Behind the Work</p>
+    <h2>Choosing intention over chance.</h2>
+    <p>After her husband Brian died just two days after her 65th birthday, Ali faced a choice that many people encounter in later life: let life happen to her, or live with intention.</p>
+    <p>She chose intention.</p>
+    <div class="inline-quote">
+      <p>"I had a choice. I could simply let life happen, relinquishing control to chance — or I could live with intention, enjoyment, meaning, and purpose."</p>
+    </div>
+    <p>That decision led her to Portugal, where she began learning a new language, built a new community, and developed the <strong>Living Life Well model</strong> — a practical map for discovering what is possible after 60.</p>
+    <p>Real change often lives beneath what we say, and Ali approaches that deeper level of the work with care, curiosity and great respect for the person doing it. Her approach is warm, practical and grounded in lived experience. What you see is what you get.</p>
+  </section>
+
+  <section class="offer-section">
+    <p class="section-label">How Ali Works</p>
+    <h2>Working with the whole person.</h2>
+    <p>Ali works with individuals navigating life beyond 60. Whether you are facing significant change, managing your health, or simply wanting to live more fully and intentionally, her approach combines rigorous thinking with real warmth.</p>
+    <ul class="offer-list">
+      <li>
+        <strong>One-to-one coaching</strong>
+        Personal, in-depth work using the Living Life Well model — at your own pace.
+      </li>
+      <li>
+        <strong>Online courses</strong>
+        Structured learning grounded in positive psychology and practical application.
+      </li>
+      <li>
+        <strong>Interactive toolkits</strong>
+        The digital tools that accompany <em>Not Done Yet</em> — free and paid.
+      </li>
+      <li>
+        <strong>Retreats</strong>
+        Immersive experiences grounded in the Living Life Well model.
+      </li>
+    </ul>
+  </section>
+
+  <section class="person-section">
+    <p class="section-label">The Person</p>
+    <h2>Born in the UK. Living in Portugal.</h2>
+    <p>Ali has two children, three grandchildren, a sister, nieces and nephews, and a firm belief that the best chapters need not be behind us. Taking her own advice, she continues to learn Portuguese.</p>
+    <p>When she is not working, you will find her at the piano, walking, painting, deep in an audiobook, or spending time with her cats. Her cats, meanwhile, continue to teach her who is boss.</p>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2025 Ali Heathfield</span>
+  <span><a href="index.html">Home</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a></span>
+</footer>
+
+</body>
+</html>

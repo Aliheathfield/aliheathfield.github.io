@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy &amp; Legal — Ali Heathfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --white: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e0ddd8;
+    --accent: #F69E4A;
+    --accent-dark: #E07F1A;
+    --accent-light: #fef3e2;
+    --teal: #3a9b8a;
+    --teal-light: #e8f5f2;
+    --heading-font: 'Lora', Georgia, serif;
+    --body-font: 'Source Sans 3', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  .nav-brand {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    color: var(--text);
+    text-decoration: none;
+    font-style: italic;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .page-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: var(--heading-font);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .page-header p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .content-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .content-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .content-section p {
+    font-size: 0.98rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    max-width: 640px;
+  }
+  .content-section p:last-child { margin-bottom: 0; }
+  .content-section ul {
+    margin: 12px 0 16px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .content-section ul li {
+    font-size: 0.98rem;
+    color: var(--text);
+    line-height: 1.7;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    max-width: 640px;
+  }
+  .content-section ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+  }
+
+  .highlight-box {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    margin: 20px 0;
+  }
+  .highlight-box p {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 0 !important;
+  }
+
+  .contact-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: 0 4px 4px 0;
+    margin-top: 20px;
+  }
+  .contact-box h3 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .contact-box p {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 8px !important;
+  }
+  .contact-box a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .contact-box a:hover { border-bottom-color: var(--accent); }
+
+  .last-updated {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  footer a { color: var(--text-light); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .page-header h1 { font-size: 2rem; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Ali Heathfield</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="archive.html">Archive</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-header">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy &amp; Legal</h1>
+    <p>Plain English. No jargon. Everything you need to know about how this site works and how your information is handled.</p>
+    <p class="last-updated">Last updated: April 2025</p>
+  </div>
+
+  <section class="content-section">
+    <h2>Who runs this site</h2>
+    <p>This website is operated by Ali Heathfield, a life coach and author based in Portugal. Ali works with individuals navigating life beyond 60 through coaching, online courses, and the tools and resources on this site.</p>
+    <p>For any questions about this site or its content, please use the contact details at the bottom of this page.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>What data this site collects</h2>
+    <div class="highlight-box">
+      <p>This website currently collects <strong>no personal data</strong> from visitors. There are no contact forms, no email sign-up fields, no user accounts, and no login system on this site.</p>
+    </div>
+    <p>The free tools available to download from the Resources page (such as the Life Check-In) store any information you enter <strong>locally on your own device</strong>, using your browser's built-in storage. This data never leaves your device, is never transmitted to Ali or anyone else, and is entirely under your own control. You can clear it at any time by clearing your browser's local storage.</p>
+    <p>In short: Ali does not have access to anything you write in the tools. Your reflections are your own.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Cookies and analytics</h2>
+    <p>This site does not currently use cookies or any analytics tracking. No data about your visit — pages viewed, time spent, location, or device — is collected or stored.</p>
+    <p>This may change in the future. If analytics are added, this page will be updated and, where required by law, you will be asked for your consent before any tracking takes place. Any analytics tool used will be chosen with privacy in mind.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Third-party links</h2>
+    <p>This site may contain links to external websites, including Substack, Amazon, and other platforms. Once you leave this site, Ali has no control over and takes no responsibility for the privacy practices of those sites. We recommend reading their privacy policies before sharing any personal information with them.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Your rights under GDPR</h2>
+    <p>Because Ali is based in Portugal and this site is accessible to readers in the EU and UK, the General Data Protection Regulation (GDPR) is relevant. Under GDPR, you have the right to:</p>
+    <ul>
+      <li>Know what personal data is held about you</li>
+      <li>Request that any personal data be corrected or deleted</li>
+      <li>Object to the processing of your personal data</li>
+      <li>Lodge a complaint with a data protection authority</li>
+    </ul>
+    <p>As this site currently collects no personal data, most of these rights have no practical application at present. Should this change, this page will be updated accordingly. If you have any concerns, please get in touch.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Disclaimer</h2>
+    <p>The content on this site — including the book, tools, and resources — is intended for general informational and personal development purposes. It does not constitute medical, legal, financial, or therapeutic advice.</p>
+    <p>While every effort is made to ensure the information here is accurate and helpful, Ali Heathfield accepts no liability for decisions made based on the content of this site or the tools available from it. If you have specific medical, legal, or financial concerns, please seek advice from a qualified professional.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Intellectual property</h2>
+    <p>All content on this site — including text, the Living Life Well model, and the interactive tools — is the intellectual property of Ali Heathfield unless otherwise stated. You are welcome to share links to this site. Please do not reproduce or republish content without permission.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Changes to this page</h2>
+    <p>This page will be updated if anything changes — particularly if analytics, a contact form, or paid toolkit access is added to the site. The date at the top of this page shows when it was last revised. Continuing to use the site after any changes constitutes acceptance of the updated terms.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Contact</h2>
+    <p>If you have any questions about privacy, data, or anything else on this site, please get in touch.</p>
+    <div class="contact-box">
+      <h3>Ali Heathfield</h3>
+      <p>Based in Portugal, working with clients across the UK, EU, and beyond.</p>
+      <p>Email: <a href="mailto:ali@aliheathfield.com">ali@aliheathfield.com</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2025 Ali Heathfield</span>
+  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a></span>
+</footer>
+
+</body>
+</html>

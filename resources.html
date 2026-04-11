@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Ali Heathfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --white: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e0ddd8;
+    --accent: #F69E4A;
+    --accent-dark: #E07F1A;
+    --accent-light: #fef3e2;
+    --teal: #3a9b8a;
+    --teal-light: #e8f5f2;
+    --heading-font: 'Lora', Georgia, serif;
+    --body-font: 'Source Sans 3', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  .nav-brand {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    color: var(--text);
+    text-decoration: none;
+    font-style: italic;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+  .page-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: var(--heading-font);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .page-header p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* FREE TOOL */
+  .free-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+  .free-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .free-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 620px;
+  }
+
+  .tool-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--teal);
+  }
+  .tool-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--teal-light);
+    color: var(--teal);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .tag.free { background: var(--teal-light); color: var(--teal); }
+  .tool-card h3 {
+    font-family: var(--heading-font);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .tool-card p {
+    font-size: 0.98rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    max-width: 540px;
+  }
+  .tool-details {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .tool-detail {
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  .tool-detail strong {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+  .btn-teal {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
+
+  /* HOW IT WORKS */
+  .how-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .how-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--border);
+    min-width: 36px;
+    line-height: 1.3;
+  }
+  .step-content h3 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* PRIVACY NOTE */
+  .privacy-note {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .privacy-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    padding: 24px 28px;
+    border-radius: 0 4px 4px 0;
+  }
+  .privacy-box h3 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .privacy-box p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  footer a { color: var(--text-light); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .page-header h1 { font-size: 2rem; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Ali Heathfield</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="archive.html">Archive</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-header">
+    <p class="eyebrow">Resources</p>
+    <h1>Tools to get you started.</h1>
+    <p>Free, private, and designed to work alongside <em>Not Done Yet</em>. No login. No tracking. Everything stays on your device.</p>
+  </div>
+
+  <section class="free-section">
+    <p class="section-label">Free Tool</p>
+    <h2>The Life Check-In</h2>
+    <p>Not sure where to begin, or simply curious about how things stand right now? The Life Check-In is a guided reflection across the ten themes of the Living Life Well model. It takes around 20 minutes and gives you a clear, honest picture of where you are — and where you might want to focus.</p>
+    <p>No right or wrong answers. No scoring against someone else. Just a quiet, structured moment with yourself.</p>
+
+    <div class="tool-card">
+      <div class="tool-card-meta">
+        <span class="tag free">Free</span>
+      </div>
+      <h3>Life Check-In</h3>
+      <p>A short, guided reflection across 10 life themes — health, relationships, meaning, finances, environment, and more. Completely private. Everything you enter stays on your own device.</p>
+      <div class="tool-details">
+        <div class="tool-detail">
+          <strong>Time</strong>
+          Around 20 minutes
+        </div>
+        <div class="tool-detail">
+          <strong>Format</strong>
+          Interactive HTML file
+        </div>
+        <div class="tool-detail">
+          <strong>Works on</strong>
+          Any modern browser
+        </div>
+      </div>
+      <a href="life-checkin-standalone.html" class="btn-teal">Download the Life Check-In</a>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <p class="section-label">How It Works</p>
+    <h2>Three steps to get started.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <h3>Download the file</h3>
+          <p>Click the link above. The file will download to your device — it is a single HTML file, around 100KB.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <h3>Open it in your browser</h3>
+          <p>Double-click the downloaded file. It will open in Chrome, Safari, Firefox, or Edge — whichever you use.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <h3>Work through it at your own pace</h3>
+          <p>Take your time. Your answers are saved automatically to your own device. You can return to it whenever you like.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-note">
+    <div class="privacy-box">
+      <h3>A note on privacy</h3>
+      <p>The Life Check-In stores everything locally on your own device using your browser's built-in storage. Nothing is sent anywhere, nothing is tracked, and nothing leaves your computer. Ali does not have access to your answers. Your data is entirely your own.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2025 Ali Heathfield</span>
+  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="archive.html">Archive</a></span>
+</footer>
+
+</body>
+</html>
