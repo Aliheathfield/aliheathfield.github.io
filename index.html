@@ -32,7 +32,6 @@
     line-height: 1.75;
   }
 
-  /* NAV */
   nav {
     background: var(--white);
     border-bottom: 1px solid var(--border);
@@ -71,13 +70,9 @@
     transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-subscribe {
-    color: var(--accent-dark) !important;
-    font-weight: 600 !important;
-  }
+  .nav-subscribe { color: var(--accent-dark) !important; font-weight: 600 !important; }
   .nav-subscribe:hover { color: var(--accent) !important; }
 
-  /* HERO */
   .hero {
     max-width: 740px;
     margin: 0 auto;
@@ -100,10 +95,7 @@
     color: var(--text);
     margin-bottom: 10px;
   }
-  .hero h1 em {
-    color: var(--accent);
-    font-style: italic;
-  }
+  .hero h1 em { color: var(--accent); font-style: italic; }
   .hero-sub {
     font-family: var(--heading-font);
     font-size: 1.35rem;
@@ -144,7 +136,6 @@
   }
   .btn-secondary:hover { border-bottom-color: var(--accent); }
 
-  /* COUNTDOWN */
   .countdown-section {
     max-width: 740px;
     margin: 0 auto;
@@ -158,7 +149,7 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-dark);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .countdown-date {
     font-family: var(--heading-font);
@@ -205,7 +196,6 @@
     color: var(--teal);
   }
 
-  /* QUOTE */
   .quote-section {
     max-width: 740px;
     margin: 0 auto;
@@ -236,7 +226,6 @@
     text-transform: uppercase;
   }
 
-  /* BOOK */
   .book-section {
     max-width: 740px;
     margin: 0 auto;
@@ -276,21 +265,7 @@
     margin: 28px 0;
     line-height: 1.5;
   }
-  .btn-teal {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-    margin-top: 8px;
-  }
-  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
 
-  /* WHAT YOU GET */
   .get-section {
     max-width: 740px;
     margin: 0 auto;
@@ -323,13 +298,8 @@
     color: var(--text);
     margin-bottom: 10px;
   }
-  .get-card p {
-    font-size: 0.92rem;
-    color: var(--text-light);
-    line-height: 1.65;
-  }
+  .get-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.65; }
 
-  /* SUBSTACK INVITE */
   .substack-section {
     max-width: 740px;
     margin: 0 auto;
@@ -351,18 +321,8 @@
     color: var(--text);
     margin-bottom: 14px;
   }
-  .substack-box p {
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.75;
-    max-width: 540px;
-  }
-  .substack-list {
-    list-style: none;
-    margin: 16px 0 24px 0;
-    padding: 0;
-  }
+  .substack-box p { font-size: 1rem; color: var(--text); margin-bottom: 8px; line-height: 1.75; max-width: 540px; }
+  .substack-list { list-style: none; margin: 16px 0 24px 0; padding: 0; }
   .substack-list li {
     font-size: 0.97rem;
     color: var(--text);
@@ -370,13 +330,19 @@
     position: relative;
     line-height: 1.6;
   }
-  .substack-list li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
+  .substack-list li::before { content: '–'; position: absolute; left: 0; color: var(--teal); font-weight: 600; }
+  .btn-teal {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.92rem;
     font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
   }
+  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
 
   footer {
     max-width: 740px;
@@ -423,13 +389,13 @@
     <h1>Not Done Yet —<br><em>Not Even Close.</em></h1>
     <p class="hero-sub">A practical guide to living with intention after 60.</p>
     <p class="hero-desc">The book, the model, and the tools to help you shape what comes next — on your terms, at your pace, with real purpose.</p>
-    <a href="https://aliheathfield.substack.com" target="_blank" class="btn-primary">Follow the journey</a>
+    <a href="#the-book" class="btn-primary">Find Out More</a>
     <a href="about.html" class="btn-secondary">About Ali →</a>
   </section>
 
   <section class="countdown-section">
     <p class="countdown-eyebrow">Book Launch Countdown</p>
-    <p class="countdown-date"><em>Not Done Yet</em> publishes 1st June 2025</p>
+    <p class="countdown-date"><em>Not Done Yet</em> publishes 1st June 2026</p>
     <div class="countdown-display" id="countdown">
       <div class="countdown-unit">
         <span class="countdown-number" id="days">–</span>
@@ -457,14 +423,12 @@
     </div>
   </section>
 
-  <section class="book-section">
+  <section class="book-section" id="the-book">
     <p class="section-label">The Book</p>
     <h2>Not Done Yet: Discovering What's Possible After 60</h2>
-    <p>After her husband Brian died just two days after her 65th birthday, Ali Heathfield faced the question that arrives for so many of us in later life: let life happen, or live with intention. She chose intention.</p>
-    <p>That decision led her to Portugal, to a new language, a new community, and ultimately to the <strong>Living Life Well model</strong> — a practical map for anyone who suspects their best chapters are still ahead.</p>
+    <p>Born from personal experience and grounded in positive psychology, <em>Not Done Yet</em> is a practical map for anyone who suspects their best chapters are still ahead.</p>
     <p class="book-tagline">This book helps you shape your own encore — ageing with intention, not by default.</p>
-    <p>Whether you are navigating significant change, managing your health, or simply wanting to live more fully, <em>Not Done Yet</em> gives you the framework, the questions, and the encouragement to move forward.</p>
-    <a href="https://aliheathfield.substack.com/p/not-done-yet" target="_blank" class="btn-teal">Read the story behind the book →</a>
+    <p>Whether you are navigating significant change, managing your health, or simply wanting to live more fully, <em>Not Done Yet</em> gives you the framework, the questions, and the encouragement to move forward. It is honest about the hard parts — and deeply practical about what to do with them.</p>
   </section>
 
   <section class="get-section">
@@ -480,8 +444,8 @@
         <p>Not platitudes. Questions that help you understand what is actually going on — and what you really want.</p>
       </div>
       <div class="get-card">
-        <h3>Interactive digital tools</h3>
-        <p>Toolkits that work alongside the book — at your own pace, privately, on your own device.</p>
+        <h3>Three paths through later life</h3>
+        <p>Maintain &amp; Prevent, Reinvent &amp; Renew, or Health Navigator — the book meets you where you actually are.</p>
       </div>
       <div class="get-card">
         <h3>A warm, honest voice</h3>
@@ -509,12 +473,12 @@
 </main>
 
 <footer>
-  <span>© 2025 Ali Heathfield</span>
+  <span>© 2026 Ali Heathfield</span>
   <span><a href="about.html">About</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
 </footer>
 
 <script>
-  const launchDate = new Date('2025-06-01T09:00:00').getTime();
+  const launchDate = new Date('2026-06-01T09:00:00').getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -525,15 +489,10 @@
       return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
+    document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+    document.getElementById('hours').textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById('minutes').textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById('seconds').textContent = Math.floor((distance % (1000 * 60)) / 1000);
   }
 
   updateCountdown();

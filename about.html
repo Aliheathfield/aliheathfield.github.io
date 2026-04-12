@@ -46,7 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 58px;
+    height: 60px;
   }
   .nav-brand {
     font-family: var(--heading-font);
@@ -59,6 +59,7 @@
     display: flex;
     gap: 28px;
     list-style: none;
+    align-items: center;
   }
   .nav-links a {
     color: var(--text-light);
@@ -69,10 +70,7 @@
     transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-subscribe {
-    color: var(--accent-dark) !important;
-    font-weight: 600 !important;
-  }
+  .nav-subscribe { color: var(--accent-dark) !important; font-weight: 600 !important; }
   .nav-subscribe:hover { color: var(--accent) !important; }
 
   .page-header {
@@ -132,18 +130,17 @@
     font-family: var(--heading-font);
     font-size: 1.2rem;
     font-style: italic;
-    color: var(--text);
   }
   .clearfix::after { content: ''; display: table; clear: both; }
 
-  /* STORY */
-  .story-section {
+  /* APPROACH */
+  .approach-section {
     max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
   }
-  .story-section .section-label {
+  .section-label {
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -151,59 +148,49 @@
     color: var(--teal);
     margin-bottom: 20px;
   }
-  .story-section h2 {
+  .approach-section h2 {
     font-family: var(--heading-font);
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 22px;
   }
-  .story-section p {
+  .approach-section p {
     font-size: 1.02rem;
     color: var(--text);
     line-height: 1.8;
     margin-bottom: 20px;
     max-width: 640px;
   }
-
-  /* HIGHLIGHT QUOTE */
   .inline-quote {
-    border-left: 3px solid var(--accent);
-    padding: 20px 28px;
-    margin: 32px 0;
-    background: var(--accent-light);
+    border-left: 3px solid var(--teal);
+    padding: 18px 24px;
+    margin: 28px 0;
+    background: var(--teal-light);
     border-radius: 0 4px 4px 0;
   }
   .inline-quote p {
     font-family: var(--heading-font);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-style: italic;
     color: var(--text);
     margin-bottom: 0 !important;
     line-height: 1.6;
   }
 
-  /* WHAT I OFFER */
+  /* HOW I WORK */
   .offer-section {
     max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
   }
-  .offer-section .section-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 20px;
-  }
   .offer-section h2 {
     font-family: var(--heading-font);
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
   .offer-section > p {
     font-size: 1.02rem;
@@ -225,7 +212,7 @@
     padding: 18px 20px;
     border-radius: 0 4px 4px 0;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--text);
   }
   .offer-list li strong {
@@ -243,14 +230,6 @@
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
   }
-  .person-section .section-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent-dark);
-    margin-bottom: 20px;
-  }
   .person-section h2 {
     font-family: var(--heading-font);
     font-size: 1.75rem;
@@ -265,6 +244,85 @@
     margin-bottom: 20px;
     max-width: 640px;
   }
+
+  /* BOOK SIGNPOST */
+  .book-signpost {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .signpost-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .signpost-box p {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .btn-accent {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .btn-accent:hover { background: var(--accent-dark); }
+
+  /* CONTACT */
+  .contact-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .contact-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 580px;
+  }
+  .contact-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: 0 4px 4px 0;
+    display: inline-block;
+  }
+  .contact-box a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .contact-box a:hover { border-bottom-color: var(--accent); }
 
   footer {
     max-width: 740px;
@@ -283,6 +341,7 @@
     .photo-wrap { float: none; width: 100%; margin: 0 0 28px 0; }
     .offer-list { grid-template-columns: 1fr; }
     .page-header h1 { font-size: 2rem; }
+    .signpost-box { flex-direction: column; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
@@ -311,31 +370,28 @@
 
   <section class="intro-section clearfix">
     <div class="photo-wrap">
-      <!-- Replace src with your actual photo path e.g. images/ali-heathfield.jpg -->
-      <img src="ali.png" alt="Ali Heathfield">
+      <img src="Ali.png" alt="Ali Heathfield">
       <p class="photo-caption">Ali in Portugal</p>
     </div>
     <p>Ali Heathfield listens. She sits with you, works to understand what is really going on, and then walks alongside you using the map she developed for Living Life Well.</p>
     <p>She weaves in her knowledge of positive psychology, coaching and life wisdom until you have found what works best for you at this particular stage of life.</p>
-    <p>Ali holds an MSc in Positive Psychology with Distinction from Buckinghamshire New University and brings decades of coaching experience working with individuals through transition and growth. Trained deeply in how people think, communicate and change, she hears what is beneath the surface as much as what is said — working with the whole person, not just the presenting question.</p>
+    <p>Ali holds an MSc in Positive Psychology with Distinction from Buckinghamshire New University and brings decades of coaching experience working with individuals through transition and growth.</p>
   </section>
 
-  <section class="story-section">
-    <p class="section-label">The Story Behind the Work</p>
-    <h2>Choosing intention over chance.</h2>
-    <p>After her husband Brian died just two days after her 65th birthday, Ali faced a choice that many people encounter in later life: let life happen to her, or live with intention.</p>
-    <p>She chose intention.</p>
+  <section class="approach-section">
+    <p class="section-label">The Approach</p>
+    <h2>Working beneath the surface.</h2>
+    <p>Trained deeply in how people think, communicate and change, Ali hears what is beneath the surface as much as what is said — working with the whole person, not just the presenting question.</p>
     <div class="inline-quote">
-      <p>"I had a choice. I could simply let life happen, relinquishing control to chance — or I could live with intention, enjoyment, meaning, and purpose."</p>
+      <p>Real change often lives beneath what we say. Ali approaches that deeper level of the work with care, curiosity and great respect for the person doing it.</p>
     </div>
-    <p>That decision led her to Portugal, where she began learning a new language, built a new community, and developed the <strong>Living Life Well model</strong> — a practical map for discovering what is possible after 60.</p>
-    <p>Real change often lives beneath what we say, and Ali approaches that deeper level of the work with care, curiosity and great respect for the person doing it. Her approach is warm, practical and grounded in lived experience. What you see is what you get.</p>
+    <p>Her approach is warm, practical and grounded in lived experience. What you see is what you get.</p>
   </section>
 
   <section class="offer-section">
     <p class="section-label">How Ali Works</p>
     <h2>Working with the whole person.</h2>
-    <p>Ali works with individuals navigating life beyond 60. Whether you are facing significant change, managing your health, or simply wanting to live more fully and intentionally, her approach combines rigorous thinking with real warmth.</p>
+    <p>Ali works with individuals navigating life beyond 60 — whether facing significant change, managing health challenges, or simply wanting to live more fully and intentionally.</p>
     <ul class="offer-list">
       <li>
         <strong>One-to-one coaching</strong>
@@ -347,7 +403,7 @@
       </li>
       <li>
         <strong>Interactive toolkits</strong>
-        The digital tools that accompany <em>Not Done Yet</em> — free and paid.
+        Digital tools that accompany the work — free and paid options available.
       </li>
       <li>
         <strong>Retreats</strong>
@@ -363,10 +419,26 @@
     <p>When she is not working, you will find her at the piano, walking, painting, deep in an audiobook, or spending time with her cats. Her cats, meanwhile, continue to teach her who is boss.</p>
   </section>
 
+  <section class="book-signpost">
+    <div class="signpost-box">
+      <p>Ali's book, <em>Not Done Yet</em>, publishes 1st June 2026.</p>
+      <a href="index.html#the-book" class="btn-accent">Find out more →</a>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <p class="section-label">Get in Touch</p>
+    <h2>Find out more.</h2>
+    <p>If you would like to find out more about working with Ali — coaching, courses, or retreats — please get in touch. She would love to hear from you.</p>
+    <div class="contact-box">
+      <a href="mailto:hello@aliheathfield.com">hello@aliheathfield.com</a>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <span>© 2025 Ali Heathfield</span>
+  <span>© 2026 Ali Heathfield</span>
   <span><a href="index.html">Home</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
 </footer>
 
