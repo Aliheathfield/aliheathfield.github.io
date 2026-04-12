@@ -13,8 +13,9 @@
     --text: #2d2d2d;
     --text-light: #666666;
     --border: #e0ddd8;
-    --accent: #c8593a;
-    --accent-light: #f9ede9;
+    --accent: #F69E4A;
+    --accent-dark: #E07F1A;
+    --accent-light: #fef3e2;
     --teal: #3a9b8a;
     --teal-light: #e8f5f2;
     --heading-font: 'Lora', Georgia, serif;
@@ -27,8 +28,8 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--body-font);
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.75;
   }
 
   nav {
@@ -40,7 +41,7 @@
     z-index: 100;
   }
   .nav-inner {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -68,9 +69,14 @@
     transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-subscribe {
+    color: var(--accent-dark) !important;
+    font-weight: 600 !important;
+  }
+  .nav-subscribe:hover { color: var(--accent) !important; }
 
   .page-header {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 64px 24px 40px;
     border-bottom: 1px solid var(--border);
@@ -80,7 +86,7 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-dark);
     margin-bottom: 16px;
   }
   .page-header h1 {
@@ -93,7 +99,7 @@
 
   /* PHOTO + INTRO */
   .intro-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -132,7 +138,7 @@
 
   /* STORY */
   .story-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -179,7 +185,7 @@
 
   /* WHAT I OFFER */
   .offer-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -232,7 +238,7 @@
 
   /* THE PERSON */
   .person-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -242,7 +248,7 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-dark);
     margin-bottom: 20px;
   }
   .person-section h2 {
@@ -261,7 +267,7 @@
   }
 
   footer {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 40px 24px;
     display: flex;
@@ -291,6 +297,7 @@
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="archive.html">Archive</a></li>
+      <li><a href="https://aliheathfield.substack.com" target="_blank" class="nav-subscribe">Subscribe</a></li>
     </ul>
   </div>
 </nav>
@@ -305,7 +312,7 @@
   <section class="intro-section clearfix">
     <div class="photo-wrap">
       <!-- Replace src with your actual photo path e.g. images/ali-heathfield.jpg -->
-      <img src="Ali.png" alt="Ali Heathfield">
+      <img src="ali.png" alt="Ali Heathfield">
       <p class="photo-caption">Ali in Portugal</p>
     </div>
     <p>Ali Heathfield listens. She sits with you, works to understand what is really going on, and then walks alongside you using the map she developed for Living Life Well.</p>
@@ -360,7 +367,7 @@
 
 <footer>
   <span>© 2025 Ali Heathfield</span>
-  <span><a href="index.html">Home</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a></span>
+  <span><a href="index.html">Home</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
 </footer>
 
 </body>

@@ -28,8 +28,8 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--body-font);
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.75;
   }
 
   /* NAV */
@@ -42,12 +42,12 @@
     z-index: 100;
   }
   .nav-inner {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 58px;
+    height: 60px;
   }
   .nav-brand {
     font-family: var(--heading-font);
@@ -60,6 +60,7 @@
     display: flex;
     gap: 28px;
     list-style: none;
+    align-items: center;
   }
   .nav-links a {
     color: var(--text-light);
@@ -70,16 +71,20 @@
     transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-subscribe {
+    color: var(--accent-dark) !important;
+    font-weight: 600 !important;
+  }
+  .nav-subscribe:hover { color: var(--accent) !important; }
 
   /* HERO */
   .hero {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 72px 24px 56px;
     border-bottom: 1px solid var(--border);
   }
   .hero-eyebrow {
-    font-family: var(--body-font);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -112,7 +117,7 @@
     color: var(--text);
     max-width: 580px;
     margin-bottom: 36px;
-    line-height: 1.75;
+    line-height: 1.8;
   }
   .btn-primary {
     display: inline-block;
@@ -123,10 +128,9 @@
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 600;
-    letter-spacing: 0.01em;
     transition: background 0.2s, transform 0.15s;
   }
-  .btn-primary:hover { background: #E07F1A; transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
   .btn-secondary {
     display: inline-block;
     color: var(--accent-dark);
@@ -140,9 +144,70 @@
   }
   .btn-secondary:hover { border-bottom-color: var(--accent); }
 
-  /* QUOTE BLOCK */
+  /* COUNTDOWN */
+  .countdown-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .countdown-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    margin-bottom: 20px;
+  }
+  .countdown-date {
+    font-family: var(--heading-font);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 28px;
+  }
+  .countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .countdown-unit {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 0 0 4px 4px;
+    min-width: 90px;
+  }
+  .countdown-number {
+    font-family: var(--heading-font);
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1;
+    display: block;
+  }
+  .countdown-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: block;
+    margin-top: 8px;
+  }
+  .countdown-launched {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  /* QUOTE */
   .quote-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -171,9 +236,9 @@
     text-transform: uppercase;
   }
 
-  /* BOOK SECTION */
+  /* BOOK */
   .book-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -198,8 +263,8 @@
     font-size: 1.02rem;
     color: var(--text);
     margin-bottom: 18px;
-    line-height: 1.75;
-    max-width: 600px;
+    line-height: 1.8;
+    max-width: 620px;
   }
   .book-tagline {
     font-family: var(--heading-font);
@@ -211,10 +276,23 @@
     margin: 28px 0;
     line-height: 1.5;
   }
+  .btn-teal {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 8px;
+  }
+  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
 
   /* WHAT YOU GET */
   .get-section {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -230,7 +308,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    margin-bottom: 32px;
   }
   .get-card {
     background: var(--white);
@@ -249,87 +326,60 @@
   .get-card p {
     font-size: 0.92rem;
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
-  /* FREE TOOL */
-  .free-section {
-    max-width: 720px;
+  /* SUBSTACK INVITE */
+  .substack-section {
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
   }
-  .free-box {
+  .substack-box {
     background: var(--teal-light);
     border: 1px solid #b8ddd8;
     border-left: 4px solid var(--teal);
-    padding: 32px;
+    padding: 36px;
     border-radius: 0 6px 6px 0;
   }
-  .free-box .section-label { color: var(--teal); margin-bottom: 12px; }
-  .free-box h2 {
+  .substack-box .section-label { margin-bottom: 12px; }
+  .substack-box h2 {
     font-family: var(--heading-font);
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
-  .free-box p {
-    font-size: 0.98rem;
-    color: var(--text);
-    margin-bottom: 22px;
-    line-height: 1.7;
-    max-width: 520px;
-  }
-  .btn-teal {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-  .btn-teal:hover { background: #2e8272; }
-
-  /* LAUNCH */
-  .launch-section {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-  }
-  .launch-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 12px;
-  }
-  .launch-section p {
+  .substack-box p {
     font-size: 1rem;
-    color: var(--text-light);
-    margin-bottom: 24px;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.75;
+    max-width: 540px;
   }
-  .launch-badge {
-    display: inline-block;
-    background: var(--accent-light);
-    border: 1px solid #fcd9a0;
-    color: var(--accent-dark);
-    padding: 10px 24px;
-    border-radius: 100px;
-    font-size: 0.88rem;
+  .substack-list {
+    list-style: none;
+    margin: 16px 0 24px 0;
+    padding: 0;
+  }
+  .substack-list li {
+    font-size: 0.97rem;
+    color: var(--text);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .substack-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
   }
 
-  /* FOOTER */
   footer {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 40px 24px;
     display: flex;
@@ -345,6 +395,8 @@
     .hero h1 { font-size: 2.2rem; }
     .get-grid { grid-template-columns: 1fr; }
     .nav-links { gap: 16px; }
+    .countdown-display { gap: 10px; }
+    .countdown-unit { min-width: 72px; padding: 16px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
@@ -359,6 +411,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="archive.html">Archive</a></li>
+      <li><a href="https://aliheathfield.substack.com" target="_blank" class="nav-subscribe">Subscribe</a></li>
     </ul>
   </div>
 </nav>
@@ -370,8 +423,31 @@
     <h1>Not Done Yet —<br><em>Not Even Close.</em></h1>
     <p class="hero-sub">A practical guide to living with intention after 60.</p>
     <p class="hero-desc">The book, the model, and the tools to help you shape what comes next — on your terms, at your pace, with real purpose.</p>
-    <a href="resources.html" class="btn-primary">Start with the free Life Check-In</a>
+    <a href="https://aliheathfield.substack.com" target="_blank" class="btn-primary">Follow the journey</a>
     <a href="about.html" class="btn-secondary">About Ali →</a>
+  </section>
+
+  <section class="countdown-section">
+    <p class="countdown-eyebrow">Book Launch Countdown</p>
+    <p class="countdown-date"><em>Not Done Yet</em> publishes 1st June 2025</p>
+    <div class="countdown-display" id="countdown">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="days">–</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="hours">–</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="minutes">–</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="seconds">–</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
   </section>
 
   <section class="quote-section">
@@ -388,6 +464,7 @@
     <p>That decision led her to Portugal, to a new language, a new community, and ultimately to the <strong>Living Life Well model</strong> — a practical map for anyone who suspects their best chapters are still ahead.</p>
     <p class="book-tagline">This book helps you shape your own encore — ageing with intention, not by default.</p>
     <p>Whether you are navigating significant change, managing your health, or simply wanting to live more fully, <em>Not Done Yet</em> gives you the framework, the questions, and the encouragement to move forward.</p>
+    <a href="https://aliheathfield.substack.com/p/not-done-yet" target="_blank" class="btn-teal">Read the story behind the book →</a>
   </section>
 
   <section class="get-section">
@@ -404,7 +481,7 @@
       </div>
       <div class="get-card">
         <h3>Interactive digital tools</h3>
-        <p>Free and paid toolkits that work alongside the book — at your own pace, privately, on your own device.</p>
+        <p>Toolkits that work alongside the book — at your own pace, privately, on your own device.</p>
       </div>
       <div class="get-card">
         <h3>A warm, honest voice</h3>
@@ -413,19 +490,20 @@
     </div>
   </section>
 
-  <section class="free-section">
-    <div class="free-box">
-      <p class="section-label">Free Resource</p>
-      <h2>Start with the Life Check-In</h2>
-      <p>Not sure where to begin? The Life Check-In is a short, guided reflection across 10 life themes — completely free, completely private, and a good first step towards understanding where you are right now.</p>
-      <a href="life-checkin-standalone.html" class="btn-teal">Download the free Life Check-In</a>
+  <section class="substack-section">
+    <div class="substack-box">
+      <p class="section-label">Follow the Journey</p>
+      <h2>Join the community on Substack.</h2>
+      <p>Subscribe to <em>Living Life Well</em> and be part of the conversation as the book launches. Subscribers get:</p>
+      <ul class="substack-list">
+        <li>The exact publication date — first</li>
+        <li>Exclusive excerpts from the book before anyone else</li>
+        <li>Practical wisdom from the Living Life Well model</li>
+        <li>Behind-the-scenes from the writing journey</li>
+        <li>Free resources, including the Life Check-In tool</li>
+      </ul>
+      <a href="https://aliheathfield.substack.com" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
     </div>
-  </section>
-
-  <section class="launch-section">
-    <h2>The full toolkit is coming.</h2>
-    <p><em>Not Done Yet</em> launches at the end of May 2025 — the book first, followed by the workbooks, digital toolkits, and ebook. Join the Substack to be the first to know.</p>
-    <span class="launch-badge">Launching May 2025</span>
   </section>
 
 </main>
@@ -434,6 +512,33 @@
   <span>© 2025 Ali Heathfield</span>
   <span><a href="about.html">About</a> · <a href="resources.html">Resources</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
 </footer>
+
+<script>
+  const launchDate = new Date('2025-06-01T09:00:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    if (distance <= 0) {
+      document.getElementById('countdown').innerHTML = '<p class="countdown-launched">It\'s here — <em>Not Done Yet</em> is published!</p>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
 </body>
 </html>

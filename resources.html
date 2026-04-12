@@ -28,8 +28,8 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--body-font);
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.75;
   }
 
   nav {
@@ -41,12 +41,12 @@
     z-index: 100;
   }
   .nav-inner {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 58px;
+    height: 60px;
   }
   .nav-brand {
     font-family: var(--heading-font);
@@ -59,6 +59,7 @@
     display: flex;
     gap: 28px;
     list-style: none;
+    align-items: center;
   }
   .nav-links a {
     color: var(--text-light);
@@ -69,9 +70,14 @@
     transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-subscribe {
+    color: var(--accent-dark) !important;
+    font-weight: 600 !important;
+  }
+  .nav-subscribe:hover { color: var(--accent) !important; }
 
   .page-header {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 64px 24px 40px;
     border-bottom: 1px solid var(--border);
@@ -96,16 +102,9 @@
     font-size: 1.05rem;
     color: var(--text-light);
     max-width: 560px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
-  /* FREE TOOL */
-  .free-section {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
   .section-label {
     font-size: 0.78rem;
     font-weight: 600;
@@ -114,14 +113,22 @@
     color: var(--teal);
     margin-bottom: 20px;
   }
-  .free-section h2 {
+
+  /* SUBSTACK MAIN */
+  .substack-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .substack-section h2 {
     font-family: var(--heading-font);
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 18px;
   }
-  .free-section p {
+  .substack-section p {
     font-size: 1.02rem;
     color: var(--text);
     line-height: 1.8;
@@ -129,138 +136,114 @@
     max-width: 620px;
   }
 
-  .tool-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px;
-    margin-top: 28px;
-    position: relative;
-    overflow: hidden;
-  }
-  .tool-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--teal);
-  }
-  .tool-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .tag {
-    display: inline-block;
+  .substack-box {
     background: var(--teal-light);
-    color: var(--teal);
-    padding: 3px 10px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    border: 1px solid #b8ddd8;
+    border-left: 4px solid var(--teal);
+    padding: 36px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 28px;
   }
-  .tag.free { background: var(--teal-light); color: var(--teal); }
-  .tool-card h3 {
+  .substack-box h3 {
     font-family: var(--heading-font);
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
-  .tool-card p {
-    font-size: 0.98rem;
+  .substack-box p {
+    font-size: 1rem;
     color: var(--text);
     line-height: 1.75;
-    margin-bottom: 20px;
-    max-width: 540px;
+    margin-bottom: 8px;
+    max-width: 520px;
   }
-  .tool-details {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
+  .substack-list {
+    list-style: none;
+    margin: 16px 0 28px 0;
+    padding: 0;
   }
-  .tool-detail {
-    font-size: 0.85rem;
-    color: var(--text-light);
+  .substack-list li {
+    font-size: 0.97rem;
+    color: var(--text);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    line-height: 1.6;
   }
-  .tool-detail strong {
-    display: block;
-    font-size: 0.78rem;
+  .substack-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 2px;
   }
   .btn-teal {
     display: inline-block;
     background: var(--teal);
     color: var(--white);
-    padding: 12px 26px;
+    padding: 13px 28px;
     border-radius: 4px;
     text-decoration: none;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 600;
     transition: background 0.2s, transform 0.15s;
   }
   .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
 
-  /* HOW IT WORKS */
-  .how-section {
-    max-width: 720px;
+  /* LIFE CHECKIN TEASER */
+  .tool-teaser {
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
   }
-  .how-section h2 {
+  .tool-teaser h2 {
     font-family: var(--heading-font);
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  .tool-teaser p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 620px;
   }
-  .step {
-    display: flex;
-    gap: 24px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
+  .tool-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 0 0 4px 4px;
   }
-  .step:last-child { border-bottom: none; }
-  .step-num {
+  .tool-card h3 {
     font-family: var(--heading-font);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--border);
-    min-width: 36px;
-    line-height: 1.3;
-  }
-  .step-content h3 {
-    font-family: var(--heading-font);
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
-  .step-content p {
-    font-size: 0.95rem;
+  .tool-card p {
+    font-size: 0.97rem;
     color: var(--text-light);
-    line-height: 1.65;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .tool-card .how {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 4px;
+    margin-bottom: 0;
   }
 
-  /* PRIVACY NOTE */
+  /* PRIVACY */
   .privacy-note {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 52px 24px;
     border-bottom: 1px solid var(--border);
@@ -280,13 +263,13 @@
     margin-bottom: 10px;
   }
   .privacy-box p {
-    font-size: 0.92rem;
+    font-size: 0.93rem;
     color: var(--text-light);
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   footer {
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 40px 24px;
     display: flex;
@@ -314,6 +297,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
       <li><a href="archive.html">Archive</a></li>
+      <li><a href="https://aliheathfield.substack.com" target="_blank" class="nav-subscribe">Subscribe</a></li>
     </ul>
   </div>
 </nav>
@@ -322,65 +306,37 @@
 
   <div class="page-header">
     <p class="eyebrow">Resources</p>
-    <h1>Tools to get you started.</h1>
-    <p>Free, private, and designed to work alongside <em>Not Done Yet</em>. No login. No tracking. Everything stays on your device.</p>
+    <h1>Stay connected.<br>Stay informed.</h1>
+    <p>The best way to access free resources, book updates, and practical wisdom from the Living Life Well model is to subscribe on Substack — it's free, and everything comes straight to you.</p>
   </div>
 
-  <section class="free-section">
-    <p class="section-label">Free Tool</p>
-    <h2>The Life Check-In</h2>
-    <p>Not sure where to begin, or simply curious about how things stand right now? The Life Check-In is a guided reflection across the ten themes of the Living Life Well model. It takes around 20 minutes and gives you a clear, honest picture of where you are — and where you might want to focus.</p>
-    <p>No right or wrong answers. No scoring against someone else. Just a quiet, structured moment with yourself.</p>
+  <section class="substack-section">
+    <p class="section-label">Free — via Substack</p>
+    <h2>Subscribe to <em>Living Life Well.</em></h2>
+    <p>Ali publishes regularly on Substack — practical insights, honest reflections, and tools for living well after 60. Subscribing is free and means you will never miss an update, a resource, or the book launch announcement.</p>
 
-    <div class="tool-card">
-      <div class="tool-card-meta">
-        <span class="tag free">Free</span>
-      </div>
-      <h3>Life Check-In</h3>
-      <p>A short, guided reflection across 10 life themes — health, relationships, meaning, finances, environment, and more. Completely private. Everything you enter stays on your own device.</p>
-      <div class="tool-details">
-        <div class="tool-detail">
-          <strong>Time</strong>
-          Around 20 minutes
-        </div>
-        <div class="tool-detail">
-          <strong>Format</strong>
-          Interactive HTML file
-        </div>
-        <div class="tool-detail">
-          <strong>Works on</strong>
-          Any modern browser
-        </div>
-      </div>
-      <a href="life-checkin-standalone.html" download="life-checkin-standalone.html" class="btn-teal">
+    <div class="substack-box">
+      <h3>What subscribers receive</h3>
+      <ul class="substack-list">
+        <li>The Life Check-In tool — free to download via the welcome post</li>
+        <li>Exclusive excerpts from <em>Not Done Yet</em> before publication</li>
+        <li>Practical wisdom from the Living Life Well model</li>
+        <li>Vignettes — real stories of people living the model</li>
+        <li>Behind-the-scenes from the writing journey and life in Portugal</li>
+        <li>The exact publication date — before it is announced anywhere else</li>
+      </ul>
+      <a href="https://aliheathfield.substack.com" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
     </div>
   </section>
 
-  <section class="how-section">
-    <p class="section-label">How It Works</p>
-    <h2>Three steps to get started.</h2>
-    <div class="steps">
-      <div class="step">
-        <span class="step-num">1</span>
-        <div class="step-content">
-          <h3>Download the file</h3>
-          <p>Click the link above. The file will download to your device — it is a single HTML file, around 100KB.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">2</span>
-        <div class="step-content">
-          <h3>Open it in your browser</h3>
-          <p>Double-click the downloaded file. It will open in Chrome, Safari, Firefox, or Edge — whichever you use.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">3</span>
-        <div class="step-content">
-          <h3>Work through it at your own pace</h3>
-          <p>Take your time. Your answers are saved automatically to your own device. You can return to it whenever you like.</p>
-        </div>
-      </div>
+  <section class="tool-teaser">
+    <p class="section-label">The Life Check-In</p>
+    <h2>Not sure where to begin?</h2>
+    <p>The Life Check-In is a guided reflection across the ten themes of the Living Life Well model. It helps you understand where you are right now — clearly, honestly, and without judgement. It is available free to all subscribers via the welcome post on Substack.</p>
+    <div class="tool-card">
+      <h3>Life Check-In — free for subscribers</h3>
+      <p>A private, guided reflection across 10 life themes: health, relationships, meaning, finances, environment, and more. Takes around 20 minutes. Everything stays on your own device — nothing is shared or stored anywhere else.</p>
+      <p class="how">Subscribe to <em>Living Life Well</em> on Substack to receive your free download link.</p>
     </div>
   </section>
 
@@ -395,7 +351,7 @@
 
 <footer>
   <span>© 2025 Ali Heathfield</span>
-  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="archive.html">Archive</a></span>
+  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
 </footer>
 
 </body>
