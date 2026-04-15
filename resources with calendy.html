@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Ali Heathfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --white: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e0ddd8;
+    --accent: #F69E4A;
+    --accent-dark: #E07F1A;
+    --accent-light: #fef3e2;
+    --teal: #3a9b8a;
+    --teal-light: #e8f5f2;
+    --heading-font: 'Lora', Georgia, serif;
+    --body-font: 'Source Sans 3', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 19px;
+    line-height: 1.75;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 740px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    color: var(--text);
+    text-decoration: none;
+    font-style: italic;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-subscribe {
+    color: var(--accent-dark) !important;
+    font-weight: 600 !important;
+  }
+  .nav-subscribe:hover { color: var(--accent) !important; }
+
+  .page-header {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: var(--heading-font);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .page-header p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+
+  /* SUBSTACK MAIN */
+  .substack-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .substack-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .substack-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 620px;
+  }
+
+  .substack-box {
+    background: var(--teal-light);
+    border: 1px solid #b8ddd8;
+    border-left: 4px solid var(--teal);
+    padding: 36px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 28px;
+  }
+  .substack-box h3 {
+    font-family: var(--heading-font);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .substack-box p {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 8px;
+    max-width: 520px;
+  }
+  .substack-list {
+    list-style: none;
+    margin: 16px 0 28px 0;
+    padding: 0;
+  }
+  .substack-list li {
+    font-size: 0.97rem;
+    color: var(--text);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .substack-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .btn-teal {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
+
+  /* LIFE CHECKIN TEASER */
+  .tool-teaser {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-teaser h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .tool-teaser p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 620px;
+  }
+  .tool-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 0 0 4px 4px;
+  }
+  .tool-card h3 {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .tool-card p {
+    font-size: 0.97rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .tool-card .how {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+  /* TEA CHAT */
+  .tea-chat-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tea-chat-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .tea-chat-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 620px;
+  }
+  .tea-chat-box {
+    background: var(--accent-light);
+    border: 1px solid #f5d9a8;
+    border-left: 4px solid var(--accent);
+    padding: 36px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 28px;
+  }
+  .tea-chat-box h3 {
+    font-family: var(--heading-font);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .tea-chat-box p {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    max-width: 520px;
+  }
+  .btn-accent {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-accent:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+  /* PRIVACY */
+  .privacy-note {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .privacy-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    padding: 24px 28px;
+    border-radius: 0 4px 4px 0;
+  }
+  .privacy-box h3 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .privacy-box p {
+    font-size: 0.93rem;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+
+  footer {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  footer a { color: var(--text-light); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .page-header h1 { font-size: 2rem; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Ali Heathfield</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="https://aliheathfield.substack.com" target="_blank" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-header">
+    <p class="eyebrow">Resources</p>
+    <h1>Stay Connected<br>Stay Informed</h1>
+    <p>The best way to access free resources, book updates, and practical wisdom from the Living Life Well model is to subscribe on Substack. It's free, and everything comes straight to you.</p>
+  </div>
+
+  <section class="substack-section">
+    <p class="section-label">Free — via Substack</p>
+    <h2>Subscribe to <em>Living Life Well.</em></h2>
+    <p>Ali publishes regularly on Substack: practical insights, honest reflections, and tools for living well after 60. Subscribing is free and means you will never miss an update, a resource, or the book launch announcement.</p>
+
+    <div class="substack-box">
+      <h3>What subscribers receive</h3>
+      <ul class="substack-list">
+        <li>The Life Check-In tool — free to download via the welcome post</li>
+        <li>Exclusive excerpts from <em>Not Done Yet</em> before publication</li>
+        <li>Practical wisdom from the Living Life Well model</li>
+        <li>Vignettes — real stories of people living the model</li>
+        <li>Behind-the-scenes from the writing journey and life in Portugal</li>
+        <li>First access to new resources, tools, and updates</li>
+      </ul>
+      <a href="https://aliheathfield.substack.com" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
+    </div>
+  </section>
+
+  <section class="tool-teaser">
+    <p class="section-label">The Life Check-In</p>
+    <h2>Not sure where to begin?</h2>
+    <p>The Life Check-In is a guided reflection across the ten themes of the Living Life Well model. It helps you understand where you are right now, clearly, honestly, and without judgement. It is available free to all subscribers via the welcome post on Substack.</p>
+    <div class="tool-card">
+      <h3>Life Check-In — free for subscribers</h3>
+      <p>A private, guided reflection across 10 life themes: health, relationships, meaning, finances, environment, and more. Takes around 20 minutes. Nothing you enter is sent anywhere or seen by anyone else. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
+      <p class="how">Subscribe to <a href="https://aliheathfield.substack.com" target="_blank" style="color: #3a9b8a; font-weight: 600;"><em>Living Life Well</em> on Substack</a> to receive your free download link.</p>
+    </div>
+  </section>
+
+  <section class="tea-chat-section">
+    <p class="section-label">Let's have a conversation</p>
+    <h2>Not sure if this is for you?</h2>
+    <p>Sometimes you just need 15 minutes to talk it through. Whether you're wondering where to start, what the book is really about, or whether any of this applies to you, a tea chat is the place to ask.</p>
+    <div class="tea-chat-box">
+      <h3>Book a 15-minute tea chat</h3>
+      <p>A relaxed, no-obligation conversation with Ali. Bring your questions, your curiosity, or just a sense that something needs to change. No agenda, no sales pitch. Just a chat over a virtual cup of tea.</p>
+      <a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" class="btn-accent">Book your tea chat</a>
+    </div>
+  </section>
+
+  <section class="privacy-note">
+    <div class="privacy-box">
+      <h3>A note on privacy</h3>
+      <p>Your answers are private. Nothing you enter is sent anywhere or seen by anyone else, including Ali. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2025 Ali Heathfield</span>
+  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
+</footer>
+
+</body>
+</html>
