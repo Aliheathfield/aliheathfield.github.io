@@ -98,6 +98,7 @@
     color: var(--text);
     margin-bottom: 16px;
   }
+  .page-header h1 em { color: var(--accent); font-style: italic; }
   .page-header p {
     font-size: 1.05rem;
     color: var(--text-light);
@@ -241,6 +242,54 @@
     margin-bottom: 0;
   }
 
+  /* WHERE AM I NOW */
+  .whereaminow-section {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .whereaminow-section h2 {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .whereaminow-section p {
+    font-size: 1.02rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 620px;
+  }
+  .whereaminow-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 0 0 4px 4px;
+  }
+  .whereaminow-card h3 {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .whereaminow-card p {
+    font-size: 0.97rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .whereaminow-card .covers {
+    font-size: 0.93rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
   /* TEA CHAT */
   .tea-chat-section {
     max-width: 740px;
@@ -342,14 +391,6 @@
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
-   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z4T3EYG12"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8Z4T3EYG12');
-  </script>
 </head>
 <body>
 
@@ -370,14 +411,20 @@
 
   <div class="page-header">
     <p class="eyebrow">Resources</p>
-    <h1>Stay Connected<br>Stay Informed</h1>
-    <p>The best way to access free resources, book updates, and practical wisdom from the Living Life Well model is to subscribe on Substack. It's free, and everything comes straight to you.</p>
+    <h1>Stay Connected<br><em>Stay Informed.</em></h1>
   </div>
+
+  <section class="whereaminow-section">
+    <p class="section-label">Free — no subscription needed</p>
+    <h2>Where Am I Now?</h2>
+    <p>Not sure where to start? The Where Am I Now reflection is free to everyone. No subscription, no sign-up. Just a simple five-minute tool to help you find your footing. It covers three areas: how life is for you now, where your energy is going, and what you most need right now.</p>
+    <a href="https://aliheathfield.com/whereaminow" class="btn-accent">Explore Where Am I Now</a>
+  </section>
 
   <section class="substack-section">
     <p class="section-label">Free — via Substack</p>
     <h2>Subscribe to <em>Living Life Well.</em></h2>
-    <p>Ali publishes regularly on Substack: practical insights, honest reflections, and tools for living well after 60. Subscribing is free and means you will never miss an update, a resource, or the book launch announcement.</p>
+    <p>There is much more waiting for you. Subscribing to Living Life Well on Substack is free and means you will never miss an update, a resource, or the book launch announcement. Ali publishes regularly on Substack: practical insights, honest reflections, and tools for living well after 60. Subscribers also receive the more comprehensive Life Check-In tool, which takes you through all ten themes of the Living Life Well model in depth.</p>
 
     <div class="substack-box">
       <h3>What subscribers receive</h3>
@@ -389,7 +436,7 @@
         <li>Behind-the-scenes from the writing journey and life in Portugal</li>
         <li>First access to new resources, tools, and updates</li>
       </ul>
-      <a href="https://aliheathfield.substack.com" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
+      <a href="https://aliheathfield.substack.com/" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
     </div>
   </section>
 
@@ -398,9 +445,12 @@
     <h2>Not sure where to begin?</h2>
     <p>The Life Check-In is a guided reflection across the ten themes of the Living Life Well model. It helps you understand where you are right now, clearly, honestly, and without judgement. It is available free to all subscribers via the welcome post on Substack.</p>
     <div class="tool-card">
-      <h3>Life Check-In — free for subscribers</h3>
       <p>A private, guided reflection across 10 life themes: health, relationships, meaning, finances, environment, and more. Takes around 20 minutes. Nothing you enter is sent anywhere or seen by anyone else. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
-      <p class="how">Subscribe to <a href="https://aliheathfield.substack.com" target="_blank" style="color: #3a9b8a; font-weight: 600;"><em>Living Life Well</em> on Substack</a> to receive your free download link.</p>
+      <div class="privacy-box" style="margin: 4px 0 16px;">
+        <h3>A note on privacy</h3>
+        <p>Your answers are private. Nothing you enter is sent anywhere or seen by anyone else, including Ali. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
+      </div>
+      <p class="how">Subscribe to <a href="https://aliheathfield.substack.com/" target="_blank" style="color: #3a9b8a; font-weight: 600;"><em>Living Life Well</em> on Substack</a> to receive your free download link.</p>
     </div>
   </section>
 
@@ -415,17 +465,9 @@
     </div>
   </section>
 
-  <section class="privacy-note">
-    <div class="privacy-box">
-      <h3>A note on privacy</h3>
-      <p>Your answers are private. Nothing you enter is sent anywhere or seen by anyone else, including Ali. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
-    </div>
-  </section>
-
 </main>
-
 <footer>
-  <span>© 2025 Ali Heathfield</span>
+  <span>© 2026 Ali Heathfield</span>
   <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
 </footer>
 
