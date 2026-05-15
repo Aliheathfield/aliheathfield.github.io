@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Rewrite — Rewriting Your Life Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f7f5;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.7;
+            color: #333333;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(58, 155, 138, 0.13);
+            overflow: hidden;
+        }
+
+        /* ── Header ── */
+        .site-header {
+            background: #83d1bf;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .site-header h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1800ad;
+            letter-spacing: -0.02em;
+        }
+
+        .site-header .subtitle {
+            font-size: 0.85rem;
+            color: #1800ad;
+            opacity: 0.8;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .home-link {
+            background: white;
+            color: #1800ad;
+            text-decoration: none;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .home-link:hover { background: #e8f7f4; }
+
+        /* ── Progress ── */
+        .progress-section {
+            padding: 22px 30px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 7px;
+        }
+
+        .progress-label .step-name {
+            font-weight: 700;
+            color: #1800ad;
+        }
+
+        .progress-bar-track {
+            background: #e0f0ec;
+            border-radius: 999px;
+            height: 6px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3a9b8a, #ff8855);
+            border-radius: 999px;
+            transition: width 0.4s ease;
+        }
+
+        .step-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+            padding-bottom: 4px;
+        }
+
+        .step-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid #c8e6e0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #aaa;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .step-dot.active {
+            border-color: #3a9b8a;
+            background: #3a9b8a;
+            color: white;
+        }
+
+        .step-dot.completed {
+            border-color: #ff8855;
+            background: #ff8855;
+            color: white;
+        }
+
+        /* ── Content ── */
+        .content {
+            padding: 30px 30px 10px;
+        }
+
+        /* ── Intro ── */
+        .intro-screen {
+            text-align: center;
+            padding: 6px 0 16px;
+        }
+
+        .intro-screen h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1800ad;
+            margin-bottom: 8px;
+        }
+
+        .intro-screen .tagline {
+            font-size: 1rem;
+            color: #3a9b8a;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .intro-card {
+            background: #f5faf9;
+            border-left: 3px solid #3a9b8a;
+            border-radius: 8px;
+            padding: 18px 22px;
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .intro-card p {
+            font-size: 0.94rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .intro-card p:last-child { margin-bottom: 0; }
+
+        .pull-quote {
+            font-style: italic;
+            color: #3a9b8a;
+            border-left: 3px solid #ff8855;
+            padding-left: 14px;
+            margin: 14px 0;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .meta-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .meta-pill {
+            background: #e8f7f4;
+            color: #3a9b8a;
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .meta-pill.orange {
+            background: #fff3ee;
+            color: #cc6633;
+        }
+
+        /* ── Step panels ── */
+        .step-panel { display: none; }
+        .step-panel.active { display: block; }
+
+        .step-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .step-number {
+            background: #3a9b8a;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .step-title-block h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1800ad;
+            margin-bottom: 4px;
+        }
+
+        .step-title-block .step-desc {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ── Optional badge ── */
+        .optional-note {
+            background: #fff8f0;
+            border: 1.5px solid #ffd4b0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            font-size: 0.88rem;
+            color: #885522;
+            line-height: 1.6;
+        }
+
+        .optional-note strong { color: #cc6633; }
+
+        /* ── Example box ── */
+        .example-box {
+            background: #f0f7ff;
+            border-left: 3px solid #83d1bf;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            font-size: 0.86rem;
+            color: #334;
+            line-height: 1.6;
+        }
+
+        .example-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #3a9b8a;
+            margin-bottom: 6px;
+        }
+
+        .example-box p {
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .example-box p:last-child { margin-bottom: 0; }
+
+        /* ── Fields ── */
+        .field-group { margin-bottom: 20px; }
+
+        .field-label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.93rem;
+            margin-bottom: 6px;
+        }
+
+        .field-hint {
+            font-size: 0.82rem;
+            color: #888;
+            margin-bottom: 8px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        textarea {
+            width: 100%;
+            border: 1.5px solid #c8e6e0;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 0.93rem;
+            color: #333;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.2s;
+            background: #fafefe;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #3a9b8a;
+            background: white;
+        }
+
+        textarea.short { min-height: 68px; }
+        textarea.medium { min-height: 100px; }
+        textarea.tall { min-height: 130px; }
+
+        /* ── Rating ── */
+        .rating-group { margin-bottom: 22px; }
+
+        .rating-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.93rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .rating-hint {
+            font-size: 0.82rem;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .rating-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .rating-option input[type="radio"] { display: none; }
+
+        .rating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            border: 2px solid #c8e6e0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.15s;
+            user-select: none;
+        }
+
+        .rating-option input[type="radio"]:checked + .rating-btn {
+            border-color: #ff8855;
+            background: #ff8855;
+            color: white;
+        }
+
+        .rating-ends {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: #aaa;
+            margin-top: 7px;
+            max-width: 290px;
+        }
+
+        /* ── Evidence grid ── */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 540px) {
+            .evidence-grid { grid-template-columns: 1fr; }
+        }
+
+        .evidence-col h4 {
+            font-size: 0.83rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .evidence-col.supports h4 {
+            background: #e8f7f4;
+            color: #1d6b5a;
+        }
+
+        .evidence-col.softens h4 {
+            background: #fff3ee;
+            color: #aa5522;
+        }
+
+        .evidence-tips {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 13px 16px;
+            margin-bottom: 18px;
+        }
+
+        .evidence-tips p {
+            font-size: 0.83rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 8px;
+            line-height: 1.55;
+        }
+
+        .evidence-tips p:last-child { margin-bottom: 0; }
+
+        /* ── Highlight box ── */
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f7f4, #fff3ee);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 18px;
+            border-left: 3px solid #ff8855;
+        }
+
+        .highlight-box .field-label { color: #1800ad; }
+
+        .highlight-box textarea {
+            background: white;
+            border-color: #ffd4aa;
+            font-style: italic;
+        }
+
+        .present-tense-note {
+            background: #fff8f0;
+            border-radius: 8px;
+            padding: 11px 15px;
+            font-size: 0.84rem;
+            color: #885522;
+            margin-bottom: 16px;
+            line-height: 1.55;
+        }
+
+        .present-tense-note strong { color: #cc6633; }
+
+        /* ── Voice bank ── */
+        .voice-bank { margin-bottom: 18px; }
+
+        .voice-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .voice-number {
+            background: #e8f7f4;
+            color: #3a9b8a;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 10px;
+        }
+
+        .retire-block {
+            background: #fafafa;
+            border: 1.5px solid #e6e6e6;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 14px;
+        }
+
+        .retire-block h4 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .retire-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .retire-row { grid-template-columns: 1fr; }
+        }
+
+        .retire-col-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .retire-col-label.old { color: #3a9b8a; }
+        .retire-col-label.new { color: #cc6633; }
+
+        /* ── Tracker ── */
+        .tracker-grid {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .tracker-day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .tracker-day input[type="checkbox"] { display: none; }
+
+        .day-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            border: 2px solid #c8e6e0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #ccc;
+            transition: all 0.2s;
+        }
+
+        .tracker-day input[type="checkbox"]:checked + .day-box {
+            border-color: #ff8855;
+            background: #fff3ee;
+            color: #ff8855;
+        }
+
+        .day-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .tracker-note {
+            font-size: 0.82rem;
+            color: #aaa;
+            font-style: italic;
+            text-align: center;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* ── Support box ── */
+        .support-box {
+            background: #f5faf9;
+            border: 1.5px solid #c8e6e0;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-top: 20px;
+        }
+
+        .support-box h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1800ad;
+            margin-bottom: 8px;
+        }
+
+        .support-box p {
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.65;
+        }
+
+        .support-box a {
+            color: #3a9b8a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .support-box a:hover { text-decoration: underline; }
+
+        /* ── Nav buttons ── */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #e0f0ec;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+        }
+
+        .btn-primary { background: #3a9b8a; color: white; }
+        .btn-primary:hover { background: #2e7d6e; }
+
+        .btn-secondary { background: #e8f7f4; color: #1800ad; }
+        .btn-secondary:hover { background: #d0ece7; }
+
+        .btn-orange { background: #ff8855; color: white; }
+        .btn-orange:hover { background: #e06630; }
+
+        .btn-save { background: white; color: #3a9b8a; border: 1.5px solid #3a9b8a; }
+        .btn-save:hover { background: #e8f7f4; }
+
+        /* ── Completion ── */
+        .completion-screen {
+            text-align: center;
+            padding: 10px 0 20px;
+        }
+
+        .completion-screen .done-icon {
+            font-size: 2.8rem;
+            margin-bottom: 14px;
+        }
+
+        .completion-screen h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1800ad;
+            margin-bottom: 10px;
+        }
+
+        .completion-screen p {
+            color: #555;
+            font-size: 0.94rem;
+            max-width: 500px;
+            margin: 0 auto 24px;
+            line-height: 1.7;
+        }
+
+        .summary-card {
+            background: #f5faf9;
+            border: 1.5px solid #c8e6e0;
+            border-radius: 10px;
+            padding: 22px;
+            text-align: left;
+            margin-bottom: 22px;
+        }
+
+        .summary-card h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #3a9b8a;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .summary-item {
+            margin-bottom: 13px;
+            padding-bottom: 13px;
+            border-bottom: 1px solid #e0f0ec;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .s-label {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 3px;
+        }
+
+        .s-value {
+            font-size: 0.93rem;
+            color: #333;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .completion-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── Footer ── */
+        .page-footer {
+            padding: 16px 30px;
+            border-top: 1px solid #e0f0ec;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .page-footer a {
+            color: #3a9b8a;
+            text-decoration: none;
+            font-size: 0.84rem;
+        }
+
+        .page-footer a:hover { text-decoration: underline; }
+
+        .footer-note {
+            font-size: 0.76rem;
+            color: #bbb;
+            font-style: italic;
+        }
+
+        /* ── Persistent care note ── */
+        .care-footer {
+            text-align: center;
+            padding: 10px 30px 18px;
+            font-size: 0.76rem;
+            color: #bbb;
+            line-height: 1.5;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* ── Save toast ── */
+        .save-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #3a9b8a;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .save-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .content { padding: 22px 18px 10px; }
+            .site-header { padding: 16px 18px; }
+            .progress-section { padding: 16px 18px 0; }
+            .page-footer { padding: 14px 18px; }
+            .care-footer { padding: 10px 18px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="site-header">
+        <div>
+            <h1>Narrative Rewrite</h1>
+            <div class="subtitle">Rewriting Your Life Story</div>
+        </div>
+        <a href="index.html" class="home-link">&#8592; Home</a>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-section">
+        <div class="progress-label">
+            <span class="step-name" id="progress-step-name">Introduction</span>
+            <span id="progress-fraction">Start</span>
+        </div>
+        <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar" style="width: 0%"></div>
+        </div>
+        <div class="step-dots">
+            <div class="step-dot active" id="dot-0" title="Introduction" onclick="goToStep(0)">&#9679;</div>
+            <div class="step-dot" id="dot-1" title="Step 1: Find the Narrative" onclick="goToStep(1)">1</div>
+            <div class="step-dot" id="dot-2" title="Step 2: The Scene" onclick="goToStep(2)">2</div>
+            <div class="step-dot" id="dot-3" title="Step 3: Current Narrative" onclick="goToStep(3)">3</div>
+            <div class="step-dot" id="dot-4" title="Step 4: Evidence Scan" onclick="goToStep(4)">4</div>
+            <div class="step-dot" id="dot-5" title="Step 5: Kinder Line" onclick="goToStep(5)">5</div>
+            <div class="step-dot" id="dot-6" title="Step 6: Tiny Action" onclick="goToStep(6)">6</div>
+            <div class="step-dot" id="dot-7" title="Step 7: Rain Practice" onclick="goToStep(7)">7</div>
+            <div class="step-dot" id="dot-8" title="Step 8: Voice Bank" onclick="goToStep(8)">8</div>
+            <div class="step-dot" id="dot-9" title="Step 9: Seven-Day Tracker" onclick="goToStep(9)">9</div>
+            <div class="step-dot" id="dot-10" title="Your Summary" onclick="goToStep(10)">&#10003;</div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- ══ INTRO ══ -->
+        <div class="step-panel active" id="step-0">
+            <div class="intro-screen">
+                <h2>Rewriting Your Life Story</h2>
+                <p class="tagline">You are not just the reader of your story. You are the author.</p>
+
+                <div class="intro-card">
+                    <p>We live by narratives. They weave past, present, and future into a sense of self. Two people can share an event and remember it entirely differently — and the narrative we carry can lift us, or hold us back.</p>
+                    <p class="pull-quote">"I used to avoid walking in the rain. I thought of Gene Kelly and created a new story — smiling as I walked, humming Singing in the Rain. It sounds simple, but it changed how I felt. Small tweaks can shift experience." — Ali</p>
+                    <p>This tool guides you through a gentle rewrite of one narrative that feels unhelpful or heavy. It might be rooted in something that happened, or it might be something you have simply told yourself so many times it has become part of how you see yourself. Both are worth examining. You can make a small edit or a bigger rewrite — whatever serves your well-being.</p>
+                </div>
+
+                <div class="meta-row">
+                    <span class="meta-pill">20–30 minutes</span>
+                    <span class="meta-pill">9 steps</span>
+                    <span class="meta-pill orange">Your answers are saved as you go</span>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <span></span>
+                <button class="btn btn-primary" onclick="goToStep(1)">Begin &#8594;</button>
+            </div>
+        </div>
+
+        <!-- ══ STEP 1: FIND THE NARRATIVE ══ -->
+        <div class="step-panel" id="step-1">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title-block">
+                    <h2>Find the Narrative</h2>
+                    <div class="step-desc">Before we can rewrite anything, we need to locate it. What is the narrative — the story or belief — you are bringing to this tool today?</div>
+                </div>
+            </div>
+
+            <p style="font-size:0.92rem; color:#555; margin-bottom:16px; line-height:1.7;">A narrative can be something that happened and still colours how you see yourself. It can also be something you have told yourself so many times — about who you are, what you are capable of, or what you deserve — that it has quietly become a belief. Both are narratives. Both can be rewritten.</p>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's narrative</div>
+                <p>"I always put other people first and then end up feeling invisible. It happens at family dinners, in conversations with friends, even at work. I have been telling myself this for years — that speaking up is not worth it because nobody really listens to me anyway."</p>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="narrative-what">What do you tell yourself? What is the narrative?</label>
+                <div class="field-hint">Write it in your own words, as specifically as you can. It might be a phrase you catch yourself repeating, or a belief that quietly shapes how you behave.</div>
+                <textarea class="medium" id="narrative-what" placeholder="The narrative I carry is..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="narrative-when">When does this narrative tend to show up?</label>
+                <div class="field-hint">Is it triggered by a particular situation, a person, a type of conversation, a time of day, or a feeling?</div>
+                <textarea class="short" id="narrative-when" placeholder="It tends to appear when..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="narrative-voice">Whose voice does it come in?</label>
+                <div class="field-hint">Is it your own voice? A critical inner voice that sounds like you but harsher? Or does it carry the tone of someone else — a parent, a teacher, an old relationship?</div>
+                <textarea class="short" id="narrative-voice" placeholder="It comes in the voice of..."></textarea>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(0)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(2)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 2: THE SCENE (OPTIONAL) ══ -->
+        <div class="step-panel" id="step-2">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title-block">
+                    <h2>The Scene</h2>
+                    <div class="step-desc">Is there a specific moment behind this narrative?</div>
+                </div>
+            </div>
+
+            <div class="optional-note">
+                <strong>This step is optional.</strong> Some narratives are rooted in a specific event — something that happened that you still carry. Others are patterns repeated so many times they have become part of how you see yourself, with no single moment to point to. If there is a particular event behind yours, describe it below in plain facts. If not, move straight on — simply click Next.
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's scene</div>
+                <p>"At my sister's birthday dinner last year, I started to share something important to me. Two people talked over me and my sister changed the subject. I went quiet for the rest of the evening."</p>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="scene-line1">What happened — in a few plain facts:</label>
+                <div class="field-hint">Facts only, no interpretation yet. Not how it felt — just what occurred.</div>
+                <textarea class="short" id="scene-line1" placeholder="Line 1..."></textarea>
+                <textarea class="short" id="scene-line2" placeholder="Line 2..." style="margin-top: 8px;"></textarea>
+                <textarea class="short" id="scene-line3" placeholder="Line 3..." style="margin-top: 8px;"></textarea>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(1)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(3)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 3: CURRENT NARRATIVE ══ -->
+        <div class="step-panel" id="step-3">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title-block">
+                    <h2>The Current Narrative</h2>
+                    <div class="step-desc">Capture the narrative you are currently carrying — and how heavily it sits with you.</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's current narrative</div>
+                <p>"Nobody really listens to me. Speaking up is not worth it — I will only be talked over or ignored."</p>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="current-narrative">My narrative is:</label>
+                <div class="field-hint">Try to write it as one or two sentences — the core belief or story you carry about this.</div>
+                <textarea class="medium" id="current-narrative" placeholder="My narrative is..."></textarea>
+            </div>
+
+            <div class="rating-group">
+                <span class="rating-label">How heavy does this narrative feel right now?</span>
+                <div class="rating-hint">1 = light, barely noticeable &nbsp;|&nbsp; 5 = very heavy, sits with me a great deal</div>
+                <div class="rating-row">
+                    <label class="rating-option">
+                        <input type="radio" name="heaviness" value="1" id="h1">
+                        <div class="rating-btn" onclick="selectRating(1)">1</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="heaviness" value="2" id="h2">
+                        <div class="rating-btn" onclick="selectRating(2)">2</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="heaviness" value="3" id="h3">
+                        <div class="rating-btn" onclick="selectRating(3)">3</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="heaviness" value="4" id="h4">
+                        <div class="rating-btn" onclick="selectRating(4)">4</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="heaviness" value="5" id="h5">
+                        <div class="rating-btn" onclick="selectRating(5)">5</div>
+                    </label>
+                </div>
+                <div class="rating-ends">
+                    <span>Light</span>
+                    <span>Very heavy</span>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(2)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(4)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 4: EVIDENCE SCAN ══ -->
+        <div class="step-panel" id="step-4">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title-block">
+                    <h2>Evidence Scan</h2>
+                    <div class="step-desc">Look at the narrative from both sides. What supports it — and what softens or contradicts it?</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's evidence scan</div>
+                <p><strong>Supports:</strong> "At the dinner I was talked over. My manager rarely asks for my opinion in meetings."</p>
+                <p><strong>Softens:</strong> "My friend Sarah always asks what I think. I spoke up at book group last month and people listened. My colleague James was in the same situation — he kept speaking up anyway, and people did start to hear him."</p>
+            </div>
+
+            <div class="evidence-grid">
+                <div class="evidence-col supports">
+                    <h4>Supports the narrative</h4>
+                    <textarea class="tall" id="evidence-supports" placeholder="What evidence backs this up?"></textarea>
+                </div>
+                <div class="evidence-col softens">
+                    <h4>Softens or contradicts it</h4>
+                    <textarea class="tall" id="evidence-softens" placeholder="What challenges or softens it?"></textarea>
+                </div>
+            </div>
+
+            <div class="evidence-tips">
+                <p><strong>Look in your own experience:</strong> moments of being heard, resilience shown, times things went better than the narrative suggests. They count even if they feel minor.</p>
+                <p><strong>Look outward too:</strong> have you seen someone else handle a similar situation, or speak more kindly about themselves, and found that it worked for them? If they could do it, what might that suggest is possible for you?</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(3)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(5)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 5: KINDER, TRUER LINE ══ -->
+        <div class="step-panel" id="step-5">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title-block">
+                    <h2>A Kinder, Truer Line</h2>
+                    <div class="step-desc">Write one sentence that honours your strength, learning, or the care involved — something you actually believe.</div>
+                </div>
+            </div>
+
+            <div class="present-tense-note">
+                <strong>Write it in the present tense.</strong> "I am someone who..." carries a different weight to "I used to be..." or "I will try to...". Present tense anchors the new narrative in who you are now, not who you were or might become.
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's kinder line</div>
+                <p><em>Old narrative:</em> "Nobody really listens to me. Speaking up is not worth it."</p>
+                <p><em>Kinder, truer line:</em> "I am someone whose perspective has value, and I am learning to offer it to people who are ready to hear it."</p>
+            </div>
+
+            <div class="highlight-box">
+                <label class="field-label" for="kinder-line">My kinder, truer line:</label>
+                <div class="field-hint">It does not have to feel triumphant — it just needs to be honest, a little gentler, and written in the present tense.</div>
+                <textarea class="medium" id="kinder-line" placeholder="I am someone who..."></textarea>
+            </div>
+
+            <div class="field-hint">If you find this difficult, try beginning with: <em>"I am someone who..."</em> or <em>"One thing I know to be true about myself is..."</em></div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(4)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(6)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 6: TINY SUPPORT ACTION ══ -->
+        <div class="step-panel" id="step-6">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title-block">
+                    <h2>Tiny Support Action</h2>
+                    <div class="step-desc">What small behaviour backs up your kinder line? It should take no more than ten minutes.</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's tiny action</div>
+                <p><strong>Action:</strong> "Share one opinion at Thursday's team catch-up, even briefly."</p>
+                <p><strong>When:</strong> "Thursday morning — I will prepare one sentence the night before so I feel ready."</p>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="tiny-action">The action:</label>
+                <div class="field-hint">Something concrete and small — write a note, make a call, say one thing, take a short walk, tidy one corner.</div>
+                <textarea class="short" id="tiny-action" placeholder="My small action is..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="tiny-when">When and where:</label>
+                <div class="field-hint">Being specific makes it far more likely to happen.</div>
+                <textarea class="short" id="tiny-when" placeholder="I will do this on... / at... / when..."></textarea>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(5)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(7)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 7: RAIN PRACTICE ══ -->
+        <div class="step-panel" id="step-7">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title-block">
+                    <h2>Rain Practice</h2>
+                    <div class="step-desc">Lighten the mood. Pick a small task you resist and add something that shifts how it feels.</div>
+                </div>
+            </div>
+
+            <div class="intro-card" style="margin-bottom: 18px;">
+                <p class="pull-quote" style="margin: 0;">The narrative you carry about a task shapes how you experience it. Adding music, humour, or a small ritual to something you resist can genuinely shift your mood — a playlist, a funny mug, a self-imposed rule. Small tweaks, real change.</p>
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's rain practice</div>
+                <p><strong>The task:</strong> "Replying to difficult emails — I put it off for days."</p>
+                <p><strong>What I will add:</strong> "I make a good coffee first, put on an upbeat playlist, and give myself exactly 20 minutes. I call it my Power Half Hour even though it is only 20 minutes — the name makes me smile."</p>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="rain-task">The task I resist:</label>
+                <textarea class="short" id="rain-task" placeholder="Something I keep putting off or find dreary..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="rain-ritual">What I will add to shift the narrative around it:</label>
+                <div class="field-hint">Music, humour, a ritual, a small reward, a timer, a friend — whatever makes it a little lighter.</div>
+                <textarea class="short" id="rain-ritual" placeholder="I will add..."></textarea>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(6)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(8)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 8: VOICE BANK ══ -->
+        <div class="step-panel" id="step-8">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <div class="step-title-block">
+                    <h2>Voice Bank</h2>
+                    <div class="step-desc">We all carry helpful and unhelpful inner voices. Name the ones that support you — and gently retire one that does not.</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-label">For example — Margaret's voice bank</div>
+                <p><strong>Helpful lines:</strong> "My perspective matters even if not everyone hears it." / "I have navigated harder things than a difficult conversation." / "Sarah always listens — I can practise being heard with her."</p>
+                <p><strong>To retire:</strong> "Nobody listens to me." &rarr; <strong>Replaced with:</strong> "The right people do hear me, and I am finding more of them."</p>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">Three helpful inner lines I can lean on:</label>
+                <div class="field-hint">These might be phrases someone said to you, something you return to, or something you simply know to be true.</div>
+                <div class="voice-bank">
+                    <div class="voice-item">
+                        <div class="voice-number">1</div>
+                        <textarea class="short" id="voice1" placeholder="A line that helps me..." style="flex: 1;"></textarea>
+                    </div>
+                    <div class="voice-item">
+                        <div class="voice-number">2</div>
+                        <textarea class="short" id="voice2" placeholder="A line that helps me..." style="flex: 1;"></textarea>
+                    </div>
+                    <div class="voice-item">
+                        <div class="voice-number">3</div>
+                        <textarea class="short" id="voice3" placeholder="A line that helps me..." style="flex: 1;"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="retire-block">
+                <h4>One voice to retire — and its replacement:</h4>
+                <div class="retire-row">
+                    <div>
+                        <div class="retire-col-label old">The voice to let go of:</div>
+                        <textarea class="short" id="voice-old" placeholder="The line I want to retire..."></textarea>
+                    </div>
+                    <div>
+                        <div class="retire-col-label new">Its kinder replacement:</div>
+                        <textarea class="short" id="voice-new" placeholder="A kinder line I believe..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(7)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-primary" onclick="goToStep(9)">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 9: SEVEN-DAY TRACKER ══ -->
+        <div class="step-panel" id="step-9">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <div class="step-title-block">
+                    <h2>Seven-Day Tracker</h2>
+                    <div class="step-desc">Mark each day you practised your kinder line or took your tiny action. Small and consistent is all that matters.</div>
+                </div>
+            </div>
+
+            <div class="field-hint" style="margin-bottom: 18px;">Tick a day whenever you returned to your kinder line, took your tiny action, or simply noticed the old narrative and chose a different response — however briefly.</div>
+
+            <div class="tracker-grid">
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-mon">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Mon</span>
+                </label>
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-tue">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Tue</span>
+                </label>
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-wed">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Wed</span>
+                </label>
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-thu">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Thu</span>
+                </label>
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-fri">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Fri</span>
+                </label>
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-sat">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Sat</span>
+                </label>
+                <label class="tracker-day">
+                    <input type="checkbox" id="day-sun">
+                    <div class="day-box">&#10003;</div>
+                    <span class="day-label">Sun</span>
+                </label>
+            </div>
+            <div class="tracker-note">You can return to this page throughout the week to tick off each day.</div>
+
+            <div class="support-box">
+                <h4>If this feels difficult to work through alone</h4>
+                <p>That is completely understandable — some narratives run deep. You are very welcome to reach out or book a tea chat to talk it through: <a href="https://aliheathfield.com/resources.html" target="_blank">aliheathfield.com/resources.html</a></p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="goToStep(8)">&#8592; Back</button>
+                <div class="btn-group">
+                    <button class="btn btn-save" onclick="saveWork(true)">Save</button>
+                    <button class="btn btn-orange" onclick="goToStep(10)">See my summary &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ STEP 10: SUMMARY ══ -->
+        <div class="step-panel" id="step-10">
+            <div class="completion-screen">
+                <div class="done-icon">&#10024;</div>
+                <h2>Well done.</h2>
+                <p>You have done something genuinely useful — you have looked at a narrative honestly, found a kinder version, and made a small commitment to act on it. That is how change begins: not in a single moment, but in a small, repeated choice.</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Your rewrite at a glance</h3>
+                <div class="summary-item">
+                    <div class="s-label">The narrative I brought</div>
+                    <div class="s-value" id="summary-narrative">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">When it shows up</div>
+                    <div class="s-value" id="summary-when">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">Heaviness rating</div>
+                    <div class="s-value" id="summary-rating">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">My kinder, truer line</div>
+                    <div class="s-value" id="summary-kinder">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">My tiny action</div>
+                    <div class="s-value" id="summary-action">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">Rain practice</div>
+                    <div class="s-value" id="summary-rain">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">Voice to retire</div>
+                    <div class="s-value" id="summary-retire">—</div>
+                </div>
+                <div class="summary-item">
+                    <div class="s-label">Its kinder replacement</div>
+                    <div class="s-value" id="summary-new-voice">—</div>
+                </div>
+            </div>
+
+            <div class="completion-actions">
+                <button class="btn btn-secondary" onclick="goToStep(0)">&#8592; Start again</button>
+                <button class="btn btn-save" onclick="printSummary()">Print summary</button>
+                <a href="index.html" class="btn btn-primary">Return home</a>
+            </div>
+        </div>
+
+    </div><!-- /content -->
+
+    <!-- Footer -->
+    <div class="page-footer">
+        <a href="index.html">&#8592; Home</a>
+        <span class="footer-note">Your answers are saved in your browser only and are not shared.</span>
+    </div>
+
+    <!-- Persistent care note -->
+    <div class="care-footer">
+        These reflections are for personal growth and exploration. If you are ever in a dark place, please do seek professional medical support.
+    </div>
+
+</div>
+
+<!-- Save toast -->
+<div class="save-toast" id="save-toast">&#10003; Saved</div>
+
+<script>
+    const STORAGE_KEY = 'narrative_rewrite_v2';
+    let currentStep = 0;
+    const totalSteps = 10;
+
+    const stepNames = [
+        'Introduction',
+        'Step 1: Find the Narrative',
+        'Step 2: The Scene',
+        'Step 3: Current Narrative',
+        'Step 4: Evidence Scan',
+        'Step 5: Kinder Line',
+        'Step 6: Tiny Action',
+        'Step 7: Rain Practice',
+        'Step 8: Voice Bank',
+        'Step 9: Seven-Day Tracker',
+        'Your Summary'
+    ];
+
+    function goToStep(n) {
+        saveWork(false);
+        document.getElementById('step-' + currentStep).classList.remove('active');
+        currentStep = n;
+        document.getElementById('step-' + currentStep).classList.add('active');
+        updateProgress();
+        if (n === 10) buildSummary();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgress() {
+        document.getElementById('progress-step-name').textContent = stepNames[currentStep];
+
+        if (currentStep === 0) {
+            document.getElementById('progress-fraction').textContent = 'Start';
+            document.getElementById('progress-bar').style.width = '0%';
+        } else if (currentStep === 10) {
+            document.getElementById('progress-fraction').textContent = 'Complete';
+            document.getElementById('progress-bar').style.width = '100%';
+        } else {
+            document.getElementById('progress-fraction').textContent = currentStep + ' of 9';
+            document.getElementById('progress-bar').style.width = (currentStep / 9 * 100) + '%';
+        }
+
+        for (let i = 0; i <= totalSteps; i++) {
+            const dot = document.getElementById('dot-' + i);
+            if (!dot) continue;
+            dot.classList.remove('active', 'completed');
+            if (i === currentStep) {
+                dot.classList.add('active');
+            } else if (i < currentStep) {
+                dot.classList.add('completed');
+            }
+        }
+    }
+
+    function selectRating(val) {
+        document.getElementById('h' + val).checked = true;
+        saveWork(false);
+    }
+
+    function getSelectedRating() {
+        for (let i = 1; i <= 5; i++) {
+            if (document.getElementById('h' + i).checked) return i;
+        }
+        return null;
+    }
+
+    function v(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+    }
+
+    function checked(id) {
+        const el = document.getElementById(id);
+        return el ? el.checked : false;
+    }
+
+    function saveWork(showFeedback) {
+        const data = {
+            narrativeWhat: v('narrative-what'),
+            narrativeWhen: v('narrative-when'),
+            narrativeVoice: v('narrative-voice'),
+            sceneLine1: v('scene-line1'),
+            sceneLine2: v('scene-line2'),
+            sceneLine3: v('scene-line3'),
+            currentNarrative: v('current-narrative'),
+            heaviness: getSelectedRating(),
+            evidenceSupports: v('evidence-supports'),
+            evidenceSoftens: v('evidence-softens'),
+            kinderLine: v('kinder-line'),
+            tinyAction: v('tiny-action'),
+            tinyWhen: v('tiny-when'),
+            rainTask: v('rain-task'),
+            rainRitual: v('rain-ritual'),
+            voice1: v('voice1'),
+            voice2: v('voice2'),
+            voice3: v('voice3'),
+            voiceOld: v('voice-old'),
+            voiceNew: v('voice-new'),
+            dayMon: checked('day-mon'),
+            dayTue: checked('day-tue'),
+            dayWed: checked('day-wed'),
+            dayThu: checked('day-thu'),
+            dayFri: checked('day-fri'),
+            daySat: checked('day-sat'),
+            daySun: checked('day-sun'),
+            lastSaved: new Date().toISOString(),
+            currentStep: currentStep
+        };
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+        if (showFeedback) {
+            const toast = document.getElementById('save-toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+    }
+
+    function loadWork() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+        const data = JSON.parse(saved);
+
+        const map = {
+            'narrative-what': 'narrativeWhat',
+            'narrative-when': 'narrativeWhen',
+            'narrative-voice': 'narrativeVoice',
+            'scene-line1': 'sceneLine1',
+            'scene-line2': 'sceneLine2',
+            'scene-line3': 'sceneLine3',
+            'current-narrative': 'currentNarrative',
+            'evidence-supports': 'evidenceSupports',
+            'evidence-softens': 'evidenceSoftens',
+            'kinder-line': 'kinderLine',
+            'tiny-action': 'tinyAction',
+            'tiny-when': 'tinyWhen',
+            'rain-task': 'rainTask',
+            'rain-ritual': 'rainRitual',
+            'voice1': 'voice1',
+            'voice2': 'voice2',
+            'voice3': 'voice3',
+            'voice-old': 'voiceOld',
+            'voice-new': 'voiceNew'
+        };
+
+        Object.entries(map).forEach(([id, key]) => {
+            const el = document.getElementById(id);
+            if (el && data[key] !== undefined) el.value = data[key];
+        });
+
+        if (data.heaviness) {
+            const radio = document.getElementById('h' + data.heaviness);
+            if (radio) radio.checked = true;
+        }
+
+        ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
+            const el = document.getElementById('day-' + d.toLowerCase());
+            if (el && data['day' + d]) el.checked = true;
+        });
+    }
+
+    function buildSummary() {
+        set('summary-narrative', v('narrative-what'));
+        set('summary-when', v('narrative-when'));
+        const rating = getSelectedRating();
+        set('summary-rating', rating ? rating + ' out of 5' : null);
+        set('summary-kinder', v('kinder-line'));
+        const action = v('tiny-action');
+        const when = v('tiny-when');
+        set('summary-action', action ? (action + (when ? ' — ' + when : '')) : null);
+        const rainTask = v('rain-task');
+        const rainRitual = v('rain-ritual');
+        set('summary-rain', rainTask ? (rainTask + (rainRitual ? ': ' + rainRitual : '')) : null);
+        set('summary-retire', v('voice-old'));
+        set('summary-new-voice', v('voice-new'));
+    }
+
+    function set(id, val) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val || '—';
+    }
+
+    function printSummary() {
+        window.print();
+    }
+
+    setInterval(() => saveWork(false), 30000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadWork();
+        updateProgress();
+    });
+</script>
+
+</body>
+</html>
