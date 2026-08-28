@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life After 60 Check-In | Ali Heathfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #ff8855;
+  --teal: #2b9baf;
+  --teal-dk: #1d7a8a;
+  --coral: #ec8070;
+  --burgundy: #8f4046;
+  --periwinkle: #728abf;
+  --periwinkle-dk: #4f6ab0;
+  --ink: #26282c;
+  --ink-soft: #5a5d63;
+  --hair: #e9e9ec;
+  --paper: #ffffff;
+  --deep-teal: #065165;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: 'Lora', serif; font-weight: 600; line-height: 1.25; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* HEADER */
+header.site-header { padding: 26px 0; border-bottom: 1px solid var(--hair); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.logo { font-family: 'Lora', serif; font-weight: 600; font-size: 1.35rem; letter-spacing: .01em; }
+.logo span { color: var(--orange); }
+
+/* HERO - CORRECTED TO MATCH INDEX.HTML */
+.tool-hero { position: relative; padding: 96px 0 56px; overflow: hidden; }
+.tool-hero .wrap { position: relative; }
+.hero-splash {
+  position: absolute; z-index: 0; pointer-events: none;
+  width: clamp(64px, 12.7vw, 150px); height: clamp(64px, 12.7vw, 150px);
+  top: clamp(4px, 1vw, 10px); right: clamp(16px, 12.7vw, 150px);
+  display: flex; align-items: flex-start; justify-content: flex-end;
+}
+.hero-splash img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+.hero-copy { position: relative; z-index: 1; max-width: 720px; }
+.tool-badge {
+  font-size: .8rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 18px;
+}
+.tool-hero h1 {
+  font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.tool-hero h1 .now { color: var(--orange); }
+.hero-lede {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 1.08rem; line-height: 1.7; color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+/* CONTROLS */
+.tool-controls { max-width: 720px; margin: 0 auto 48px; }
+
+.notice {
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 1.75rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.progress-wrap { margin-bottom: 20px; display: none; }
+.progress-wrap.active { display: block; }
+.progress-bar-track { height: 8px; background: var(--hair); border-radius: 4px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--teal); border-radius: 4px; transition: width 0.4s ease; }
+.progress-text { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.6rem; font-weight: 500; }
+
+/* SECTIONS */
+.section { display: none; animation: fadeIn 0.3s ease; }
+.section.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* THEME SECTIONS */
+.part-section { padding: 0 0 68px; }
+.part-section:last-child { padding-bottom: 20px; }
+
+.part-heading {
+  font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600;
+  margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--hair);
+}
+.part-section.p1 .part-heading { color: var(--teal-dk); }
+.part-section.p2 .part-heading { color: var(--periwinkle-dk); }
+.part-section.p3 .part-heading { color: var(--orange); }
+
+.questions-row { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+
+.question-block { transition: margin-left 0.3s ease; }
+.question-block:nth-child(2) { margin-left: 80px; }
+.question-block:nth-child(3) { margin-left: 160px; }
+.question-block:nth-child(4) { margin-left: 240px; }
+.question-block:nth-child(5) { margin-left: 320px; }
+.question-block:nth-child(6) { margin-left: 400px; }
+.question-block:nth-child(7) { margin-left: 480px; }
+.question-block:nth-child(8) { margin-left: 560px; }
+.question-block:nth-child(9) { margin-left: 640px; }
+.question-block:nth-child(10) { margin-left: 720px; }
+
+.question-number { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 0.5rem; text-transform: uppercase; }
+.question-block.answered .question-number { color: var(--teal-dk); }
+.question-text { font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 1.05rem; margin-bottom: 1.1rem; }
+
+.options { display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
+.options .option-row:nth-child(1) { --accent: var(--teal-dk); }
+.options .option-row:nth-child(2) { --accent: var(--periwinkle-dk); }
+.options .option-row:nth-child(3) { --accent: var(--orange); }
+.options .option-row:nth-child(4) { --accent: var(--periwinkle-dk); }
+.options .option-row:nth-child(5) { --accent: var(--orange); }
+
+.option-row {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem;
+  margin-right: 0.6rem; margin-bottom: 0.5rem;
+  cursor: pointer; background: var(--paper);
+  font-size: 0.9rem; color: var(--ink); text-align: center;
+  transition: all 0.2s ease; border: 1.5px solid var(--hair); border-radius: 4px;
+  font-weight: 500;
+}
+.option-row:hover { border-color: var(--accent); background: rgba(255, 136, 85, 0.05); }
+.option-letter { font-weight: 700; flex-shrink: 0; color: var(--accent); }
+.option-row.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
+.option-row.selected .option-letter { color: #fff; }
+
+/* READINESS SCALE */
+.readiness-question { margin-bottom: 28px; }
+.readiness-question p { margin-bottom: 12px; font-weight: 500; color: var(--ink); }
+.readiness-scale { display: flex; gap: 12px; margin-bottom: 20px; }
+.readiness-option { flex: 1; }
+.readiness-option input { display: none; }
+.readiness-option label {
+  display: block; padding: 14px 12px; text-align: center; background: var(--paper);
+  border: 2px solid var(--hair); border-radius: 3px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;
+}
+.readiness-option input:checked + label {
+  background: var(--teal); color: #fff; border-color: var(--teal);
+}
+
+/* BUTTONS */
+.btn-group { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 600;
+  padding: 0.65rem 1.15rem; border-radius: 3px; border: none; cursor: pointer;
+  transition: all 0.2s ease; text-decoration: none; line-height: 1;
+}
+.btn-outline { background: var(--paper); color: var(--teal-dk); border: 1.5px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: #ffffff; }
+.btn-primary { background: var(--orange); color: var(--white); border: 1.5px solid var(--orange); }
+.btn-primary:hover { background: #e6713f; border-color: #e6713f; }
+.btn-secondary { background: var(--teal); color: #fff; border: 1.5px solid var(--teal); }
+.btn-secondary:hover { background: var(--teal-dk); }
+
+/* RESULTS */
+.result-card {
+  display: none; background: var(--paper); border: 1px solid var(--hair);
+  border-radius: 6px; overflow: hidden; margin-top: 1rem;
+}
+.result-card.visible { display: block; }
+.result-header { background: var(--deep-teal); padding: 1.5rem 1.5rem 1.2rem; }
+.result-header-label {
+  font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); margin-bottom: 0.4rem;
+}
+.result-path-name { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--white); font-style: italic; font-weight: 600; }
+.result-body { padding: 1.5rem; }
+.result-description { font-size: 1rem; color: var(--ink); line-height: 1.75; margin-bottom: 1.25rem; }
+
+.tally-row { display: flex; gap: 0.75rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+.tally-row .tally-pill:nth-child(1) { --accent: var(--teal-dk); }
+.tally-row .tally-pill:nth-child(2) { --accent: var(--periwinkle-dk); }
+.tally-row .tally-pill:nth-child(3) { --accent: var(--orange); }
+.tally-pill {
+  font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.85rem;
+  border-radius: 20px; border: 1.5px solid var(--accent); color: var(--accent);
+}
+.tally-pill.dominant { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 700; }
+
+.result-item {
+  background: var(--paper); border: 1px solid var(--hair); border-radius: 4px;
+  padding: 1.25rem; margin-bottom: 1rem;
+}
+.result-item h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.tiny-move {
+  background: #fafafa; border-left: 2px solid var(--orange);
+  border-radius: 3px; padding: 1rem; margin-top: 1rem; font-size: 0.95rem;
+}
+.tiny-move-label {
+  font-weight: 600; color: var(--orange); font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;
+}
+
+/* CARDS */
+.card {
+  background: var(--paper); border-radius: 0; padding: 0; margin-bottom: 0;
+  border: none; box-shadow: none;
+}
+.card h2 { font-family: 'Lora', serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
+
+.intro-points { list-style: none; margin: 20px 0; }
+.intro-points li { padding: 12px 0 12px 32px; position: relative; color: var(--ink); }
+.intro-points li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
+
+/* FOOTER */
+footer.site-footer { background: var(--deep-teal); color: #fff; padding: 56px 0 34px; }
+footer.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+footer.site-footer a { color: #d7d8db; text-decoration: none; }
+footer.site-footer a:hover { color: #fff; }
+
+.tool-footnote {
+  text-align: center; padding: 2rem 1.5rem; font-size: 0.82rem;
+  color: var(--ink-soft); border-top: 1px solid var(--hair);
+}
+.tool-footnote a { color: var(--teal-dk); text-decoration: none; }
+.tool-footnote a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .questions-row { grid-template-columns: 1fr; gap: 28px; }
+}
+
+@media (max-width: 800px) {
+  .hero-splash { position: static; width: 56px; height: 56px; margin-bottom: 16px; display: flex; align-items: flex-start; justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .question-block { margin-left: 0 !important; }
+}
+
+@media (max-width: 600px) {
+  .wrap { padding: 0 20px; }
+  .questions-row { gap: 20px; }
+  .readiness-scale { flex-direction: column; }
+  .btn-group { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="#" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+</div>
+</header>
+
+<section class="tool-hero">
+<div class="wrap">
+<div class="hero-splash">
+<img src="swirlicon.png" alt="Life Check-In">
+</div>
+<div class="hero-copy">
+<div class="tool-badge">Life After 60 Check-In</div>
+<h1>How Are You Really <span class="now">Doing?</span></h1>
+<p class="hero-lede">A deeper check-in across ten areas of life that matter</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+
+  <div class="tool-controls">
+    <div class="notice">
+      65 questions across ten themes. Complete it all at once, or return to finish later. Your answers aren't saved — download your results at the end to keep them.
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-text" id="progressText">Ready to begin</div>
+    </div>
+  </div>
+
+  <!-- Welcome -->
+  <div class="section active" id="welcome">
+    <div class="card">
+      <h2>Welcome</h2>
+      <p>This check-in helps you see which areas of life are working well and which need attention. It isn't a test — it's a mirror. There are no right or wrong answers, only honest ones.</p>
+
+      <ul class="intro-points">
+        <li>Takes 20–30 minutes (or complete in shorter sessions)</li>
+        <li>65 questions across 10 areas of life</li>
+        <li>Get a clear picture of where you are right now</li>
+        <li>Receive personalised actions you can take right away</li>
+      </ul>
+
+      <p>Low scores aren't failure — they're valuable information about where to focus first.</p>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="app.showReadiness()">Begin the Check-In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Readiness -->
+  <div class="section" id="readiness">
+    <div class="card">
+      <h2>How Are You Feeling Right Now?</h2>
+      <p>This quick check helps shape the guidance you'll receive. Be honest — there are no wrong answers.</p>
+
+      <div class="readiness-question">
+        <p>1. My energy level right now is:</p>
+        <div class="readiness-scale">
+          <div class="readiness-option">
+            <input type="radio" name="energy" value="low" id="e1">
+            <label for="e1">Low</label>
+          </div>
+          <div class="readiness-option">
+            <input type="radio" name="energy" value="medium" id="e2">
+            <label for="e2">Medium</label>
+          </div>
+          <div class="readiness-option">
+            <input type="radio" name="energy" value="high" id="e3">
+            <label for="e3">High</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="readiness-question">
+        <p>2. My willingness to make minor adjustments is:</p>
+        <div class="readiness-scale">
+          <div class="readiness-option">
+            <input type="radio" name="willingness" value="low" id="w1">
+            <label for="w1">Low</label>
+          </div>
+          <div class="readiness-option">
+            <input type="radio" name="willingness" value="medium" id="w2">
+            <label for="w2">Medium</label>
+          </div>
+          <div class="readiness-option">
+            <input type="radio" name="willingness" value="high" id="w3">
+            <label for="w3">High</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="readiness-question">
+        <p>3. I believe small changes can improve things:</p>
+        <div class="readiness-scale">
+          <div class="readiness-option">
+            <input type="radio" name="belief" value="low" id="b1">
+            <label for="b1">Not really</label>
+          </div>
+          <div class="readiness-option">
+            <input type="radio" name="belief" value="medium" id="b2">
+            <label for="b2">Maybe</label>
+          </div>
+          <div class="readiness-option">
+            <input type="radio" name="belief" value="high" id="b3">
+            <label for="b3">Yes</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" onclick="app.showWelcome()">Back</button>
+        <button class="btn btn-primary" onclick="app.checkReadiness()">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Readiness Result -->
+  <div class="section" id="readinessResult">
+    <div class="card">
+      <div id="readinessResultContent"></div>
+      <div class="btn-group">
+        <button class="btn btn-secondary" onclick="app.showReadiness()">Back</button>
+        <button class="btn btn-primary" onclick="app.startQuestions()">Begin the Check-In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="section" id="questions">
+    <div id="questionsContent"></div>
+  </div>
+
+  <!-- Results -->
+  <div class="section" id="results">
+    <div class="card">
+      <h2>Check-In Complete</h2>
+      <div id="resultsContent"></div>
+      <div class="btn-group">
+        <button class="btn btn-secondary" onclick="app.reset()">Start Over</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="tool-footnote">
+  <p>Questions? <a href="mailto:ali@aliheathfield.com">ali@aliheathfield.com</a></p>
+</div>
+
+<footer class="site-footer">
+<div class="wrap">
+<div>Not Done Yet · Ali Heathfield</div>
+<div>&copy; 2026 Ali Heathfield</div>
+</div>
+</footer>
+
+<script>
+const THEMES = [
+  { id: 'self', name: 'Self & Identity', color: 'orange', desc: 'Who you are beneath the roles and labels.', qs: ['I have a clear sense of who I am now', 'I feel confident describing myself to new people', 'I am comfortable with the changes in my identity', 'I know what makes me unique and valuable', 'I feel authentic in how I present myself to others'], move: 'Write one sentence about who you are now — not past roles, but now.' },
+  { id: 'narrative', name: 'Life Narrative', color: 'teal', desc: 'The story you tell yourself about your life.', qs: ['I am satisfied with how my life story has unfolded', 'I feel proud of the chapters I have already written', 'I have made peace with past disappointments', 'I am excited about future chapters', 'My life feels meaningful when I look back'], move: 'Catch one critical thought about yourself this week and rewrite it as something truer and kinder.' },
+  { id: 'meaning', name: 'Meaning & Purpose', color: 'coral', desc: 'What gives your life direction and makes each day worthwhile.', qs: ['I have a clear sense of purpose in my daily life', 'My activities feel meaningful and worthwhile', 'I am making a difference in ways that matter to me', 'I use my skills and experience in fulfilling ways', 'I feel needed and valued by others'], move: 'Schedule one 15-minute "purpose slot" this week — call someone, work on a project, or help someone.' },
+  { id: 'health', name: 'Health & Wellbeing', color: 'periwinkle', desc: 'Your physical and mental capacity for daily life.', qs: ['Overall physical health', 'Energy levels throughout the day', 'Physical fitness and strength', 'Sleep quality', 'Management of any health conditions', 'Overall emotional wellbeing', 'Stress management', 'Mental sharpness and memory', 'Optimism about the future', 'Emotional resilience'], move: 'Add one 10-minute health habit this week — a walk, stretching, or an earlier bedtime.' },
+  { id: 'finance', name: 'Finances', color: 'orange', desc: 'The practical edges around your choices.', qs: ['Current financial security', 'Ability to afford desired lifestyle', 'Financial planning for the future', 'Understanding of financial resources', 'Confidence in financial decisions'], move: 'Check one account or statement this week. Just a quick glance to make sure everything looks right.' },
+  { id: 'environment', name: 'Environment', color: 'periwinkle', desc: 'Where you live and the spaces you inhabit.', qs: ['Your current living situation', 'Your neighbourhood and community', 'Accessibility of your home', 'Proximity to important services', 'Connection to nature and outdoors'], move: 'Fix one small thing in your home, or find one new "borrowed environment" to try.' },
+  { id: 'activities', name: 'Activities & Interests', color: 'teal', desc: 'What you do with your time — the activities that engage you.', qs: ['Variety of activities in your life', 'Balance between structure and freedom', 'Opportunities for creativity', 'Physical activity and movement', 'Intellectual stimulation'], move: 'Add 15 minutes of an activity that energises you to your calendar this week.' },
+  { id: 'planning', name: 'Planning & Future Vision', color: 'burgundy', desc: 'How you organise your days, weeks, and longer-term goals.', qs: ['I have clear goals for my future', 'I make concrete plans to achieve what I want', 'I adapt well when plans change', 'I feel optimistic about my future', 'I take action towards my goals'], move: 'Add one thing you are looking forward to in your calendar for next month.' },
+  { id: 'relationships', name: 'Relationships', color: 'coral', desc: 'Your connections with others — who matters and how you connect.', qs: ['Quality of family relationships', 'Friendships and social connections', 'Romantic/partnership relationship (if applicable)', 'Support you give to others', 'Support you receive from others', 'I have people I can confide in', 'I feel understood by those close to me', 'I have opportunities to meet new people', 'I maintain meaningful connections', 'I feel loved and appreciated'], move: 'Send a thank-you message to someone who lifts you — name one specific thing they did.' },
+  { id: 'community', name: 'Community & Contribution', color: 'burgundy', desc: 'Your sense of belonging to groups and circles beyond close relationships.', qs: ['Sense of belonging in your community', 'Opportunities to contribute and volunteer', 'Civic engagement and participation', 'Cultural and social activities available', 'Support available when needed'], move: 'Attend one event of a group you are part of, or research one new volunteer opportunity.' }
+];
+
+const app = {
+  themeIdx: 0,
+  answers: {},
+
+  showWelcome() {
+    this.setActive('welcome');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+
+  showReadiness() {
+    this.setActive('readiness');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+
+  checkReadiness() {
+    const e = document.querySelector('input[name="energy"]:checked');
+    const w = document.querySelector('input[name="willingness"]:checked');
+    const b = document.querySelector('input[name="belief"]:checked');
+    if (!e || !w || !b) { alert('Please answer all three questions.'); return; }
+
+    const scores = { low: 0, medium: 1, high: 2 };
+    const total = scores[e.value] + scores[w.value] + scores[b.value];
+    let readinessLevel = total <= 2 ? 'low' : total <= 4 ? 'medium' : 'high';
+
+    this.showReadinessMessage(readinessLevel);
+  },
+
+  showReadinessMessage(level) {
+    this.readinessLevel = level;
+    const contentEl = document.getElementById('readinessResultContent');
+    let html = '';
+
+    if (level === 'low') {
+      html = `<div style="background: rgba(43, 155, 175, 0.1); padding: 24px; border-radius: 6px; border-left: 4px solid #2b9baf; margin-bottom: 20px;"><h2 style="font-family: 'Lora', serif; font-size: 1.4rem; color: #2b9baf; margin-bottom: 12px;">A Gentle Approach</h2><p>Your energy is on the lower side right now — and that's completely fine. This isn't the time for big changes.</p><p style="margin-top: 16px;">As you work through the questions, answer honestly based on how things are now. Your results will focus on just one thing — the single area that might benefit most from gentle attention.</p></div>`;
+    } else if (level === 'medium') {
+      html = `<div style="background: rgba(79, 106, 176, 0.1); padding: 24px; border-radius: 6px; border-left: 4px solid #4f6ab0; margin-bottom: 20px;"><h2 style="font-family: 'Lora', serif; font-size: 1.4rem; color: #4f6ab0; margin-bottom: 12px;">Ready for Gentle Progress</h2><p>You have enough capacity for gentle, steady work. You're not overwhelmed, but you're also not looking to overhaul everything.</p><p style="margin-top: 16px;">As you work through the questions, answer honestly based on how things are now. Your results will highlight a few areas that might benefit from attention.</p></div>`;
+    } else {
+      html = `<div style="background: rgba(6, 81, 101, 0.1); padding: 24px; border-radius: 6px; border-left: 4px solid #065165; margin-bottom: 20px;"><h2 style="font-family: 'Lora', serif; font-size: 1.4rem; color: #065165; margin-bottom: 12px;">Ready to Engage</h2><p>You're ready to engage fully. You have the energy and willingness to make meaningful adjustments.</p><p style="margin-top: 16px;">As you work through the questions, answer honestly based on how things are now — not how you wish they were. Your results will show you the full picture across all ten areas.</p></div>`;
+    }
+
+    contentEl.innerHTML = html;
+    this.setActive('readinessResult');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+
+  startQuestions() {
+    this.themeIdx = 0;
+    this.renderTheme();
+  },
+
+  renderTheme() {
+    const t = THEMES[this.themeIdx];
+    const css = { orange: '#ff8855', teal: '#2b9baf', coral: '#ec8070', periwinkle: '#728abf', burgundy: '#8f4046' };
+
+    let qNum = 1;
+    for (let i = 0; i < this.themeIdx; i++) qNum += THEMES[i].qs.length;
+
+    let html = `<div class="part-section"><h2 class="part-heading" style="color:${css[t.color]}">${t.name}</h2><p>${t.desc}</p><div style="margin-top: 20px; padding: 12px; background: rgba(43, 155, 175, 0.08); border-radius: 4px; border-left: 3px solid var(--teal); font-size: 0.9rem; color: var(--ink);"><strong>Rating scale:</strong> 1 = Strongly Disagree, 2 = Disagree, 3 = Neutral, 4 = Agree, 5 = Strongly Agree</div><div class="questions-row">`;
+
+    t.qs.forEach((q, qIdx) => {
+      const qId = t.id + '_' + qIdx;
+      const ans = this.answers[qId] || '';
+      html += `<div class="question-block ${ans ? 'answered' : ''}"><div class="question-number">Q${qNum}</div><div class="question-text">${q}</div><div class="options">${[1,2,3,4,5].map(v => `<button class="option-row ${ans == v ? 'selected' : ''}" onclick="app.ans('${qId}', ${v})"><span class="option-letter">${v}</span></button>`).join('')}</div></div>`;
+      qNum++;
+    });
+
+    html += `</div><div class="tiny-move"><div class="tiny-move-label">One thing to try this week</div><p>${t.move}</p></div></div><div class="btn-group"><button class="btn btn-secondary" onclick="app.prev()">Back</button><button class="btn btn-primary" onclick="app.next()">${this.themeIdx === THEMES.length - 1 ? 'See Results' : 'Continue'}</button></div>`;
+
+    document.getElementById('questionsContent').innerHTML = html;
+    this.setActive('questions');
+    this.updateProgress();
+  },
+
+  ans(qId, val) {
+    this.answers[qId] = val;
+    this.renderTheme();
+  },
+
+  next() {
+    if (this.themeIdx < THEMES.length - 1) {
+      this.themeIdx++;
+      this.renderTheme();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      this.showResults();
+    }
+  },
+
+  prev() {
+    if (this.themeIdx > 0) {
+      this.themeIdx--;
+      this.renderTheme();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      this.showReadiness();
+    }
+  },
+
+  updateProgress() {
+    const progressWrap = document.querySelector('.progress-wrap');
+    progressWrap.classList.add('active');
+    const total = THEMES.reduce((s, t) => s + t.qs.length, 0);
+    const answered = Object.keys(this.answers).length;
+    const pct = (answered / total) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = `${answered} of ${total} questions answered`;
+  },
+
+  showResults() {
+    const res = {};
+    THEMES.forEach(t => {
+      let sum = 0, cnt = 0;
+      t.qs.forEach((q, i) => {
+        const ans = this.answers[t.id + '_' + i];
+        if (ans) { sum += parseInt(ans); cnt++; }
+      });
+      res[t.id] = cnt > 0 ? (sum / cnt).toFixed(1) : 0;
+    });
+
+    const sorted = THEMES.map(t => ({ ...t, score: res[t.id] })).sort((a, b) => a.score - b.score);
+    const lowest = sorted[0];
+
+    let html = `<div class="result-card visible"><div class="result-header" style="background: #1d7a8a"><div class="result-header-label">Your starting point</div><div class="result-path-name">${lowest.name}</div></div><div class="result-body"><div class="result-description">Score: <strong>${lowest.score} out of 5</strong></div><p>${lowest.desc}</p><div class="tiny-move"><div class="tiny-move-label">One thing to try this week</div><p>${lowest.move}</p></div></div></div><h3 style="margin-top: 2rem; margin-bottom: 1rem;">All Ten Themes</h3>`;
+
+    THEMES.forEach(t => {
+      const score = res[t.id];
+      html += `<div class="result-item"><h3>${t.name}</h3><p style="color: var(--ink-soft); margin: 0.5rem 0 0;">${t.desc}</p><div style="font-weight: 600; margin: 0.75rem 0; color: var(--orange);">Score: ${score} / 5</div><div class="tiny-move"><div class="tiny-move-label">Try this</div><p>${t.move}</p></div></div>`;
+    });
+
+    document.getElementById('resultsContent').innerHTML = html;
+    this.setActive('results');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+
+  reset() {
+    this.themeIdx = 0;
+    this.answers = {};
+    document.querySelectorAll('input[type="radio"]').forEach(i => i.checked = false);
+    document.querySelectorAll('.option-row').forEach(b => b.classList.remove('selected'));
+    this.showWelcome();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+
+  setActive(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const hideProgressOn = ['welcome', 'readiness', 'readinessResult', 'results'];
+    const progressWrap = document.querySelector('.progress-wrap');
+    if (hideProgressOn.includes(id)) {
+      progressWrap.classList.remove('active');
+    } else if (id === 'questions') {
+      progressWrap.classList.add('active');
+    }
+  }
+};
+</script>
+
+</body>
+</html>

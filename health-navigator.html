@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Navigator | Not Done Yet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--periwinkle-dk:#5a71a0;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--paper:#ffffff;
+--hair:#e9e9ec;
+--deep-teal:#065165;
+--path:var(--periwinkle);
+--path-dk:var(--periwinkle-dk);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.content{ max-width:100%; }
+.contained{ max-width:760px; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+
+/* ---------- HERO ---------- */
+.path-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.path-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:720px; }
+
+.path-badge{
+font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--path-dk); margin-bottom:18px;
+}
+
+.path-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.path-hero h1 .accent{ color:var(--orange); }
+
+.hero-lede{
+font-family:'Lora', serif; font-style:italic;
+font-size:1.08rem; line-height:1.7; color:var(--ink-soft);
+max-width:52ch;
+}
+
+/* ---------- SECTIONS ---------- */
+.section{ padding:0; margin-bottom:48px; }
+.section-heading{ font-size:1.3rem; margin-bottom:16px; }
+.path-description{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); max-width:none; }
+
+.find-list{
+padding:0;
+}
+.find-item{
+display:flex; align-items:flex-start; gap:14px;
+padding:14px 0;
+font-size:.98rem; color:var(--ink-soft); line-height:1.55; font-weight:500;
+}
+.find-dot{ width:8px; height:8px; border-radius:50%; background:var(--path-dk); flex-shrink:0; margin-top:7px; }
+
+/* ---------- CASCADE QUOTE ---------- */
+.cascade-quote{ margin-bottom:48px; }
+.cascade-inner{
+text-align:right; font-family:'Lora', serif; font-style:italic;
+font-size:1.05rem; line-height:1.85; color:var(--ink-soft);
+max-width:600px; margin-left:auto;
+}
+.cascade-inner .q-line{ display:block; }
+.cascade-inner .q-line:nth-child(1){ padding-left:0%; }
+.cascade-inner .q-line:nth-child(2){ padding-left:8%; }
+.cascade-inner .q-line:nth-child(3){ padding-left:16%; }
+.cascade-inner .q-line:nth-child(4){ padding-left:24%; }
+.cascade-attr{
+text-align:right; font-size:.78rem; color:var(--ink-soft);
+letter-spacing:.04em; margin-top:12px; font-weight:600;
+}
+
+/* ---------- CTA ---------- */
+.cta-section{ margin-bottom:44px; }
+.cta-pair{ display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:18px; }
+.cta-pair.contained{ margin:0 auto; }
+.cta-card{ border:1px solid var(--hair); padding:26px; }
+.cta-card-label{ font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+.cta-card.primary .cta-card-label{ color:var(--path-dk); }
+.cta-card.secondary .cta-card-label{ color:var(--teal); }
+.cta-card-title{ font-family:'Lora', serif; font-size:1.15rem; font-weight:600; margin-bottom:10px; }
+.cta-card-desc{ font-size:.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:20px; }
+.cta-btn{ display:inline-block; font-size:.92rem; font-weight:700; padding:11px 22px; }
+.cta-card.primary .cta-btn{ background:var(--path-dk); color:#fff; }
+.cta-card.primary .cta-btn:hover{ background:#485c85; }
+.cta-card.secondary .cta-btn{ background:var(--orange); color:#fff; }
+.cta-card.secondary .cta-btn:hover{ background:#e07040; }
+
+/* ---------- MAILERLITE FORM ---------- */
+#mlb2-45024860{ margin-top:4px; }
+#mlb2-45024860 input[type="email"]{
+width:100%; font-family:'Source Sans 3', sans-serif; font-size:.92rem;
+padding:11px 14px; border:1px solid var(--hair); color:var(--ink); background:#fff;
+margin-bottom:12px; box-sizing:border-box;
+}
+#mlb2-45024860 input[type="email"]:focus{ outline:none; border-color:var(--teal-dk); }
+#mlb2-45024860 input[type="email"]::placeholder{ color:var(--ink-soft); }
+#mlb2-45024860 button[type="submit"]{
+display:inline-block; font-size:.92rem; font-weight:700; font-family:'Source Sans 3', sans-serif;
+padding:11px 22px; background:var(--teal-dk); color:#fff; border:none; cursor:pointer;
+}
+#mlb2-45024860 button[type="submit"]:hover{ filter:brightness(0.88); }
+#mlb2-45024860 button.loading{ display:none; }
+#mlb2-45024860 .ml-form-successBody p{ font-size:.92rem; color:var(--ink-soft); line-height:1.6; margin:0; }
+
+/* ---------- QUIET WAY OUT ---------- */
+.quiet-out{ text-align:center; padding:8px 0 48px; font-size:.92rem; color:var(--ink-soft); }
+.quiet-out a{ font-weight:600; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:1px; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.cascade-inner .q-line:nth-child(n){ padding-left:0; }
+.cta-pair{ grid-template-columns:1fr; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="path-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/f.png" alt=""></div>
+<div class="hero-copy">
+<div class="path-badge">Health Navigator</div>
+<h1>Adapting to what health asks of you, <span class="accent">without losing yourself in it.</span></h1>
+<p class="hero-lede">Health has become the loudest voice in the room. This is where you learn to hear it without losing the rest of yourself.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<div class="section">
+<h2 class="section-heading">What this path is for</h2>
+<p class="path-description">
+This path is for you if you're experiencing health changes, your own or someone else's, that are affecting your lifestyle. These changes might be minor or major, and they often ripple out to affect every area of life, some more than others, until it's easy to feel overwhelmed. This path is about navigating those changes whilst intentionally creating moments of ease, connection, and meaning in your daily life.
+</p>
+</div>
+
+<div class="section">
+<h2 class="section-heading">What you'll find here</h2>
+<div class="find-list contained">
+<div class="find-item"><span class="find-dot"></span><span>Manage your energy and prioritise what matters most</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Adapt your daily life whilst holding onto what's important</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Navigate your changing identity and sense of self</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Maintain meaningful connections despite new limitations</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Find purpose and contribution within new constraints</span></div>
+</div>
+</div>
+
+<div class="cascade-quote">
+<div class="cascade-inner">
+<span class="q-line">Even when individual changes are manageable,</span>
+<span class="q-line">having several at once can feel more challenging.</span>
+<span class="q-line">That's normal, and this workbook can help you</span>
+<span class="q-line">identify where to focus your energy.</span>
+</div>
+<p class="cascade-attr">From the Health Changes workbook</p>
+</div>
+
+<div class="cta-section">
+<h2 class="section-heading">Ready to begin?</h2>
+<div class="cta-pair contained">
+<div class="cta-card primary">
+<div class="cta-card-label">The workbook</div>
+<div class="cta-card-title">Health Changes</div>
+<div class="cta-card-desc">Register your interest and be the first to know when the workbook is available.</div>
+<div id="mlb2-45024860" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45024860">
+<form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2347822/forms/196312500556269063/subscribe" data-code="" method="post" target="_blank">
+<div class="ml-form-fieldRow ml-last-item">
+<div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+<input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="Your email address" autocomplete="email">
+</div>
+</div>
+<input type="hidden" name="ml-submit" value="1">
+<input type="hidden" name="anticsrf" value="true">
+<div class="ml-form-embedSubmit">
+<button type="submit" class="primary">Notify me</button>
+<button disabled="disabled" style="display:none;" type="button" class="loading">
+<span class="sr-only">Sending&hellip;</span>
+</button>
+</div>
+</form>
+<div class="ml-form-successBody row-success" style="display:none">
+<p>Thank you &mdash; you're on the list. We'll let you know when the workbook is available.</p>
+</div>
+</div>
+<script>
+function ml_webform_success_45024860() {
+var $ = ml_jQuery || jQuery;
+$('.ml-subscribe-form-45024860 .row-success').show();
+$('.ml-subscribe-form-45024860 form').hide();
+}
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>
+fetch("https://assets.mailerlite.com/jsonp/2347822/forms/196312500556269063/takel")
+</script>
+</div>
+<div class="cta-card secondary">
+<div class="cta-card-label">Not quite sure yet?</div>
+<div class="cta-card-title">Free 15-minute tea chat</div>
+<div class="cta-card-desc">A quick conversation with Ali to make sure this is the right starting point for you.</div>
+<a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" rel="noopener" class="cta-btn">Book a chat &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="quiet-out">
+<a href="where-am-i-now.html">Not sure this is the right path? Take the quick check &rarr;</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

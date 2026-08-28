@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Am I Now? | Ali Heathfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root {
+    --orange:#ff8855;
+    --teal:#2b9baf;
+    --teal-dk:#1d7a8a;
+    --coral:#ec8070;
+    --burgundy:#8f4046;
+    --periwinkle:#728abf;
+    --periwinkle-dk:#4f6ab0;
+    --ink:#26282c;
+    --ink-soft:#5a5d63;
+    --hair:#e9e9ec;
+    --paper:#ffffff;
+    --deep-teal:#065165;
+
+    /* aliases so ported logic/CSS keep working unchanged */
+    --teal-light: #6fb9c8;
+    --teal-pale: #e8f4f6;
+    --teal-mid: var(--teal-dk);
+    --orange-light: #fff1ea;
+    --text: var(--ink);
+    --text-light: var(--ink-soft);
+    --white: var(--paper);
+    --bg: #fafafa;
+    --border: var(--hair);
+    --card-border: var(--hair);
+
+    /* part-heading colours, confirmed 17 August 2026 */
+    --part1: #1a9ea3;   /* cyan */
+    --part2: #6584c4;   /* periwinkle */
+    --part3: #ff8855;   /* sitewide orange */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  h1, h2, h3 { font-family: 'Lora', serif; font-weight: 600; line-height: 1.25; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- SITE HEADER ---------- */
+  header.site-header { padding: 26px 0; border-bottom: 1px solid var(--hair); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .logo { font-family: 'Lora', serif; font-weight: 600; font-size: 1.35rem; letter-spacing: .01em; }
+  .logo span { color: var(--orange); }
+  nav.main-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 30px; font-size: 0.92rem; font-weight: 500; }
+nav.main-nav li { flex-shrink: 0; }
+  nav.main-nav a { color: var(--ink-soft); text-decoration: none; transition: color .15s; }
+  nav.main-nav a:hover { color: var(--ink); }
+
+  /* ---------- TOOL HERO ---------- */
+  .tool-hero { position: relative; padding: 56px 0 40px; overflow: hidden; }
+  .tool-hero .wrap { position: relative; }
+  .hero-splash {
+    position: absolute; z-index: 0; pointer-events: none;
+    width: clamp(64px, 12.7vw, 150px); height: clamp(64px, 12.7vw, 150px);
+    top: clamp(4px, 1vw, 10px); right: clamp(16px, 12.7vw, 150px);
+    display: flex; align-items: flex-start; justify-content: flex-end;
+  }
+  .hero-splash img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+  .hero-copy { position: relative; z-index: 1; max-width: 720px; }
+  .tool-badge {
+    font-size: .8rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 18px;
+  }
+  .tool-hero h1 {
+    font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .tool-hero h1 .now { color: var(--orange); }
+  .hero-lede {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 1.08rem; line-height: 1.7; color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  /* ---------- Tool controls (notice / downloads / progress) — narrow column ---------- */
+  .tool-controls { max-width: 720px; margin: 0 auto 48px; }
+
+  .notice {
+    background: var(--white);
+    border: 1px solid var(--hair);
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    margin-bottom: 1.75rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+
+  .download-row { display: flex; gap: 0.75rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 600;
+    padding: 0.65rem 1.15rem; border-radius: 3px; border: none; cursor: pointer;
+    transition: all 0.2s ease; text-decoration: none; line-height: 1;
+  }
+  .btn-outline { background: var(--white); color: var(--teal-dk); border: 1.5px solid var(--teal); }
+  .btn-outline:hover { background: var(--teal); color: #ffffff; }
+  .btn-primary { background: var(--orange); color: var(--white); border: 1.5px solid var(--orange); }
+  .btn-primary:hover { background: #e6713f; border-color: #e6713f; }
+  .btn-primary:disabled { background: #d7d8db; border-color: #d7d8db; cursor: not-allowed; opacity: 0.7; }
+  .btn svg { flex-shrink: 0; }
+
+  .progress-wrap { margin-bottom: 0; }
+  .progress-bar-track { height: 4px; background: var(--card-border); border-radius: 2px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: var(--teal); border-radius: 2px; transition: width 0.4s ease; }
+  .progress-text { font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; color: var(--text-light); margin-top: 0.4rem; }
+
+  /* ---------- Part sections — confirmed layout, 17 August 2026 ---------- */
+  .part-section { padding: 0 0 68px; }
+  .part-section:last-child { padding-bottom: 20px; }
+
+  .part-heading { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--hair); }
+  .part-section.p1 .part-heading { color: var(--part1); }
+  .part-section.p2 .part-heading { color: var(--part2); }
+  .part-section.p3 .part-heading { color: var(--part3); }
+
+  .questions-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: start; }
+
+  .question-block { }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 0.5rem; text-transform: uppercase; transition: color .15s ease; }
+  .question-block.answered .question-number { color: var(--teal-dk); }
+  .question-text { font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 1.05rem; margin-bottom: 1.1rem; }
+
+  .options { display: flex; flex-direction: column; gap: 0; }
+  /* A = Maintain & Prevent (teal), B = Health Navigator (periwinkle), C = Reinvent & Renew (burgundy) —
+     same path-colour mapping used everywhere else on the site, darkened variants used here so the
+     colour stays legible both as small text and as a solid fill behind white text */
+  .options .option-row:nth-child(1) { --accent: var(--teal-dk); }
+  .options .option-row:nth-child(2) { --accent: var(--periwinkle-dk); }
+  .options .option-row:nth-child(3) { --accent: var(--burgundy); }
+  .option-row {
+    display: flex; align-items: baseline; gap: 0.6rem; padding: 0.75rem 0;
+    border-bottom: 1px solid var(--hair); cursor: pointer; background: none; border-left: none; border-right: none; border-top: none;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.92rem; color: var(--ink); width: 100%; text-align: left; transition: padding-left .15s ease;
+  }
+  .option-row:last-child { border-bottom: none; }
+  .option-row:hover { padding-left: 0.4rem; }
+  .option-letter { font-weight: 700; flex-shrink: 0; color: var(--accent); }
+  .option-row.selected { background: var(--accent); color: #fff; padding: 0.75rem 0.85rem; border-radius: 3px; border-bottom-color: transparent; }
+  .option-row.selected .option-letter { color: #fff; }
+
+  /* ---------- Result ---------- */
+  .result-card {
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .result-card.visible { display: block; }
+  /* background colour is set per-result by JS, to match the dominant path's own colour — deep-teal is
+     just the fallback shown before a result exists (it never actually stays visible with this bg) */
+  .result-header { background: var(--deep-teal); padding: 1.5rem 1.5rem 1.2rem; }
+  .result-header-label {
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+    color: rgba(255,255,255,0.75); margin-bottom: 0.4rem;
+  }
+  .result-path-name { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--white); font-style: italic; font-weight: 600; }
+  .result-body { padding: 1.5rem; }
+  .result-description { font-size: 1rem; color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+  .result-mix {
+    background: var(--white); border: 1px solid var(--hair); border-radius: 4px; padding: 1rem 1.1rem;
+    font-family: 'Lora', serif; font-style: italic; font-size: 0.98rem; color: var(--text-light);
+    margin-bottom: 1.4rem; line-height: 1.6;
+  }
+
+  .tally-row { display: flex; gap: 0.75rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+  /* same path-colour mapping and darkened tokens as the answer options, for the same contrast reasons */
+  .tally-row .tally-pill:nth-child(1) { --accent: var(--teal-dk); }
+  .tally-row .tally-pill:nth-child(2) { --accent: var(--periwinkle-dk); }
+  .tally-row .tally-pill:nth-child(3) { --accent: var(--burgundy); }
+  .tally-pill {
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.85rem;
+    border-radius: 20px; border: 1.5px solid var(--accent); color: var(--accent);
+  }
+  .tally-pill.dominant { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 700; }
+
+  .book-promo { border-top: 1px solid var(--card-border); padding-top: 1.25rem; margin-top: 0.5rem; }
+  .book-promo-label { font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--teal-dk); margin-bottom: 0.6rem; }
+  .book-title { font-family: 'Lora', serif; font-size: 1rem; font-style: italic; color: var(--text); margin-bottom: 0.25rem; }
+  .book-sub { font-family: 'Source Sans 3', sans-serif; font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
+  .book-sub a { color: var(--teal-dk); font-weight: 600; text-decoration: underline; }
+
+  .reset-link {
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.85rem; color: var(--text-light);
+    background: none; border: none; cursor: pointer; padding: 0;
+    text-decoration: underline; text-decoration-style: dotted; margin-top: 1rem; display: inline-block;
+  }
+  .reset-link:hover { color: var(--teal-dk); }
+
+  .tool-footnote {
+    text-align: center; padding: 2rem 1.5rem; font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem; color: var(--text-light); border-top: 1px solid var(--card-border);
+  }
+  .tool-footnote a { color: var(--teal-dk); text-decoration: none; }
+  .tool-footnote a:hover { text-decoration: underline; }
+
+  /* ---------- SITE FOOTER ---------- */
+  footer.site-footer { background: var(--deep-teal); color: #fff; padding: 56px 0 34px; }
+  footer.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+  footer.site-footer .foot-logo { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 10px; }
+  footer.site-footer .foot-logo span { color: var(--orange); }
+  footer.site-footer nav ul { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 30px; font-size: .92rem; max-width: 500px; }
+  footer.site-footer nav a { color: #d7d8db; text-decoration: none; }
+  footer.site-footer nav a:hover { color: #fff; }
+  .foot-bottom { margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: .76rem; color: #a9c6cc; text-align: center; }
+  .foot-bottom a { color: #a9c6cc; text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .questions-row { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  @media (max-width: 800px) {
+    .hero-splash {
+      position: static; width: 56px; height: 56px; margin-bottom: 16px;
+      display: flex; align-items: flex-start; justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    nav.main-nav ul { gap: 10px 16px; font-size: .85rem; }
+    .download-row { flex-direction: column; }
+    .btn { justify-content: center; }
+    .result-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+
+  @media print {
+    header.site-header, .download-row, footer.site-footer, .tool-footnote { display: none; }
+    .question-block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="tool-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/k.png" alt=""></div>
+<div class="hero-copy">
+<div class="tool-badge">Quick check-in</div>
+<h1>Where Am I <span class="now">Now?</span></h1>
+<p class="hero-lede">A short reflection to help you find your starting point.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+
+  <div class="tool-controls">
+    <div class="notice">
+      Complete this online or download a blank copy to fill in by hand. Your answers aren't saved — download your results at the end to keep them.
+    </div>
+
+    <div class="download-row">
+      <button class="btn btn-outline" onclick="downloadBlank()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download blank to fill in by hand
+      </button>
+      <button class="btn btn-primary" id="downloadResultsBtn" onclick="downloadResults()" disabled>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download your results
+      </button>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-text" id="progressText">0 of 9 questions answered</div>
+    </div>
+  </div>
+
+  <div class="part-section p1">
+    <h2 class="part-heading">How life is for you now</h2>
+    <div class="questions-row">
+
+      <div class="question-block" id="card-1">
+        <div class="question-number">Question 1</div>
+        <div class="question-text">Which of the following is most like you?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(1,'A')"><span class="option-letter">A</span><span>Life's working reasonably well, and I want to keep it that way.</span></button>
+          <button class="option-row" onclick="select(1,'B')"><span class="option-letter">B</span><span>Something significant has changed, or is changing, and I'm finding my feet.</span></button>
+          <button class="option-row" onclick="select(1,'C')"><span class="option-letter">C</span><span>Life feels smaller or less satisfying than it could be, and I'm not quite sure why.</span></button>
+        </div>
+      </div>
+
+      <div class="question-block" id="card-2">
+        <div class="question-number">Question 2</div>
+        <div class="question-text">How would you describe your typical day?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(2,'A')"><span class="option-letter">A</span><span>There's a reasonable structure and sense of direction to most of my days.</span></button>
+          <button class="option-row" onclick="select(2,'B')"><span class="option-letter">B</span><span>My days are shaped largely by health considerations, mine or someone close to me.</span></button>
+          <button class="option-row" onclick="select(2,'C')"><span class="option-letter">C</span><span>Most days pass without a clear sense of purpose or forward momentum.</span></button>
+        </div>
+      </div>
+
+      <div class="question-block" id="card-3">
+        <div class="question-number">Question 3</div>
+        <div class="question-text">If a close friend asked how things really are right now, which of these would be closest to your answer?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(3,'A')"><span class="option-letter">A</span><span>Mostly fine. There are things to sort, but nothing overwhelming.</span></button>
+          <button class="option-row" onclick="select(3,'B')"><span class="option-letter">B</span><span>Complicated. Health is taking up a lot of space right now.</span></button>
+          <button class="option-row" onclick="select(3,'C')"><span class="option-letter">C</span><span>Honestly, I'm not entirely sure who I am or what I want at this point.</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="part-section p2">
+    <h2 class="part-heading">Where the energy is going</h2>
+    <div class="questions-row">
+
+      <div class="question-block" id="card-4">
+        <div class="question-number">Question 4</div>
+        <div class="question-text">Where does most of your time and attention go on an average day?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(4,'A')"><span class="option-letter">A</span><span>Across a reasonable mix of things: relationships, activities, keeping on top of life.</span></button>
+          <button class="option-row" onclick="select(4,'B')"><span class="option-letter">B</span><span>Managing health, mine or someone close to me.</span></button>
+          <button class="option-row" onclick="select(4,'C')"><span class="option-letter">C</span><span>Trying to work out what comes next, or getting through each day without a clear direction.</span></button>
+        </div>
+      </div>
+
+      <div class="question-block" id="card-5">
+        <div class="question-number">Question 5</div>
+        <div class="question-text">When something goes wrong or doesn't go to plan, which of these best describes your usual response?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(5,'A')"><span class="option-letter">A</span><span>I notice it, adjust where I can, and move on fairly quickly.</span></button>
+          <button class="option-row" onclick="select(5,'B')"><span class="option-letter">B</span><span>I consider what it means for my health situation or capacity.</span></button>
+          <button class="option-row" onclick="select(5,'C')"><span class="option-letter">C</span><span>I wonder whether this is simply how things are going to be from now on.</span></button>
+        </div>
+      </div>
+
+      <div class="question-block" id="card-6">
+        <div class="question-number">Question 6</div>
+        <div class="question-text">Think about the last time you had a clear sense of purpose and direction. How long ago was that?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(6,'A')"><span class="option-letter">A</span><span>Recently, within the last few weeks.</span></button>
+          <button class="option-row" onclick="select(6,'B')"><span class="option-letter">B</span><span>It varies, depending on my health or that of someone I care for.</span></button>
+          <button class="option-row" onclick="select(6,'C')"><span class="option-letter">C</span><span>It's been a while. Longer than I'd like to admit.</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="part-section p3">
+    <h2 class="part-heading">What you most need right now</h2>
+    <div class="questions-row">
+
+      <div class="question-block" id="card-7">
+        <div class="question-number">Question 7</div>
+        <div class="question-text">If you could make one change to your life in the next three months, which of these areas would it be?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(7,'A')"><span class="option-letter">A</span><span>Maintaining and building on something that's already working.</span></button>
+          <button class="option-row" onclick="select(7,'B')"><span class="option-letter">B</span><span>Adapting to a health reality in a way that's more true to who I am.</span></button>
+          <button class="option-row" onclick="select(7,'C')"><span class="option-letter">C</span><span>Finding a clearer sense of direction or purpose.</span></button>
+        </div>
+      </div>
+
+      <div class="question-block" id="card-8">
+        <div class="question-number">Question 8</div>
+        <div class="question-text">When you consider the idea of making a significant change, which of these is closest to your response?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(8,'A')"><span class="option-letter">A</span><span>It doesn't quite apply. I'm more in a maintenance or refinement phase.</span></button>
+          <button class="option-row" onclick="select(8,'B')"><span class="option-letter">B</span><span>A significant change feels out of reach, given my current health or energy levels.</span></button>
+          <button class="option-row" onclick="select(8,'C')"><span class="option-letter">C</span><span>It's both daunting and exactly what I know I need.</span></button>
+        </div>
+      </div>
+
+      <div class="question-block" id="card-9">
+        <div class="question-number">Question 9</div>
+        <div class="question-text">When you think about the next chapter of your life, which of these is closest to where you are?</div>
+        <div class="options">
+          <button class="option-row" onclick="select(9,'A')"><span class="option-letter">A</span><span>I'm reasonably content with where things are and I'd like to build on that from here.</span></button>
+          <button class="option-row" onclick="select(9,'B')"><span class="option-letter">B</span><span>I have a sense of what I'd like but my health or energy means I need to be thoughtful about what's realistic.</span></button>
+          <button class="option-row" onclick="select(9,'C')"><span class="option-letter">C</span><span>I know there is more available to me and I'm ready to find out what that looks like.</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tool-controls">
+    <div class="result-card" id="resultCard">
+      <div class="result-header">
+        <div class="result-header-label">Your starting point</div>
+        <div class="result-path-name" id="resultPathName"></div>
+      </div>
+      <div class="result-body">
+        <div class="tally-row" id="tallyRow"></div>
+        <div class="result-mix" id="resultMix" style="display:none"></div>
+        <div class="result-description" id="resultDescription"></div>
+        <div class="book-promo">
+          <div class="book-promo-label">Going deeper</div>
+          <div class="book-title">Not Done Yet</div>
+          <div class="book-sub">Life After 60: Ten Themes to Create What's Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: <a href="https://mybook.to/NotDoneYet" target="_blank" rel="noopener">mybook.to/NotDoneYet</a></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="reset-link" id="resetBtn" onclick="resetAll()" style="display:none">Start again</button>
+  </div>
+
+</div>
+
+<div class="tool-footnote">
+  <p>Questions about this tool? <a href="mailto:ali@aliheathfield.com?subject=Where%20Am%20I%20Now%20Tool%20Question">ali@aliheathfield.com</a></p>
+</div>
+
+<footer class="site-footer">
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+<script>
+  const answers = {};
+
+  const paths = {
+    A: {
+      name: 'The Maintain and Prevent Path',
+      description: 'Life is working. Your work is to pay attention, catch things early, and appreciate what you have without taking it for granted. Small, consistent adjustments keep things steady. This isn\'t a lesser path. It\'s a wise one.'
+    },
+    B: {
+      name: 'The Health Navigator Path',
+      description: 'Health is the loudest theme in your life right now. Your work is to adapt with awareness rather than simply endure, and to protect your sense of self while everything else adjusts around it. You\'re more than your health situation, and that distinction matters enormously.'
+    },
+    C: {
+      name: 'The Reinvent and Renew Path',
+      description: 'Something significant has shifted. Your work isn\'t maintenance or adaptation but genuine rebuilding, which is harder, and also where some of the most surprising discoveries happen. The uncertainty you\'re sitting with isn\'t a problem to be solved. It\'s the beginning of something.'
+    }
+  };
+
+  const questions = [
+    { q: 1, text: 'Which of the following is most like you?' },
+    { q: 2, text: 'How would you describe your typical day?' },
+    { q: 3, text: 'If a close friend asked how things really are right now, which of these would be closest to your answer?' },
+    { q: 4, text: 'Where does most of your time and attention go on an average day?' },
+    { q: 5, text: 'When something goes wrong or doesn\'t go to plan, which of these best describes your usual response?' },
+    { q: 6, text: 'Think about the last time you had a clear sense of purpose and direction. How long ago was that?' },
+    { q: 7, text: 'If you could make one change to your life in the next three months, which of these areas would it be?' },
+    { q: 8, text: 'When you consider the idea of making a significant change, which of these is closest to your response?' },
+    { q: 9, text: 'When you think about the next chapter of your life, which of these is closest to where you are?' }
+  ];
+
+  const optionTexts = {
+    1: { A: 'Life\'s working reasonably well, and I want to keep it that way.', B: 'Something significant has changed, or is changing, and I\'m finding my feet.', C: 'Life feels smaller or less satisfying than it could be, and I\'m not quite sure why.' },
+    2: { A: 'There\'s a reasonable structure and sense of direction to most of my days.', B: 'My days are shaped largely by health considerations, mine or someone close to me.', C: 'Most days pass without a clear sense of purpose or forward momentum.' },
+    3: { A: 'Mostly fine. There are things to sort, but nothing overwhelming.', B: 'Complicated. Health is taking up a lot of space right now.', C: 'Honestly, I\'m not entirely sure who I am or what I want at this point.' },
+    4: { A: 'Across a reasonable mix of things: relationships, activities, keeping on top of life.', B: 'Managing health, mine or someone close to me.', C: 'Trying to work out what comes next, or getting through each day without a clear direction.' },
+    5: { A: 'I notice it, adjust where I can, and move on fairly quickly.', B: 'I consider what it means for my health situation or capacity.', C: 'I wonder whether this is simply how things are going to be from now on.' },
+    6: { A: 'Recently, within the last few weeks.', B: 'It varies, depending on my health or that of someone I care for.', C: 'It\'s been a while. Longer than I\'d like to admit.' },
+    7: { A: 'Maintaining and building on something that\'s already working.', B: 'Adapting to a health reality in a way that\'s more true to who I am.', C: 'Finding a clearer sense of direction or purpose.' },
+    8: { A: 'It doesn\'t quite apply. I\'m more in a maintenance or refinement phase.', B: 'A significant change feels out of reach, given my current health or energy levels.', C: 'It\'s both daunting and exactly what I know I need.' },
+    9: { A: 'I\'m reasonably content with where things are and I\'d like to build on that from here.', B: 'I have a sense of what I\'d like but my health or energy means I need to be thoughtful about what\'s realistic.', C: 'I know there is more available to me and I\'m ready to find out what that looks like.' }
+  };
+
+  function select(qNum, letter) {
+    answers[qNum] = letter;
+
+    const card = document.getElementById('card-' + qNum);
+    card.classList.add('answered');
+    const btns = card.querySelectorAll('.option-row');
+    btns.forEach(btn => {
+      btn.classList.remove('selected');
+      if (btn.querySelector('.option-letter').textContent === letter) {
+        btn.classList.add('selected');
+      }
+    });
+
+    updateProgress();
+
+    if (Object.keys(answers).length === 9) {
+      showResult();
+    }
+  }
+
+  function updateProgress() {
+    const count = Object.keys(answers).length;
+    const pct = (count / 9) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = count + ' of 9 questions answered';
+  }
+
+  // Same path-colour mapping as the CSS (teal-dk / periwinkle-dk / burgundy) — kept here as hex
+  // since the result header's background is set per-result via JS, not a fixed CSS rule.
+  const pathAccentHex = { A: '#1d7a8a', B: '#4f6ab0', C: '#8f4046' };
+
+  function showResult() {
+    const tally = { A: 0, B: 0, C: 0 };
+    for (let k in answers) tally[answers[k]]++;
+
+    const dominant = Object.keys(tally).reduce((a, b) => tally[a] >= tally[b] ? a : b);
+
+    document.querySelector('#resultCard .result-header').style.background = pathAccentHex[dominant];
+
+    const tallyRow = document.getElementById('tallyRow');
+    tallyRow.innerHTML = '';
+    ['A','B','C'].forEach(l => {
+      const pill = document.createElement('div');
+      pill.className = 'tally-pill' + (l === dominant ? ' dominant' : '');
+      const labels = { A: 'Maintain and Prevent', B: 'Health Navigator', C: 'Reinvent and Renew' };
+      pill.textContent = labels[l] + ': ' + tally[l];
+      tallyRow.appendChild(pill);
+    });
+
+    const mixEl = document.getElementById('resultMix');
+    mixEl.style.display = 'block';
+    mixEl.textContent = 'Most people are navigating more than one path at the same time. Notice which letter appeared most often and start there. The paths aren\'t rigid categories. They\'re guides.';
+
+    document.getElementById('resultPathName').textContent = paths[dominant].name;
+    document.getElementById('resultDescription').textContent = paths[dominant].description;
+
+    const resultCard = document.getElementById('resultCard');
+    resultCard.classList.add('visible');
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    document.getElementById('downloadResultsBtn').disabled = false;
+    document.getElementById('resetBtn').style.display = 'inline-block';
+  }
+
+  function resetAll() {
+    for (let k in answers) delete answers[k];
+    document.querySelectorAll('.option-row').forEach(b => b.classList.remove('selected'));
+    document.querySelectorAll('.question-block').forEach(c => c.classList.remove('answered'));
+    document.getElementById('resultCard').classList.remove('visible');
+    document.querySelector('#resultCard .result-header').style.background = '';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressText').textContent = '0 of 9 questions answered';
+    document.getElementById('downloadResultsBtn').disabled = true;
+    document.getElementById('resetBtn').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── PDF: Blank printable ──────────────────────────────────────────────
+  function downloadBlank() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+    const deepTeal = [6, 81, 101];
+    const teal = [43, 155, 175];
+    const tealPale = [230, 244, 246];
+    const dark = [38, 40, 44];
+    const mid = [90, 93, 99];
+    const orange = [255, 136, 85];
+    // A = Maintain & Prevent (teal-dk), B = Health Navigator (periwinkle-dk), C = Reinvent & Renew (burgundy) —
+    // same path-colour mapping as the webpage (see pathAccentHex / the .options CSS above).
+    const pathAccent = { A: [29, 122, 138], B: [79, 106, 176], C: [143, 64, 70] };
+    const pathPale = { A: [230, 244, 246], B: [233, 236, 245], C: [243, 231, 232] };
+
+    const W = 210, margin = 18, contentW = W - margin * 2;
+    let y = 0;
+
+    doc.setFillColor(...deepTeal);
+    doc.rect(0, 0, W, 36, 'F');
+    doc.setFont('times', 'italic');
+    doc.setFontSize(22);
+    doc.setTextColor(255, 255, 255);
+    doc.text('Where Am I Now?', W / 2, 18, { align: 'center' });
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(180, 220, 226);
+    doc.text('A short reflection to help you find your starting point', W / 2, 26, { align: 'center' });
+    doc.text('Ali Heathfield  ·  aliheathfield.com/whereaminow', W / 2, 32, { align: 'center' });
+
+    y = 44;
+
+    doc.setFillColor(...tealPale);
+    doc.roundedRect(margin, y, contentW, 14, 2, 2, 'F');
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...dark);
+    const instrText = 'Work through the questions below and circle or note the letter that best describes your situation. There are no right or wrong answers. At the end, you\'ll find a guide to reading your responses.';
+    const instrLines = doc.splitTextToSize(instrText, contentW - 8);
+    doc.text(instrLines, margin + 4, y + 5.5);
+    y += 20;
+
+    const parts = [
+      { label: 'Part One: How life is for you now', qs: [1,2,3] },
+      { label: 'Part Two: Where the energy is going', qs: [4,5,6] },
+      { label: 'Part Three: What you most need right now', qs: [7,8,9] }
+    ];
+
+    const allQ = [
+      { text: 'Which of the following is most like you?', opts: { A: 'Life\'s working reasonably well, and I want to keep it that way.', B: 'Something significant has changed, or is changing, and I\'m finding my feet.', C: 'Life feels smaller or less satisfying than it could be, and I\'m not quite sure why.' } },
+      { text: 'How would you describe your typical day?', opts: { A: 'There\'s a reasonable structure and sense of direction to most of my days.', B: 'My days are shaped largely by health considerations, mine or someone close to me.', C: 'Most days pass without a clear sense of purpose or forward momentum.' } },
+      { text: 'If a close friend asked how things really are right now, which of these would be closest to your answer?', opts: { A: 'Mostly fine. There are things to sort, but nothing overwhelming.', B: 'Complicated. Health is taking up a lot of space right now.', C: 'Honestly, I\'m not entirely sure who I am or what I want at this point.' } },
+      { text: 'Where does most of your time and attention go on an average day?', opts: { A: 'Across a reasonable mix of things: relationships, activities, keeping on top of life.', B: 'Managing health, mine or someone close to me.', C: 'Trying to work out what comes next, or getting through each day without a clear direction.' } },
+      { text: 'When something goes wrong or doesn\'t go to plan, which of these best describes your usual response?', opts: { A: 'I notice it, adjust where I can, and move on fairly quickly.', B: 'I consider what it means for my health situation or capacity.', C: 'I wonder whether this is simply how things are going to be from now on.' } },
+      { text: 'Think about the last time you had a clear sense of purpose and direction. How long ago was that?', opts: { A: 'Recently, within the last few weeks.', B: 'It varies, depending on my health or that of someone I care for.', C: 'It\'s been a while. Longer than I\'d like to admit.' } },
+      { text: 'If you could make one change to your life in the next three months, which of these areas would it be?', opts: { A: 'Maintaining and building on something that\'s already working.', B: 'Adapting to a health reality in a way that\'s more true to who I am.', C: 'Finding a clearer sense of direction or purpose.' } },
+      { text: 'When you consider the idea of making a significant change, which of these is closest to your response?', opts: { A: 'It doesn\'t quite apply. I\'m more in a maintenance or refinement phase.', B: 'A significant change feels out of reach, given my current health or energy levels.', C: 'It\'s both daunting and exactly what I know I need.' } },
+      { text: 'When you think about the next chapter of your life, which of these is closest to where you are?', opts: { A: 'I\'m reasonably content with where things are and I\'d like to build on that from here.', B: 'I have a sense of what I\'d like but my health or energy means I need to be thoughtful about what\'s realistic.', C: 'I know there is more available to me and I\'m ready to find out what that looks like.' } }
+    ];
+
+    let qIdx = 0;
+    parts.forEach((part, partIdx) => {
+      if (partIdx === 2) {
+        doc.addPage();
+        y = 18;
+      }
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8);
+      doc.setTextColor(...mid);
+      doc.text(part.label.toUpperCase(), margin, y);
+      doc.setDrawColor(...teal);
+      doc.setLineWidth(0.4);
+      doc.line(margin, y + 1, margin + contentW, y + 1);
+      y += 7;
+
+      part.qs.forEach((qNum) => {
+        const q = allQ[qIdx];
+
+        if (y > 245) {
+          doc.addPage();
+          y = 18;
+        }
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.setTextColor(...orange);
+        doc.text(qNum + '.', margin, y);
+
+        const qLines = doc.splitTextToSize(q.text, contentW - 6);
+        doc.setFont('times', 'normal');
+        doc.setFontSize(9.5);
+        doc.setTextColor(...dark);
+        doc.text(qLines, margin + 5, y);
+        y += qLines.length * 4.8 + 2;
+
+        ['A','B','C'].forEach(letter => {
+          if (y > 270) { doc.addPage(); y = 18; }
+          doc.setDrawColor(...pathAccent[letter]);
+          doc.setLineWidth(0.5);
+          doc.circle(margin + 2, y - 1.2, 2.5, 'S');
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(7);
+          doc.setTextColor(...pathAccent[letter]);
+          doc.text(letter, margin + 2, y - 0.2, { align: 'center' });
+
+          const optLines = doc.splitTextToSize(q.opts[letter], contentW - 12);
+          doc.setFont('times', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(...dark);
+          doc.text(optLines, margin + 7, y);
+          y += optLines.length * 4.5 + 2;
+        });
+
+        y += 4;
+        qIdx++;
+      });
+
+      y += 4;
+    });
+
+    doc.addPage();
+    y = 18;
+
+    doc.setFillColor(...deepTeal);
+    doc.rect(0, 0, W, 28, 'F');
+    doc.setFont('times', 'italic');
+    doc.setFontSize(18);
+    doc.setTextColor(255,255,255);
+    doc.text('Reading Your Responses', W / 2, 16, { align: 'center' });
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(180, 220, 226);
+    doc.text('Look back at your answers. Which letter appears most often? Read the description below.', W / 2, 24, { align: 'center' });
+
+    y = 36;
+
+    const resultBlocks = [
+      { letter: 'A', title: 'Mostly A responses: The Maintain and Prevent Path', text: 'Life is working. Your work is to pay attention, catch things early, and appreciate what you have without taking it for granted. Small, consistent adjustments keep things steady. This isn\'t a lesser path. It\'s a wise one.' },
+      { letter: 'B', title: 'Mostly B responses: The Health Navigator Path', text: 'Health is the loudest theme in your life right now. Your work is to adapt with awareness rather than simply endure, and to protect your sense of self while everything else adjusts around it. You\'re more than your health situation, and that distinction matters enormously.' },
+      { letter: 'C', title: 'Mostly C responses: The Reinvent and Renew Path', text: 'Something significant has shifted. Your work isn\'t maintenance or adaptation but genuine rebuilding, which is harder, and also where some of the most surprising discoveries happen. The uncertainty you\'re sitting with isn\'t a problem to be solved. It\'s the beginning of something.' }
+    ];
+
+    resultBlocks.forEach((block, idx) => {
+      doc.setFillColor(...pathPale[block.letter]);
+      const titleLines = doc.splitTextToSize(block.title, contentW - 8);
+      const textLines = doc.splitTextToSize(block.text, contentW - 8);
+      const blockH = (titleLines.length * 5) + (textLines.length * 5.2) + 12;
+      doc.roundedRect(margin, y, contentW, blockH, 2, 2, 'F');
+      const borderCol = pathAccent[block.letter];
+      doc.setDrawColor(...borderCol);
+      doc.setLineWidth(0.8);
+      doc.line(margin, y, margin, y + blockH);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(...borderCol);
+      doc.text(titleLines, margin + 5, y + 6);
+      doc.setFont('times', 'normal');
+      doc.setFontSize(9.5);
+      doc.setTextColor(...dark);
+      doc.text(textLines, margin + 5, y + 6 + titleLines.length * 5 + 2);
+      y += blockH + 6;
+    });
+
+    const mixLines = doc.splitTextToSize('A mix of all three: Most people are navigating more than one path at the same time. Notice which letter appeared most often and start there. The paths aren\'t rigid categories. They\'re guides.', contentW);
+    doc.setFont('times', 'italic');
+    doc.setFontSize(9);
+    doc.setTextColor(...mid);
+    doc.text(mixLines, margin, y);
+    y += mixLines.length * 5 + 8;
+
+    const closingLines = doc.splitTextToSize('Knowing which path you\'re on isn\'t the destination. It\'s the beginning of a more honest conversation with yourself about what this chapter of your life actually requires and how to shape how to live life well from here.', contentW);
+    doc.setFont('times', 'normal');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...dark);
+    doc.text(closingLines, margin, y);
+    y += closingLines.length * 5.2 + 10;
+
+    doc.setFillColor(255, 241, 234);
+    doc.roundedRect(margin, y, contentW, 28, 2, 2, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...orange);
+    doc.text('GOING DEEPER', margin + 4, y + 6);
+    doc.setFont('times', 'italic');
+    doc.setFontSize(10);
+    doc.setTextColor(...dark);
+    doc.text('Not Done Yet', margin + 4, y + 12);
+    const bookLines = doc.splitTextToSize('Life After 60: Ten Themes to Create What\'s Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: mybook.to/NotDoneYet', contentW - 8);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.text(bookLines, margin + 4, y + 18);
+    y += 36;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(...mid);
+    doc.text('aliheathfield.com/whereaminow  ·  ali@aliheathfield.com', W / 2, 287, { align: 'center' });
+
+    doc.save('Where-Am-I-Now.pdf');
+  }
+
+  // ── PDF: Results ──────────────────────────────────────────────────────
+  function downloadResults() {
+    if (Object.keys(answers).length < 9) return;
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+    const deepTeal = [6, 81, 101];
+    const teal = [43, 155, 175];
+    const tealPale = [230, 244, 246];
+    const dark = [38, 40, 44];
+    const mid = [90, 93, 99];
+    const orange = [255, 136, 85];
+    // A = Maintain & Prevent (teal-dk), B = Health Navigator (periwinkle-dk), C = Reinvent & Renew (burgundy) —
+    // same path-colour mapping as the webpage (see pathAccentHex / the .options and .tally-pill CSS above).
+    const pathAccent = { A: [29, 122, 138], B: [79, 106, 176], C: [143, 64, 70] };
+    const pathPale = { A: [230, 244, 246], B: [233, 236, 245], C: [243, 231, 232] };
+    const W = 210, margin = 18, contentW = W - margin * 2;
+
+    const tally = { A: 0, B: 0, C: 0 };
+    for (let k in answers) tally[answers[k]]++;
+    const dominant = Object.keys(tally).reduce((a, b) => tally[a] >= tally[b] ? a : b);
+    const path = paths[dominant];
+
+    doc.setFillColor(...deepTeal);
+    doc.rect(0, 0, W, 36, 'F');
+    doc.setFont('times', 'italic');
+    doc.setFontSize(22);
+    doc.setTextColor(255, 255, 255);
+    doc.text('Where Am I Now?', W / 2, 15, { align: 'center' });
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(180, 220, 226);
+    doc.text('Your results  ·  aliheathfield.com', W / 2, 24, { align: 'center' });
+    doc.text('Ali Heathfield', W / 2, 31, { align: 'center' });
+
+    let y = 44;
+
+    doc.setFillColor(...pathPale[dominant]);
+    doc.roundedRect(margin, y, contentW, 32, 3, 3, 'F');
+    doc.setDrawColor(...pathAccent[dominant]);
+    doc.setLineWidth(1.2);
+    doc.line(margin, y, margin, y + 32);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(7.5);
+    doc.setTextColor(...pathAccent[dominant]);
+    doc.text('YOUR STARTING POINT', margin + 5, y + 7);
+
+    doc.setFont('times', 'italic');
+    doc.setFontSize(14);
+    doc.setTextColor(...dark);
+    doc.text(path.name, margin + 5, y + 14);
+
+    const descLines = doc.splitTextToSize(path.description, contentW - 10);
+    doc.setFont('times', 'normal');
+    doc.setFontSize(9);
+    doc.text(descLines, margin + 5, y + 21);
+    y += 32 + 10;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...mid);
+    doc.text('YOUR RESPONSES AT A GLANCE', margin, y);
+    y += 5;
+
+    const pathLabels = { A: 'Maintain and Prevent', B: 'Health Navigator', C: 'Reinvent and Renew' };
+    ['A','B','C'].forEach(l => {
+      const isDom = l === dominant;
+      if (isDom) {
+        doc.setFillColor(...pathPale[l]);
+        doc.roundedRect(margin, y - 3, contentW, 8, 1, 1, 'F');
+        doc.setDrawColor(...pathAccent[l]);
+        doc.setLineWidth(0.3);
+        doc.roundedRect(margin, y - 3, contentW, 8, 1, 1, 'S');
+      }
+      doc.setFont('helvetica', isDom ? 'bold' : 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(...pathAccent[l]);
+      doc.text(l, margin + 4, y + 2);
+      const letterGap = doc.getTextWidth(l + '  ');
+      doc.setTextColor(...dark);
+      doc.text(pathLabels[l], margin + 4 + letterGap, y + 2);
+      doc.text(tally[l] + ' response' + (tally[l] !== 1 ? 's' : ''), margin + contentW - 4, y + 2, { align: 'right' });
+      y += 10;
+    });
+
+    y += 6;
+
+    doc.setDrawColor(...teal);
+    doc.setLineWidth(0.3);
+    doc.line(margin, y, margin + contentW, y);
+    y += 6;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...mid);
+    doc.text('YOUR ANSWERS', margin, y);
+    y += 7;
+
+    const partStarts = { 1: 'Part One: How life is for you now', 4: 'Part Two: Where the energy is going', 7: 'Part Three: What you most need right now' };
+
+    for (let qNum = 1; qNum <= 9; qNum++) {
+      if (y > 270) { doc.addPage(); y = 18; }
+
+      if (partStarts[qNum]) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        doc.setTextColor(...mid);
+        doc.text(partStarts[qNum].toUpperCase(), margin, y);
+        y += 5;
+      }
+
+      const letter = answers[qNum];
+      const qText = questions[qNum - 1].text;
+      const ansText = optionTexts[qNum][letter];
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(140, 143, 148);
+      doc.text(qNum + '.', margin, y);
+
+      const qLines = doc.splitTextToSize(qText, contentW - 6);
+      doc.setFont('times', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(...dark);
+      doc.text(qLines, margin + 5, y);
+      y += qLines.length * 4.5 + 2;
+
+      doc.setFillColor(...pathPale[letter]);
+      const ansLines = doc.splitTextToSize(letter + '  ' + ansText, contentW - 10);
+      const ansH = ansLines.length * 4.5 + 6;
+      doc.roundedRect(margin + 4, y - 3, contentW - 4, ansH, 1, 1, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(...pathAccent[letter]);
+      doc.text(letter, margin + 7, y + 1.5);
+      doc.setFont('times', 'normal');
+      doc.setTextColor(...dark);
+      doc.text(doc.splitTextToSize(ansText, contentW - 16), margin + 12, y + 1.5);
+      y += ansH + 4;
+    }
+
+    y += 6;
+
+    if (y > 255) { doc.addPage(); y = 18; }
+    doc.setFillColor(255, 241, 234);
+    doc.roundedRect(margin, y, contentW, 28, 2, 2, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...orange);
+    doc.text('GOING DEEPER', margin + 4, y + 6);
+    doc.setFont('times', 'italic');
+    doc.setFontSize(10);
+    doc.setTextColor(...dark);
+    doc.text('Not Done Yet', margin + 4, y + 12);
+    const bookLines = doc.splitTextToSize('Life After 60: Ten Themes to Create What\'s Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: mybook.to/NotDoneYet', contentW - 8);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.text(bookLines, margin + 4, y + 18);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(...mid);
+    doc.text('aliheathfield.com/whereaminow  ·  ali@aliheathfield.com', W / 2, 287, { align: 'center' });
+
+    doc.save('Where-Am-I-Now-Results.pdf');
+  }
+</script>
+</body>
+</html>

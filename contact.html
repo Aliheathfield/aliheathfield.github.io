@@ -1,311 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Ali Heathfield</title>
+<title>Contact | Not Done Yet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafaf9;
-    --white: #ffffff;
-    --text: #2d2d2d;
-    --text-light: #666666;
-    --border: #e0ddd8;
-    --accent: #F69E4A;
-    --accent-dark: #E07F1A;
-    --accent-light: #fef3e2;
-    --teal: #3a9b8a;
-    --teal-light: #e8f5f2;
-    --heading-font: 'Lora', Georgia, serif;
-    --body-font: 'Source Sans 3', sans-serif;
-  }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body-font);
-    font-size: 19px;
-    line-height: 1.75;
-  }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 740px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .nav-brand {
-    font-family: var(--heading-font);
-    font-size: 1.05rem;
-    color: var(--text);
-    text-decoration: none;
-    font-style: italic;
-  }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-contact { color: var(--accent-dark) !important; font-weight: 600 !important; }
-  .nav-contact:hover { color: var(--accent) !important; }
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
 
-  /* PAGE HEADER */
-  .page-header {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 64px 24px 40px;
-    border-bottom: 1px solid var(--border);
-  }
-  .page-header .eyebrow {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent-dark);
-    margin-bottom: 16px;
-  }
-  .page-header h1 {
-    font-family: var(--heading-font);
-    font-size: 2.6rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 12px;
-  }
-  .page-header p {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    line-height: 1.75;
-    max-width: 560px;
-  }
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
 
-  /* IMAGE */
-  .contact-image {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .contact-image img {
-    width: 100%;
-    display: block;
-    max-height: 400px;
-    object-fit: cover;
-    object-position: center 60%;
-  }
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.contained{ max-width:760px; }
 
-  /* CONTACT SECTIONS */
-  .contact-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 48px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 14px;
-  }
-  .contact-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-  .contact-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 22px;
-    max-width: 600px;
-  }
-  .contact-section p:last-of-type { margin-bottom: 0; }
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
 
-  /* BUTTONS */
-  .btn-primary {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-    margin-top: 4px;
-  }
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-  .btn-teal {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-    margin-top: 4px;
-  }
-  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
-  .contact-link {
-    display: inline-block;
-    color: var(--accent-dark);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.02rem;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
-    margin-top: 4px;
-  }
-  .contact-link:hover { border-bottom-color: var(--accent); }
+/* ---------- HERO — same light pattern and same splash size as every other page ---------- */
+.page-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.page-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:640px; }
+.hero-eyebrow{
+font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--teal-dk); margin-bottom:18px;
+}
+.page-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.page-hero h1 .accent{ color:var(--orange); }
+.hero-lede{ font-size:1.05rem; line-height:1.7; color:var(--ink-soft); max-width:56ch; }
 
-  /* COMMUNITY BOX */
-  .community-box {
-    background: var(--teal-light);
-    border: 1px solid #b8ddd8;
-    border-left: 4px solid var(--teal);
-    padding: 28px 32px;
-    border-radius: 0 6px 6px 0;
-    margin-bottom: 22px;
-  }
-  .community-box p {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.75;
-    margin-bottom: 12px;
-    max-width: 560px;
-  }
-  .community-box p:last-child { margin-bottom: 0; }
+/* ---------- OFFER CARDS — light tints, orange + periwinkle, no dark teal or burgundy ---------- */
+.section{ padding:0; margin-bottom:48px; }
+.section-heading{ font-size:1.3rem; margin-bottom:16px; }
 
-  footer {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  footer a { color: var(--text-light); text-decoration: none; }
-  footer a:hover { color: var(--text); }
+.offer-pair{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:22px; margin:0 auto 8px; max-width:1040px; }
+.offer-card{ border-left:4px solid transparent; padding:26px 28px; display:flex; flex-direction:column; }
+.offer-card.message{ background:rgba(255,136,85,0.06); border-left-color:var(--orange); }
+.offer-card.teachat{ background:rgba(114,138,191,0.07); border-left-color:var(--periwinkle); }
+.offer-card-label{ font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+.offer-card.message .offer-card-label{ color:#e07040; }
+.offer-card.teachat .offer-card-label{ color:var(--periwinkle); }
+.offer-card-title{ font-family:'Lora', serif; font-size:1.12rem; font-weight:600; margin-bottom:10px; }
+.offer-card-desc{ font-size:.94rem; color:var(--ink-soft); line-height:1.7; margin-bottom:18px; }
+.offer-btn{ display:inline-block; font-size:.9rem; font-weight:700; padding:11px 22px; margin-top:auto; align-self:flex-start; }
+.offer-card.message .offer-btn{ background:var(--orange); color:#fff; }
+.offer-card.message .offer-btn:hover{ background:#e07040; }
+.offer-card.teachat .offer-btn{ background:var(--periwinkle); color:#fff; }
+.offer-card.teachat .offer-btn:hover{ background:#5c73a8; }
 
-  @media (max-width: 600px) {
-    .page-header h1 { font-size: 2rem; }
-    .contact-image img { max-height: 280px; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+/* ---------- STAY IN TOUCH — plain section, light dot colours, no heavy panel ---------- */
+.touch-section{ max-width:1040px; }
+.touch-lede{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); margin-bottom:20px; max-width:none; }
+.legal-list{ margin:8px 0 0; max-width:none; padding-left:32px; }
+.legal-item{ display:flex; align-items:flex-start; gap:12px; padding:13px 0; font-size:1rem; color:var(--ink-soft); line-height:1.7; border-bottom:1px solid var(--hair); }
+.legal-item:last-child{ border-bottom:none; }
+.legal-item .dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; margin-top:9px; }
+.legal-item.c-teal .dot{ background:var(--teal); }
+.legal-item.c-coral .dot{ background:var(--coral); }
+.legal-item a{ font-weight:700; color:var(--ink); border-bottom:2px solid var(--orange); }
+
+/* ---------- CLOSING LINE ---------- */
+.quiet-out{ text-align:center; padding:8px 0 48px; font-size:.98rem; color:var(--ink-soft); }
+.quiet-out a{ font-weight:700; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:1px; }
+
+/* ---------- FOOTER (unchanged — the site's one deliberately dark element, used consistently on every page) ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+
+@media (max-width:700px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.offer-pair{ grid-template-columns:1fr; max-width:none; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
 </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z4T3EYG12"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8Z4T3EYG12');
-  </script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Ali Heathfield</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="contact.html" class="active nav-contact">Contact</a></li>
-    </ul>
-  </div>
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html" class="current">Contact</a></li>
+</ul>
 </nav>
+</div>
+</header>
 
-<main>
+<section class="page-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/i.png" alt=""></div>
+<div class="hero-copy">
+<div class="hero-eyebrow">Get in touch</div>
+<h1>It's good to talk. <span class="accent">So, let's talk.</span></h1>
+<p class="hero-lede">Whether you've a question, want to find out more, or simply want to share something, I'd love to hear from you. I read every message myself.</p>
+</div>
+</div>
+</section>
 
-  <div class="page-header">
-    <p class="eyebrow">Get in Touch</p>
-    <h1>Let's talk.</h1>
-    <p>Whether you have a question, want to find out more, or simply want to share something, I'd love to hear from you. I read every message.</p>
-  </div>
+<div class="wrap">
 
-  <div class="contact-image">
-    <img src="contactimage.jpg" alt="Ali Heathfield — Not Done Yet">
-  </div>
+<div class="section">
+<div class="offer-pair">
 
-  <section class="contact-section">
-    <p class="section-label">Say Hello</p>
-    <h2>Drop me a message.</h2>
-    <p>Sometimes you just want to share something or ask a question. You're very welcome to get in touch directly.</p>
-    <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20Contact%20Page" class="contact-link">hello@aliheathfield.com</a>
-  </section>
+<div class="offer-card message">
+<div class="offer-card-label">Drop me a line</div>
+<div class="offer-card-title">Send a message</div>
+<div class="offer-card-desc">Sometimes you just want to share something, ask a question, or say hello. You're very welcome to get in touch directly, and I read every message that comes in.</div>
+<a href="mailto:hello@aliheathfield.com?subject=Contact%20Page%20Drop%20Me%20A%20line" class="offer-btn">Email me →</a>
+</div>
 
-  <section class="contact-section">
-    <p class="section-label">Book a Tea Chat</p>
-    <h2>A conversation over a drink.</h2>
-    <p>If you're wondering whether the book, the coaching, or any of the work is right for you, or you have a question or thought you'd like to chat through, a 15-minute tea chat is the place to start. Bring your own drink. No obligation, no sales pitch — just a conversation.</p>
-    <a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" class="btn-primary">Book a tea chat</a>
-  </section>
+<div class="offer-card teachat">
+<div class="offer-card-label">Fifteen minutes, no pressure</div>
+<div class="offer-card-title">A conversation over a drink</div>
+<div class="offer-card-desc">Wondering whether the book, the coaching, or any of the work here is right for you? A short tea chat is the place to start. Bring your own drink, there's no obligation and no sales pitch, just a conversation.</div>
+<a href="https://calendly.com/aliheathfield/15-minute-tea-chat" class="offer-btn">Book a tea chat →</a>
+</div>
 
-  <section class="contact-section">
-    <p class="section-label">Subscribe on Substack</p>
-    <h2>Keep thinking between check-ins.</h2>
-    <p>I write regularly about living life well after 60. The big questions, the small adjustments, and everything in between. Come and find me there.</p>
-    <a href="https://aliheathfield.substack.com" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
-  </section>
+</div>
+</div>
 
-  <section class="contact-section">
-    <p class="section-label">The Community</p>
-    <h2>You're not done yet. Not even close.</h2>
-    <div class="community-box">
-      <p>A space for people navigating life with intention, curiosity and purpose. Whether you're maintaining what's working, navigating unexpected changes, or reinventing yourself entirely, you belong here.</p>
-      <p>This isn't about positive thinking or pretending ageing is easy. It's about practical tools when life gets complicated, and a community that gets it.</p>
-    </div>
-    <a href="https://www.facebook.com/groups/livinglifewellcommunity" target="_blank" class="btn-teal">Join the community on Facebook</a>
-  </section>
+<div class="section touch-section">
+<h2 class="section-heading">Stay in touch between check-ins</h2>
+<p class="touch-lede">I write regularly about living life well after 60, and there's a growing community doing the same.</p>
+<div class="legal-list">
+<div class="legal-item c-teal"><span class="dot"></span><span>Read along on <a href="https://aliheathfield.substack.com" target="_blank">Substack</a> — a space for people navigating life with intention, curiosity and purpose.</span></div>
+<div class="legal-item c-coral"><span class="dot"></span><span>Join the <a href="https://facebook.com/groups/livinglifewellcommunity" target="_blank">Facebook community</a> — for the people who, like you, are not done yet. Not even close.</span></div>
+</div>
+</div>
 
-  <section class="contact-section">
-    <p class="section-label">Work with Me</p>
-    <h2>More personal support.</h2>
-    <p>If you'd like to work with me one-to-one, find out about coaching, courses, or what's coming, the About page is the place to start.</p>
-    <a href="about.html#how-i-work" class="contact-link">Find out more about working with me →</a>
-  </section>
+</div>
 
-</main>
+<div class="quiet-out">
+<p>If you'd like to work with me one-to-one, find out about coaching, courses, or what's coming next, <a href="about.html">the About page</a> is the place to start.</p>
+</div>
 
 <footer>
-  <span>&copy; 2026 Ali Heathfield</span>
-  <span><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="book.html">Book</a> &middot; <a href="resources.html">Resources</a> &middot; <a href="archive.html">Archive</a> &middot; <a href="privacy.html">Privacy &amp; Legal</a></span>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
 </footer>
 
 </body>

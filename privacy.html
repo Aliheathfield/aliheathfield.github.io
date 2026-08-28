@@ -1,307 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy &amp; Legal — Ali Heathfield</title>
+<title>Privacy &amp; Legal | Not Done Yet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafaf9;
-    --white: #ffffff;
-    --text: #2d2d2d;
-    --text-light: #666666;
-    --border: #e0ddd8;
-    --accent: #F69E4A;
-    --accent-dark: #E07F1A;
-    --accent-light: #fef3e2;
-    --teal: #3a9b8a;
-    --teal-light: #e8f5f2;
-    --heading-font: 'Lora', Georgia, serif;
-    --body-font: 'Source Sans 3', sans-serif;
-  }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body-font);
-    font-size: 19px;
-    line-height: 1.75;
-  }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 740px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 58px;
-  }
-  .nav-brand {
-    font-family: var(--heading-font);
-    font-size: 1.05rem;
-    color: var(--text);
-    text-decoration: none;
-    font-style: italic;
-  }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text); }
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
 
-  .page-header {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 64px 24px 40px;
-    border-bottom: 1px solid var(--border);
-  }
-  .page-header .eyebrow {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 16px;
-  }
-  .page-header h1 {
-    font-family: var(--heading-font);
-    font-size: 2.6rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .page-header p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    max-width: 520px;
-    line-height: 1.75;
-  }
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
 
-  .content-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 48px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .content-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .content-section p {
-    font-size: 0.98rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 16px;
-    max-width: 640px;
-  }
-  .content-section p:last-child { margin-bottom: 0; }
-  .content-section ul {
-    margin: 12px 0 16px 0;
-    padding-left: 0;
-    list-style: none;
-  }
-  .content-section ul li {
-    font-size: 0.98rem;
-    color: var(--text);
-    line-height: 1.75;
-    padding: 6px 0 6px 20px;
-    position: relative;
-    max-width: 640px;
-  }
-  .content-section ul li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
-  }
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.contained{ max-width:720px; }
 
-  .highlight-box {
-    background: var(--teal-light);
-    border-left: 3px solid var(--teal);
-    padding: 20px 24px;
-    border-radius: 0 4px 4px 0;
-    margin: 20px 0;
-  }
-  .highlight-box p {
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.75;
-    margin-bottom: 0 !important;
-  }
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
 
-  .contact-box {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    padding: 24px 28px;
-    border-radius: 0 4px 4px 0;
-    margin-top: 20px;
-  }
-  .contact-box h3 {
-    font-family: var(--heading-font);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .contact-box p {
-    font-size: 0.95rem;
-    color: var(--text);
-    margin-bottom: 8px !important;
-  }
-  .contact-box a {
-    color: var(--accent-dark);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .contact-box a:hover { border-bottom-color: var(--accent); }
+/* ---------- HERO ---------- */
+.page-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.page-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:640px; }
+.hero-eyebrow{
+font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--teal-dk); margin-bottom:18px;
+}
+.page-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.hero-lede{ font-size:1.05rem; line-height:1.7; color:var(--ink-soft); max-width:56ch; }
+.last-updated{ font-size:.86rem; color:var(--ink-soft); font-style:italic; margin-top:16px; }
 
-  .last-updated {
-    font-size: 0.82rem;
-    color: var(--text-light);
-    font-style: italic;
-    margin-top: 8px;
-  }
+/* ---------- LEGAL SECTIONS ---------- */
+.legal-section{ padding:32px 0; border-bottom:1px solid var(--hair); }
+.legal-section:last-of-type{ border-bottom:none; }
+.legal-section h2{ font-size:1.2rem; margin-bottom:16px; }
+.legal-section p{ font-size:1rem; line-height:1.85; color:var(--ink-soft); margin-bottom:16px; max-width:70ch; }
+.legal-section p:last-child{ margin-bottom:0; }
 
-  footer {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  footer a { color: var(--text-light); text-decoration: none; }
-  footer a:hover { color: var(--text); }
+.legal-list{ margin:8px 0 16px; }
+.legal-item{ display:flex; align-items:flex-start; gap:12px; padding:7px 0; font-size:.98rem; color:var(--ink-soft); line-height:1.6; max-width:70ch; }
+.legal-item .dot{ width:8px; height:8px; border-radius:50%; background:var(--teal-dk); flex-shrink:0; margin-top:7px; }
 
-  @media (max-width: 600px) {
-    .page-header h1 { font-size: 2rem; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+.tint-box{
+background:#f4f8f8; border-left:3px solid var(--teal-dk);
+padding:20px 24px; margin:12px 0 20px; max-width:70ch;
+}
+.tint-box p{ margin-bottom:0 !important; color:var(--ink); }
+
+.contact-box{
+border:1px solid var(--hair); border-left:3px solid var(--orange);
+padding:22px 26px; margin-top:16px; max-width:70ch;
+}
+.contact-box h3{ font-size:1rem; margin-bottom:8px; }
+.contact-box p{ margin-bottom:6px !important; }
+.contact-box a{ font-weight:700; color:var(--ink); border-bottom:2px solid var(--orange); }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+
+@media (max-width:700px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Ali Heathfield</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="contact.html" class="nav-contact">Contact</a></li>
-    </ul>
-  </div>
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
 </nav>
+</div>
+</header>
 
-<main>
+<section class="page-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/n.png" alt=""></div>
+<div class="hero-copy">
+<div class="hero-eyebrow">Legal</div>
+<h1>Privacy &amp; Legal</h1>
+<p class="hero-lede">Plain English, no jargon: everything you need to know about how this site works and how your information is handled.</p>
+<p class="last-updated">Last updated: August 2026</p>
+</div>
+</div>
+</section>
 
-  <div class="page-header">
-    <p class="eyebrow">Legal</p>
-    <h1>Privacy &amp; Legal</h1>
-    <p>Plain English. No jargon. Everything you need to know about how this site works and how your information is handled.</p>
-    <p class="last-updated">Last updated: April 2026</p>
-  </div>
+<div class="wrap">
+<div class="contained">
 
-  <section class="content-section">
-    <h2>Who runs this site</h2>
-    <p>This website is operated by Ali Heathfield, a life coach and author based in Portugal. Ali works with individuals navigating life beyond 60 through coaching, online courses, and the tools and resources on this site.</p>
-    <p>For any questions about this site or its content, please use the contact details at the bottom of this page.</p>
-  </section>
+<div class="legal-section">
+<h2>Who runs this site</h2>
+<p>This website is operated by Ali Heathfield, a life coach and author based in Portugal. Ali works with individuals navigating life beyond 60 through coaching, retreats, and the tools and resources on this site.</p>
+<p>For any questions about this site or its content, please use the contact details at the bottom of this page.</p>
+</div>
 
-  <section class="content-section">
-    <h2>What data this site collects</h2>
-    <div class="highlight-box">
-      <p>This website currently collects <strong>no personal data</strong> from visitors. There are no contact forms, no email sign-up fields, no user accounts, and no login system on this site.</p>
-    </div>
-    <p>The free tools available via the Resources page (such as the Life Check-In) are completely private. Nothing you enter is sent anywhere or seen by anyone else, including Ali. When you reach your results, the tool gives you a Save as PDF button so you can keep a permanent copy for yourself.</p>
-    <p>In short: Ali does not have access to anything you write in the tools. Your reflections are your own.</p>
-  </section>
+<div class="legal-section">
+<h2>What data this site collects</h2>
+<div class="tint-box">
+<p>This website currently collects <strong>no personal data</strong> from visitors. There are no contact forms, no email sign-up fields, no user accounts, and no login system on this site.</p>
+</div>
+<p>The free tools available via the Resources page, such as the Life Check-In, are completely private. Nothing you enter is sent anywhere or seen by anyone else, including Ali. When you reach your results, the tool gives you a save-as-PDF option so you can keep a permanent copy for yourself.</p>
+<p>In short: Ali does not have access to anything you write in the tools. Your reflections are your own.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Cookies and analytics</h2>
-    <p>This site does not currently use cookies or any analytics tracking. No data about your visit — pages viewed, time spent, location, or device — is collected or stored.</p>
-    <p>This may change in the future. If analytics are added, this page will be updated and, where required by law, you will be asked for your consent before any tracking takes place. Any analytics tool used will be chosen with privacy in mind.</p>
-  </section>
+<div class="legal-section">
+<h2>Cookies and analytics</h2>
+<p>This site does not currently use cookies or any analytics tracking. No data about your visit, pages viewed, time spent, location, or device, is collected or stored.</p>
+<p>This may change in future. If analytics are added, this page will be updated and, where required by law, you will be asked for your consent before any tracking takes place. Any analytics tool used will be chosen with privacy in mind.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Third-party links</h2>
-    <p>This site may contain links to external websites, including Substack, Amazon, and other platforms. Once you leave this site, Ali has no control over and takes no responsibility for the privacy practices of those sites. We recommend reading their privacy policies before sharing any personal information with them.</p>
-  </section>
+<div class="legal-section">
+<h2>Third-party links</h2>
+<p>This site may contain links to external websites, including Substack, Amazon, and other platforms. Once you leave this site, Ali has no control over, and takes no responsibility for, the privacy practices of those sites. We recommend reading their privacy policies before sharing any personal information with them.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Your rights under GDPR</h2>
-    <p>Because Ali is based in Portugal and this site is accessible to readers in the EU and UK, the General Data Protection Regulation (GDPR) is relevant. Under GDPR, you have the right to:</p>
-    <ul>
-      <li>Know what personal data is held about you</li>
-      <li>Request that any personal data be corrected or deleted</li>
-      <li>Object to the processing of your personal data</li>
-      <li>Lodge a complaint with a data protection authority</li>
-    </ul>
-    <p>As this site currently collects no personal data, most of these rights have no practical application at present. Should this change, this page will be updated accordingly. If you have any concerns, please get in touch.</p>
-  </section>
+<div class="legal-section">
+<h2>Your rights under GDPR</h2>
+<p>Because Ali is based in Portugal and this site is accessible to readers in the EU and UK, the General Data Protection Regulation (GDPR) is relevant. Under GDPR, you have the right to:</p>
+<div class="legal-list">
+<div class="legal-item"><span class="dot"></span><span>Know what personal data is held about you</span></div>
+<div class="legal-item"><span class="dot"></span><span>Request that any personal data be corrected or deleted</span></div>
+<div class="legal-item"><span class="dot"></span><span>Object to the processing of your personal data</span></div>
+<div class="legal-item"><span class="dot"></span><span>Lodge a complaint with a data protection authority</span></div>
+</div>
+<p>As this site currently collects no personal data, most of these rights have no practical application at present. Should this change, this page will be updated accordingly. If you have any concerns, please get in touch.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Disclaimer</h2>
-    <p>The content on this site — including the book, tools, and resources — is intended for general informational and personal development purposes. It does not constitute medical, legal, financial, or therapeutic advice.</p>
-    <p>While every effort is made to ensure the information here is accurate and helpful, Ali Heathfield accepts no liability for decisions made based on the content of this site or the tools available from it. If you have specific medical, legal, or financial concerns, please seek advice from a qualified professional.</p>
-  </section>
+<div class="legal-section">
+<h2>Disclaimer</h2>
+<p>The content on this site, including the book, workbooks, tools, and resources, is intended for general informational and personal development purposes. It does not constitute medical, legal, financial, or therapeutic advice.</p>
+<p>While every effort is made to ensure the information here is accurate and helpful, Ali Heathfield accepts no liability for decisions made based on the content of this site or the tools available from it. If you have specific medical, legal, or financial concerns, please seek advice from a qualified professional.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Intellectual property</h2>
-    <p>All content on this site — including text, the Living Life Well model, and the interactive tools — is the intellectual property of Ali Heathfield unless otherwise stated. You are welcome to share links to this site. Please do not reproduce or republish content without permission.</p>
-  </section>
+<div class="legal-section">
+<h2>Intellectual property</h2>
+<p>All content on this site, including text, the Living Life Well model, and the interactive tools, is the intellectual property of Ali Heathfield unless otherwise stated. You are welcome to share links to this site. Please do not reproduce or republish content without permission.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Changes to this page</h2>
-    <p>This page will be updated if anything changes — particularly if analytics, a contact form, or paid toolkit access is added to the site. The date at the top of this page shows when it was last revised. Continuing to use the site after any changes constitutes acceptance of the updated terms.</p>
-  </section>
+<div class="legal-section">
+<h2>Changes to this page</h2>
+<p>This page will be updated if anything changes, particularly if analytics, a contact form, or paid toolkit access is added to the site. The date at the top of this page shows when it was last revised. Continuing to use the site after any changes constitutes acceptance of the updated terms.</p>
+</div>
 
-  <section class="content-section">
-    <h2>Contact</h2>
-    <p>If you have any questions about privacy, data, or anything else on this site, please get in touch.</p>
-    <div class="contact-box">
-      <h3>Ali Heathfield</h3>
-      <p>Based in Portugal, working with clients across the UK, EU, and beyond.</p>
-      <p>Email: <a href="/cdn-cgi/l/email-protection#c4a5a8ad84a5a8adaca1a5b0aca2ada1a8a0eaa7aba9"><span class="__cf_email__" data-cfemail="8aebe6e3caebe6e3e2efebfee2ece3efe6eea4e9e5e7">[email&#160;protected]</span></a></p>
-    </div>
-  </section>
+<div class="legal-section">
+<h2>Contact</h2>
+<p>If you have any questions about privacy, data, or anything else on this site, please get in touch.</p>
+<div class="contact-box">
+<h3>Ali Heathfield</h3>
+<p>Based in Portugal, working with clients across the UK, EU, and beyond.</p>
+<p>Email: <a href="mailto:hello@aliheathfield.com?subject=Privacy%20Page%20Question">hello@aliheathfield.com</a></p>
+</div>
+</div>
 
-</main>
+</div>
+</div>
 
 <footer>
-  <span>© 2026 Ali Heathfield</span>
-  <span><a href="index.html">Home</a> · <a hre
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

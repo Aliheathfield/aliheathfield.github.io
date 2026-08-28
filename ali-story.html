@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali's Story | Not Done Yet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.content{ max-width:100%; }
+.contained{ max-width:760px; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
+
+/* ---------- TOP BLOCK ---------- */
+.top-block{ position:relative; padding:56px 0 8px; overflow:hidden; }
+.top-block .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.top-contain{ position:relative; z-index:1; max-width:900px; }
+.top-block h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.top-block h1 .accent{ color:var(--orange); }
+.lede-plain{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); max-width:60ch; margin-bottom:40px; }
+
+.back-link{ display:inline-block; font-size:.86rem; font-weight:600; color:var(--ink-soft); margin-bottom:22px; }
+.back-link:hover{ color:var(--ink); }
+
+/* ---------- CASCADE QUOTE ---------- */
+.cascade-quote{ margin:8px 0 40px; }
+.cascade-inner{
+text-align:right; font-family:'Lora', serif; font-style:italic;
+font-size:1.05rem; line-height:1.85; color:var(--ink-soft);
+max-width:600px; margin-left:auto;
+}
+.cascade-inner .q-line{ display:block; }
+.cascade-inner .q-line:nth-child(1){ padding-left:0%; }
+.cascade-inner .q-line:nth-child(2){ padding-left:10%; }
+
+.photo-quote-grid{ display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; margin-bottom:44px; }
+.intro-line{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); margin-bottom:24px; }
+.row-text p{ font-size:1.04rem; line-height:1.85; color:var(--ink-soft); margin-bottom:18px; }
+.row-text p:last-child{ margin-bottom:0; }
+.photo-frame{
+width:220px;
+padding:14px;
+background:#fff;
+border:1px solid var(--hair);
+box-shadow:0 6px 20px rgba(38,40,44,0.08);
+margin-top:-24px;
+}
+.photo-frame img{ width:100%; height:auto; display:block; }
+.photo-caption{ font-size:.8rem; color:var(--ink-soft); text-align:center; margin-top:10px; }
+
+/* ---------- SECTIONS ---------- */
+.section{ padding:0; margin-bottom:48px; }
+.section p{ font-size:1.04rem; line-height:1.85; color:var(--ink-soft); margin-bottom:18px; }
+.section p:last-child{ margin-bottom:0; }
+
+/* ---------- GET IN TOUCH ---------- */
+.quiet-out{ text-align:center; padding:8px 0 48px; font-size:.98rem; color:var(--ink-soft); }
+.quiet-out a{ font-weight:700; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:1px; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+
+@media (max-width:700px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.photo-quote-grid{ grid-template-columns:1fr; }
+.photo-frame{ width:180px; margin-bottom:18px; margin-top:0; }
+.cascade-inner .q-line:nth-child(n){ padding-left:0; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html" class="current">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="top-block">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/j.png" alt=""></div>
+<div class="top-contain">
+
+<a href="about.html" class="back-link">&larr; Back to About</a>
+
+<h1>This is how it began. <span class="accent">I'm still not done.</span></h1>
+
+<div class="photo-quote-grid">
+<div>
+<div class="photo-frame">
+<img src="about-photos/ali-story.jpg" alt="Ali Heathfield sitting on a bench in Portugal">
+</div>
+<p class="photo-caption">Portugal, a few years into the new chapter</p>
+</div>
+<div class="right-col">
+
+<p class="intro-line">Like many people of my generation, my partner, Brian, and I had lived a varied life, ups and downs included, and yet we had a clear sense of how we wanted to spend our &ldquo;retirement&rdquo; years.</p>
+
+<div class="row-text">
+<p>The later part of my fifties and early sixties were spent bouncing between trying to look after my mother-in-law, who eventually went into a care home, and caring for Brian, whose health continued to decline.</p>
+<p>At the time, I didn't quite realise how much stress this caused. Slowly, over time, my life contracted into becoming a carer. I did manage to keep a couple of coaching clients, and that somehow maintained a semblance of normality.</p>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<div class="section">
+<p class="contained">We were fortunate in that we had time to talk, share, and spend time together, and so it was just a few days after my 65th birthday that Brian died. The irony didn't escape me, as 65 is often thought of as the age to retire. Having been together for over 43 years, I suddenly found myself a single person.</p>
+</div>
+
+<div class="cascade-quote">
+<div class="cascade-inner">
+<span class="q-line">I decided that, to honour myself and the life we had together,</span>
+<span class="q-line">I would live that life as fully as I could.</span>
+</div>
+</div>
+
+<div class="section">
+<p class="contained">Fast forward to now, some eight years later, and I can tell you that life continues to be enjoyable, adventurous, challenging and exciting. In those eight years I rediscovered who I was without the support of my partner and friend. I travelled a little in my first year and challenged myself by starting some art classes. I have always loved colour, and I can paint beautifully in my head, but somehow it never quite translated onto paper. Those art classes gave me enjoyment, a sense of community, new relationships, and a realisation that I didn't have to be good at everything to enjoy it.</p>
+
+<p class="contained">I became more adventurous, visiting my son and daughter-in-law in Portugal and discovering Lisbon on my own: walking the hills, experiencing what it was like to be in a city I didn't know, in a language I didn't understand.</p>
+
+<p class="contained">My visits to Portugal continued, and when they bought a quinta, I moved out temporarily to help them decorate and work the land. I discovered I could prune grapevines, and that I loved being out on the land. In the meantime, at 66, I started an MSc in Positive Psychology, continuing my studies online from Portugal through the Covid lockdown. I graduated with a distinction at 68.</p>
+
+<p class="contained">In my late sixties, I decided to sell my house in the UK and buy a property in a small village some twenty minutes from my son. I'd begun learning Portuguese, and somehow managed to earn my A1/A2 Portuguese language certificate through the government course.</p>
+
+<p class="contained">Not content with this, I continued to work on the Living Life Well model, which had been part of my dissertation, drawing on my coaching experience, my soft skills and my communication skills, to write the book I wish I'd had in my late fifties and sixties, using everything I'd learned to build a system that supports those of us in the second stage of life to live it as well as we can, within whatever confines we find ourselves in.</p>
+
+<p class="contained">I'm still working on my Portuguese, and my next adventure is to bring together a group of people who want to spend five days learning with and from each other, using the Living Life Well model, so that they can continue to age intentionally.</p>
+</div>
+
+</div>
+</div>
+
+<div class="quiet-out">
+<p><em>Not Done Yet</em> came out of this. If you'd like to know more, <a href="about.html">back to About</a>, or <a href="mailto:hello@aliheathfield.com?subject=Ali%27s%20Story%20Page%20Get%20In%20Touch">get in touch</a>. I'd love to hear from you.</p>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

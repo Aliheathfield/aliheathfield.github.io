@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintain and Prevent | Not Done Yet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--paper:#ffffff;
+--hair:#e9e9ec;
+--deep-teal:#065165;
+--path:var(--teal);
+--path-dk:var(--teal-dk);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.content{ max-width:100%; }
+.contained{ max-width:760px; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+
+/* ---------- HERO ---------- */
+.path-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.path-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:720px; }
+
+.path-badge{
+font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--path); margin-bottom:18px;
+}
+
+.path-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.path-hero h1 .accent{ color:var(--orange); }
+
+.hero-lede{
+font-family:'Lora', serif; font-style:italic;
+font-size:1.08rem; line-height:1.7; color:var(--ink-soft);
+max-width:52ch;
+}
+
+/* ---------- SECTIONS ---------- */
+.section{ padding:0; margin-bottom:48px; }
+.section-heading{ font-size:1.3rem; margin-bottom:16px; }
+.path-description{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); max-width:none; }
+
+.find-list{
+padding:0;
+}
+.find-item{
+display:flex; align-items:flex-start; gap:14px;
+padding:14px 0;
+font-size:.98rem; color:var(--ink-soft); line-height:1.55; font-weight:500;
+}
+.find-dot{ width:8px; height:8px; border-radius:50%; background:var(--path); flex-shrink:0; margin-top:7px; }
+
+/* ---------- CASCADE QUOTE ---------- */
+.cascade-quote{ margin-bottom:48px; }
+.cascade-inner{
+text-align:right; font-family:'Lora', serif; font-style:italic;
+font-size:1.05rem; line-height:1.85; color:var(--ink-soft);
+max-width:600px; margin-left:auto;
+}
+.cascade-inner .q-line{ display:block; }
+.cascade-inner .q-line:nth-child(1){ padding-left:0%; }
+.cascade-inner .q-line:nth-child(2){ padding-left:6%; }
+.cascade-inner .q-line:nth-child(3){ padding-left:12%; }
+.cascade-inner .q-line:nth-child(4){ padding-left:18%; }
+.cascade-inner .q-line:nth-child(5){ padding-left:24%; }
+.cascade-inner .q-line:nth-child(6){ padding-left:30%; }
+.cascade-attr{
+text-align:right; font-size:.78rem; color:var(--ink-soft);
+letter-spacing:.04em; margin-top:12px; font-weight:600;
+}
+
+/* ---------- CTA ---------- */
+.cta-section{ margin-bottom:44px; }
+.cta-pair{ display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:18px; }
+.cta-pair.contained{ margin:0 auto; }
+.cta-card{ border:1px solid var(--hair); padding:26px; }
+.cta-card-label{ font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+.cta-card.primary .cta-card-label{ color:var(--path); }
+.cta-card.secondary .cta-card-label{ color:var(--orange); }
+.cta-card-title{ font-family:'Lora', serif; font-size:1.15rem; font-weight:600; margin-bottom:10px; }
+.cta-card-desc{ font-size:.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:20px; }
+.cta-btn{ display:inline-block; font-size:.92rem; font-weight:700; padding:11px 22px; }
+.cta-card.primary .cta-btn{ background:var(--deep-teal); color:#fff; }
+.cta-card.primary .cta-btn:hover{ background:#043c4c; }
+.cta-card.secondary .cta-btn{ background:var(--orange); color:#fff; }
+.cta-card.secondary .cta-btn:hover{ background:#e07040; }
+
+/* ---------- QUIET WAY OUT ---------- */
+.quiet-out{ text-align:center; padding:8px 0 48px; font-size:.92rem; color:var(--ink-soft); }
+.quiet-out a{ font-weight:600; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:1px; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.cascade-inner .q-line:nth-child(n){ padding-left:0; }
+.cta-pair{ grid-template-columns:1fr; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="path-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/c.png" alt=""></div>
+<div class="hero-copy">
+<div class="path-badge">Maintain and Prevent</div>
+<h1>Protecting what you love, <span class="accent">and making the most of it.</span></h1>
+<p class="hero-lede">You've built something worth keeping. This is where it continues to flourish.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<div class="section">
+<h2 class="section-heading">What this path is for</h2>
+<p class="path-description">
+This path is for you if you're mainly content and want to stay that way.
+It's about maintenance with intention: small tweaks, regular check-ins, and
+the kind of gentle attention that prevents drift while protecting joy.
+Minor changes and the odd adjustment really can make all the difference
+between a life that's just happening and one filled with intention, curiosity,
+and appreciation.
+</p>
+</div>
+
+<div class="section">
+<h2 class="section-heading">What you'll find here</h2>
+<div class="find-list contained">
+<div class="find-item"><span class="find-dot"></span><span>A Theme Check-In to show you where attention will help</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Monthly Check-Ins that keep you steady</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Quick tune-up for ten life themes: work on one or work on all</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Three starting points, depending on your energy and time</span></div>
+<div class="find-item"><span class="find-dot"></span><span>Freedom to adapt everything to your actual life</span></div>
+</div>
+</div>
+
+<div class="cascade-quote">
+<div class="cascade-inner">
+<span class="q-line">Minor tweaks, checks, and the odd change</span>
+<span class="q-line">can and do make all the difference between</span>
+<span class="q-line">a life that's just happening and one that's</span>
+<span class="q-line">filled with intention, curiosity,</span>
+<span class="q-line">and appreciation.</span>
+<span class="q-line">Between ordinary and extraordinary.</span>
+</div>
+<p class="cascade-attr">From the Maintain &amp; Prevent workbook</p>
+</div>
+
+<div class="cta-section">
+<h2 class="section-heading">Ready to begin?</h2>
+<div class="cta-pair contained">
+<div class="cta-card primary">
+<div class="cta-card-label">The workbook</div>
+<div class="cta-card-title">Maintain &amp; Prevent</div>
+<div class="cta-card-desc">Ready to get your copy now?</div>
+<!-- TODO: swap for Amazon universal link once provided -->
+<a href="#" class="cta-btn">Buy Now &rarr;</a>
+</div>
+<div class="cta-card secondary">
+<div class="cta-card-label">Not quite sure yet?</div>
+<div class="cta-card-title">Free 15-minute tea chat</div>
+<div class="cta-card-desc">A quick conversation with Ali to make sure this is the right starting point for you.</div>
+<a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" rel="noopener" class="cta-btn">Book a chat &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="quiet-out">
+<a href="where-am-i-now.html">Not sure this is the right path? Take the quick check &rarr;</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

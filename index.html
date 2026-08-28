@@ -1,520 +1,334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Heathfield — Living Life Well After 60</title>
+<title>Not Done Yet | Ali Heathfield</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafaf9;
-    --white: #ffffff;
-    --text: #2d2d2d;
-    --text-light: #666666;
-    --border: #e0ddd8;
-    --accent: #F69E4A;
-    --accent-dark: #E07F1A;
-    --accent-light: #fef3e2;
-    --teal: #3a9b8a;
-    --teal-light: #e8f5f2;
-    --heading-font: 'Lora', Georgia, serif;
-    --body-font: 'Source Sans 3', sans-serif;
-  }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--paper:#ffffff;
+--hair:#e9e9ec;
+--deep-teal:#065165; /* sampled from the darkest tone in the splash graphics */
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body-font);
-    font-size: 20px;
-    line-height: 1.75;
-  }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-  .launch-banner {
-    background: var(--teal);
-    text-align: center;
-    padding: 18px 24px;
-  }
-  .launch-banner p {
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.5;
-  }
-  .launch-banner a {
-    color: var(--white);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: opacity 0.2s;
-  }
-  .launch-banner a:hover { opacity: 0.85; }
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
 
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 740px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .nav-brand {
-    font-family: var(--heading-font);
-    font-size: 1.05rem;
-    color: var(--text);
-    text-decoration: none;
-    font-style: italic;
-  }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-contact { color: var(--accent-dark) !important; font-weight: 600 !important; }
-  .nav-contact:hover { color: var(--accent) !important; }
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
 
-  .hero {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 72px 24px 56px;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-eyebrow {
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-family: var(--heading-font);
-    font-size: 3.2rem;
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .hero-sub {
-    font-family: var(--heading-font);
-    font-size: 1.3rem;
-    font-style: italic;
-    color: var(--text-light);
-    margin-bottom: 32px;
-    line-height: 1.5;
-  }
-  .hero-body {
-    font-size: 1.02rem;
-    color: var(--text);
-    max-width: 580px;
-    line-height: 1.8;
-    margin-bottom: 36px;
-  }
-  .hero-body p { margin-bottom: 16px; }
-  .hero-body p:last-child { margin-bottom: 0; }
-  .btn-secondary {
-    display: inline-block;
-    color: var(--accent-dark);
-    padding: 13px 0;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .btn-secondary:hover { border-bottom-color: var(--accent); }
+a{ color:inherit; text-decoration:none; }
 
-  .paths-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .paths-box {
-    background: var(--teal-light);
-    border: 1px solid #b8ddd8;
-    border-left: 4px solid var(--teal);
-    padding: 36px 40px;
-    border-radius: 0 6px 6px 0;
-  }
-  .paths-box h2 {
-    font-family: var(--heading-font);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 28px;
-    line-height: 1.3;
-  }
-  .paths-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  .paths-list li { font-size: 1rem; line-height: 1.7; color: var(--text); }
-  .paths-list li strong {
-    display: block;
-    font-weight: 600;
-    font-family: var(--heading-font);
-    font-size: 1.05rem;
-    margin-bottom: 3px;
-    color: var(--text);
-  }
-  .paths-list li span { color: var(--text-light); font-size: 0.95rem; }
-  .paths-cta {
-    font-size: 0.97rem;
-    color: var(--text-light);
-    font-style: italic;
-    padding-top: 8px;
-    border-top: 1px solid #b8ddd8;
-  }
-  .paths-cta a {
-    color: var(--teal);
-    font-weight: 600;
-    font-style: normal;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .paths-cta a:hover { border-bottom-color: var(--teal); }
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
 
-  .book-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 24px;
-  }
-  .book-inner {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-  }
-  .book-text { flex: 1; }
-  .book-eyebrow {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-dark);
-    margin-bottom: 12px;
-  }
-  .book-text h2 {
-    font-family: var(--heading-font);
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .book-text h3 {
-    font-family: var(--heading-font);
-    font-size: 1.1rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text-light);
-    margin-bottom: 28px;
-    line-height: 1.4;
-  }
-  .book-intro {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 28px;
-  }
-  .book-intro a {
-    color: var(--teal);
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid var(--teal);
-    transition: opacity 0.2s;
-  }
-  .book-intro a:hover { opacity: 0.75; }
-  .book-buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .btn-amazon {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-amazon:hover { background: var(--accent-dark); transform: translateY(-1px); }
-  .btn-book-link {
-    color: var(--accent-dark);
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .btn-book-link:hover { border-bottom-color: var(--accent); }
-  .book-cover {
-    flex-shrink: 0;
-    width: 170px;
-  }
-  .book-cover img {
-    width: 100%;
-    border-radius: 4px;
-    display: block;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-  }
+/* ---------- HEADER ---------- */
+header.site-header{
+padding:26px 0;
+border-bottom:1px solid var(--hair);
+}
+.site-header .wrap{
+display:flex; align-items:center; justify-content:space-between;
+flex-wrap:wrap; gap:16px;
+}
+.logo{
+font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em;
+}
+.logo span{ color:var(--orange); }
+nav.main-nav ul{
+list-style:none; display:flex; flex-wrap:wrap; gap:12px 34px; font-size:0.96rem; font-weight:500;
+}
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
 
-  .tea-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 44px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .tea-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .tea-inner p {
-    font-size: 1.02rem;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.65;
-    max-width: 460px;
-  }
-  .btn-accent {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    white-space: nowrap;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-accent:hover { background: var(--accent-dark); transform: translateY(-1px); }
+/* ---------- HERO ---------- */
+.hero{
+position:relative;
+padding:96px 0 56px;
+overflow:hidden;
+}
+/* ---------- SPLASH GRAPHICS (from Ali's reference image, background removed) ---------- */
+.hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; }
+.hero-eyebrow{
+font-size:.92rem; font-weight:600; color:var(--orange);
+text-transform:uppercase; letter-spacing:.09em; margin-bottom:18px;
+}
+.hero h1{
+font-size:clamp(1.8rem, 3.4vw, 2.7rem);
+max-width:30ch;
+margin-bottom:26px;
+}
+.hero h1 em{
+font-style:italic; color:var(--orange); position:relative;
+}
+.hero p.sub{
+font-size:1.15rem; color:var(--ink-soft); max-width:48ch;
+}
 
-  .substack-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .substack-box {
-    background: var(--teal-light);
-    border: 1px solid #b8ddd8;
-    border-left: 4px solid var(--teal);
-    padding: 36px;
-    border-radius: 0 6px 6px 0;
-  }
-  .substack-box .section-label { margin-bottom: 12px; }
-  .substack-box h2 {
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-  .substack-box p {
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 8px;
-    line-height: 1.75;
-    max-width: 540px;
-  }
-  .substack-list {
-    list-style: none;
-    margin: 16px 0 24px 0;
-    padding: 0;
-  }
-  .substack-list li {
-    font-size: 0.97rem;
-    color: var(--text);
-    padding: 5px 0 5px 18px;
-    position: relative;
-    line-height: 1.6;
-  }
-  .substack-list li::before { content: '\2013'; position: absolute; left: 0; color: var(--teal); font-weight: 600; }
-  .btn-teal {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
+/* ---------- PATHS ---------- */
+.paths{ padding:0 0 100px; }
+.paths-intro{ max-width:68ch; margin-bottom:56px; margin-left:auto; }
+.paths-intro h2{ font-size:1.5rem; margin-bottom:14px; }
+.paths-intro p{ color:var(--ink-soft); }
 
-  footer {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  footer a { color: var(--text-light); text-decoration: none; }
-  footer a:hover { color: var(--text); }
+.path-grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:28px;
+}
+.path-card{
+position:relative;
+border:1px solid var(--hair);
+padding:34px 28px 30px;
+background:var(--paper);
+transition:transform .18s ease, box-shadow .18s ease;
+}
+.path-card:nth-child(2){ transform:translateY(30px); }
+.path-card:hover{ transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.07); }
+.path-card:nth-child(2):hover{ transform:translateY(26px); }
 
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 2.2rem; }
-    .nav-links { gap: 14px; }
-    .tea-inner { flex-direction: column; align-items: flex-start; }
-    .book-inner { flex-direction: column-reverse; gap: 24px; }
-    .book-cover { width: 130px; }
-    .paths-box { padding: 28px 24px; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+.path-splash{
+height:64px;
+margin-bottom:18px;
+}
+.path-splash img{ height:100%; width:auto; display:block; }
+
+.path-tag{
+font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.07em;
+margin-bottom:12px;
+}
+.path-card.teal .path-tag{ color:var(--teal); }
+.path-card.coral .path-tag{ color:var(--burgundy); }
+.path-card.periwinkle .path-tag{ color:var(--periwinkle); }
+
+.path-card h3{ font-size:1.28rem; margin-bottom:12px; }
+.path-card p{ color:var(--ink-soft); font-size:.98rem; margin-bottom:22px; }
+
+.path-link{
+font-weight:600; font-size:.94rem; display:inline-flex; align-items:center; gap:8px;
+border-bottom:2px solid currentColor; padding-bottom:2px;
+}
+.path-card.teal .path-link{ color:var(--teal); }
+.path-card.coral .path-link{ color:var(--burgundy); }
+.path-card.periwinkle .path-link{ color:var(--periwinkle); }
+
+.not-sure{
+margin-top:70px; text-align:left;
+padding-top:28px; border-top:1px solid var(--hair);
+}
+.not-sure p{ color:var(--ink-soft); font-size:.98rem; }
+.not-sure a{ font-weight:600; color:var(--ink); border-bottom:2px solid var(--orange); }
+
+/* ---------- THEMES TEASER ---------- */
+.themes{
+background:#fafafa; padding:80px 0;
+border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
+}
+.themes .wrap{ display:flex; flex-wrap:wrap; gap:48px; align-items:flex-start; justify-content:space-between; }
+.themes-copy{ max-width:38ch; }
+.themes-copy h2{ font-size:1.5rem; margin-bottom:14px; }
+.themes-copy p{ color:var(--ink-soft); margin-bottom:20px; }
+.themes-copy a{ font-weight:600; border-bottom:2px solid var(--orange); }
+
+.theme-dots{
+display:grid; grid-template-columns:repeat(5, auto); gap:14px 22px; align-content:start;
+}
+.theme-dot{ display:flex; align-items:center; gap:9px; font-size:.86rem; color:var(--ink-soft); white-space:nowrap; }
+.theme-dot i{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+
+/* ---------- ABOUT TEASER ---------- */
+.about-teaser{ padding:80px 0; }
+.about-teaser .wrap{ display:flex; align-items:center; gap:56px; flex-wrap:wrap; }
+.about-teaser .copy{ flex:1; min-width:260px; max-width:44ch; }
+.about-teaser h2{ font-size:1.4rem; margin-bottom:14px; }
+.about-teaser p{ color:var(--ink-soft); margin-bottom:18px; }
+.about-teaser a{ font-weight:600; color:var(--ink); border-bottom:2px solid var(--orange); }
+.about-splash{
+width:280px; flex-shrink:0;
+}
+.about-splash img{ width:100%; height:auto; display:block; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+footer .foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+footer .foot-logo span{ color:var(--orange); }
+footer p{ color:#c6c7cb; font-size:.9rem; max-width:32ch; }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+footer .foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+.path-grid{ grid-template-columns:1fr; }
+.path-card:nth-child(2), .path-card:nth-child(2):hover{ transform:none; }
+.about-teaser .wrap{ flex-direction:column-reverse; text-align:left; }
+.theme-dots{ grid-template-columns:repeat(2, auto); }
+}
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 18px; font-size:.88rem; }
+.hero{ padding:64px 0 56px; }
+.hero h1{ max-width:none; }
+.hero h1 .hero-break{ display:none; }
+.themes .wrap{ flex-direction:column; }
+.about-splash{ width:220px; }
+}
+
 </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z4T3EYG12"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8Z4T3EYG12');
-  </script>
 </head>
 <body>
 
-<div class="launch-banner">
-  <p><em>Not Done Yet</em> is out now — Ali's guide to living with intention after 60. <a href="https://www.amazon.co.uk/Not-Done-Yet-Themes-Possible/dp/1066636702/ref=sr_1_1?crid=DIPU24RUDK6E&dib=eyJ2IjoiMSJ9.H_T-yvQcJ-S7Rfi-6AcuNNgRvQLy_x-pqXmtDDQLj0gPxeKMob1IBTpjlbiubVagO7i4XKeGXjHvhVX0oEgONlgaoIpZHBLPqVwnJzIGWP8.bpL6bsKZHU6G56psWTsJcJ0BmuAOKx1uqj6baLePVmY&dib_tag=se&keywords=not+done+yet+life+after+60&qid=1780214262&sprefix=not+done+yet+life+after+60%2Caps%2C107&sr=8-1" target="_blank" rel="noopener">Buy on Amazon</a></p>
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/a.png" alt=""></div>
+<div class="hero-copy">
+<div class="hero-eyebrow">Life after 60</div>
+<h1>Hopes, dreams, and a life that's unmistakably still yours<br class="hero-break">because you're <em>Not Done Yet</em>.</h1>
+<p class="sub">Wherever you're starting from today, there's a path here that already understands it. Choose the one that sounds most like you.</p>
+</div>
+</div>
+</section>
+
+<section class="paths">
+<div class="wrap">
+<div class="paths-intro">
+<h2>Three paths. Start with the one that fits today.</h2>
+<p>Not sure? That's fine too — there's a quiet way to find out below.</p>
 </div>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Ali Heathfield</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="contact.html" class="nav-contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="path-grid">
 
-<main>
+<div class="path-card teal">
+<div class="path-splash"><img src="splashes/c.png" alt=""></div>
+<div class="path-tag">Maintain &amp; Prevent</div>
+<h3>Life is good. You want to keep it that way.</h3>
+<p>A low-level unease, not a crisis. Small, doable steps to protect what's already working and get ahead of what's next.</p>
+<a class="path-link" href="maintain-and-prevent.html">Start here →</a>
+</div>
 
-  <section class="hero">
-    <p class="hero-eyebrow">Live Your Way</p>
-    <h1>Living Life Well</h1>
-    <p class="hero-sub">Intention, action and purpose — for life after 60.</p>
-    <div class="hero-body">
-      <p>Ali works with people navigating the real terrain of later life, whether facing significant change, managing health challenges, or simply wanting to live more fully and with greater intention.</p>
-      <p>Her own choice was this: let life happen and relinquish control to chance, or live with intention, enjoyment, meaning and purpose. She chose intention, and built the Living Life Well framework on that decision. It underpins everything she offers.</p>
-    </div>
-    <a href="about.html" class="btn-secondary">Find out more about Ali &#8594;</a>
-  </section>
+<div class="path-card coral">
+<div class="path-splash"><img src="splashes/e.png" alt=""></div>
+<div class="path-tag">Reinvent &amp; Renew</div>
+<h3>Something has shifted. You're standing at a threshold.</h3>
+<p>Retirement, an empty nest, redundancy, divorce. Permission, and a structured next step, not a lecture.</p>
+<a class="path-link" href="reinvent-and-renew.html">Start here →</a>
+</div>
 
-  <section class="paths-section">
-    <div class="paths-box">
-      <h2>Wherever you are, there is a path from here.</h2>
-      <ul class="paths-list">
-        <li>
-          <strong>Maintain and Prevent</strong>
-          <span>Life is largely working well and you want to keep it that way, with intention and care rather than by accident.</span>
-        </li>
-        <li>
-          <strong>Reinvent and Renew</strong>
-          <span>You are navigating significant change or transition and want to find what comes next with clarity and purpose.</span>
-        </li>
-        <li>
-          <strong>Health Changes</strong>
-          <span>You are managing health challenges, whether your own or someone close to you, and need practical, grounded support.</span>
-        </li>
-      </ul>
-      <p class="paths-cta">Unsure which path is yours? <a href="where-am-i-now.html" target="_blank">Try Where Am I Now?</a></p>
-    </div>
-  </section>
+<div class="path-card periwinkle">
+<div class="path-splash"><img src="splashes/f.png" alt=""></div>
+<div class="path-tag">Health Navigator</div>
+<h3>A change in health, yours or someone you love's.</h3>
+<p>Immediate, honest, practical help. No wellness fluff. The shortest possible path to something useful.</p>
+<a class="path-link" href="health-navigator.html">Start here →</a>
+</div>
 
-  <section class="book-section">
-    <p class="section-label">The Book</p>
-    <div class="book-inner">
-      <div class="book-text">
-        <p class="book-eyebrow">Out Now</p>
-        <h2>Not Done Yet</h2>
-        <h3>Life After 60: Ten Themes to Create What's Possible</h3>
-        <p class="book-intro">The book is where many people begin. But there are several ways to work with the Living Life Well framework — <a href="about.html#how-i-work">find the one that fits you</a>.</p>
-        <div class="book-buttons">
-          <a href="https://www.amazon.co.uk/Not-Done-Yet-Themes-Possible/dp/1066636702/ref=sr_1_1?crid=DIPU24RUDK6E&dib=eyJ2IjoiMSJ9.H_T-yvQcJ-S7Rfi-6AcuNNgRvQLy_x-pqXmtDDQLj0gPxeKMob1IBTpjlbiubVagO7i4XKeGXjHvhVX0oEgONlgaoIpZHBLPqVwnJzIGWP8.bpL6bsKZHU6G56psWTsJcJ0BmuAOKx1uqj6baLePVmY&dib_tag=se&keywords=not+done+yet+life+after+60&qid=1780214262&sprefix=not+done+yet+life+after+60%2Caps%2C107&sr=8-1" target="_blank" class="btn-amazon">Buy on Amazon</a>
-          <a href="book.html" class="btn-book-link" target="_blank" rel="noopener">Find out more &#8594;</a>
-        </div>
-      </div>
-      <div class="book-cover">
-        <img src="bookcover.png" alt="Not Done Yet by Ali Heathfield">
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="tea-section">
-    <div class="tea-inner">
-      <p>If you are not sure where to start, book a 15-minute tea chat — bring your own drink. It costs nothing, no commitment, and you can find out what works for you.</p>
-      <a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" class="btn-accent">Book a tea chat</a>
-    </div>
-  </section>
+<div class="not-sure">
+<p>Arrived without knowing which one is yours? <a href="where-am-i-now.html">Take the 60-second check-in →</a></p>
+</div>
+</div>
+</section>
 
-  <section class="substack-section">
-    <div class="substack-box">
-      <p class="section-label">The Community</p>
-      <h2>Join the conversation on Substack.</h2>
-      <p>Subscribe to <em>Living Life Well</em>, free, and be part of an honest, practical conversation about what life after 60 can really look like. Ali publishes regularly: insights from the framework, reflections from her own experience, and tools you can use.</p>
-      <ul class="substack-list">
-        <li>Practical wisdom from the Living Life Well model</li>
-        <li>Honest reflections on what later life actually involves</li>
-        <li>Free resources, including the Life Check-In tool</li>
-        <li>Early access to new tools, courses and events</li>
-      </ul>
-      <a href="https://aliheathfield.substack.com" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
-    </div>
-  </section>
+<section class="themes">
+<div class="wrap">
+<div class="themes-copy">
+<h2>Built on ten themes</h2>
+<p>Every path draws on the same underlying framework — Conductors, Foundations, and Pillars — so nothing you find here feels disconnected from the rest.</p>
+<a href="themes.html">Browse the ten themes →</a>
+</div>
+<div class="theme-dots">
+<div class="theme-dot"><i style="background:var(--orange)"></i>Self</div>
+<div class="theme-dot"><i style="background:var(--teal)"></i>Narrative</div>
+<div class="theme-dot"><i style="background:var(--coral)"></i>Meaning</div>
+<div class="theme-dot"><i style="background:var(--periwinkle)"></i>Environment</div>
+<div class="theme-dot"><i style="background:var(--burgundy)"></i>Health</div>
+<div class="theme-dot"><i style="background:var(--orange)"></i>Finance</div>
+<div class="theme-dot"><i style="background:var(--teal)"></i>Activities</div>
+<div class="theme-dot"><i style="background:var(--coral)"></i>Relationships</div>
+<div class="theme-dot"><i style="background:var(--periwinkle)"></i>Community</div>
+<div class="theme-dot"><i style="background:var(--burgundy)"></i>Planning</div>
+</div>
+</div>
+</section>
 
-</main>
+<section class="about-teaser">
+<div class="wrap">
+<div class="about-splash"><img src="splashes/b.png" alt=""></div>
+<div class="copy">
+<h2>Written by someone who's living it too</h2>
+<p>Ali Heathfield created the Living Life Well framework and wrote Not Done Yet after her own threshold moment. Read her story once you've found your own footing here first.</p>
+<a href="ali-story.html">Read Ali's story →</a>
+</div>
+</div>
+</section>
 
 <footer>
-  <span>&#169; 2026 Ali Heathfield</span>
-  <span><a href="about.html">About</a> &#183; <a href="book.html">Book</a> &#183; <a href="resources.html">Resources</a> &#183; <a href="archive.html">Archive</a> &#183; <a href="privacy.html">Privacy &amp; Legal</a></span>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
 </footer>
 
 </body>

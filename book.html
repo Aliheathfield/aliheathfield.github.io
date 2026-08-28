@@ -1,577 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Not Done Yet — Ali Heathfield</title>
+<title>Start With What Makes Sense to You | Not Done Yet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafaf9;
-    --white: #ffffff;
-    --text: #2d2d2d;
-    --text-light: #666666;
-    --border: #e0ddd8;
-    --accent: #F69E4A;
-    --accent-dark: #E07F1A;
-    --accent-light: #fef3e2;
-    --teal: #3a9b8a;
-    --teal-light: #e8f5f2;
-    --heading-font: 'Lora', Georgia, serif;
-    --body-font: 'Source Sans 3', sans-serif;
-  }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body-font);
-    font-size: 19px;
-    line-height: 1.75;
-  }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 740px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .nav-brand {
-    font-family: var(--heading-font);
-    font-size: 1.05rem;
-    color: var(--text);
-    text-decoration: none;
-    font-style: italic;
-  }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-contact { color: var(--accent-dark) !important; font-weight: 600 !important; }
-  .nav-contact:hover { color: var(--accent) !important; }
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
 
-  /* HERO */
-  .book-hero {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 64px 24px 52px;
-    border-bottom: 1px solid var(--border);
-  }
-  .book-hero h1 {
-    font-family: var(--heading-font);
-    font-size: 2.8rem;
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .book-hero h2 {
-    font-family: var(--heading-font);
-    font-size: 1.15rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text-light);
-    margin-bottom: 36px;
-    line-height: 1.4;
-  }
-  .covers-wrap {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-    margin-bottom: 32px;
-  }
-  .cover-img {
-    flex: 1;
-  }
-  .cover-img img {
-    width: 100%;
-    border-radius: 6px;
-    display: block;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-  }
-  .book-closing-line {
-    font-family: var(--heading-font);
-    font-size: 1.25rem;
-    font-style: italic;
-    color: var(--teal);
-    margin-bottom: 28px;
-    line-height: 1.5;
-  }
-  .btn-amazon {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 14px 36px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-amazon:hover { background: var(--accent-dark); transform: translateY(-1px); }
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
 
-  /* SECTIONS */
-  .book-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 20px;
-  }
-  .book-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 22px;
-    line-height: 1.3;
-  }
-  .book-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 18px;
-    max-width: 640px;
-  }
-  .book-section p:last-child { margin-bottom: 0; }
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
 
-  /* THEMES */
-  .themes-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .themes-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 18px;
-    line-height: 1.3;
-  }
-  .themes-section > p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 32px;
-    max-width: 640px;
-  }
-  .themes-group { margin-bottom: 28px; }
-  .themes-group:last-child { margin-bottom: 0; }
-  .themes-group-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 10px;
-  }
-  .themes-group-desc {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-style: italic;
-    margin-bottom: 12px;
-  }
-  .themes-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .theme-pill {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--teal);
-    padding: 8px 16px;
-    border-radius: 0 4px 4px 0;
-    font-size: 0.92rem;
-    font-weight: 600;
-    font-family: var(--heading-font);
-    color: var(--text);
-  }
-  .theme-pill.conductor { border-left-color: var(--accent); }
-  .theme-pill.foundation { border-left-color: #b8ddd8; }
-  .themes-note {
-    margin-top: 28px;
-    font-size: 0.97rem;
-    color: var(--text-light);
-    font-style: italic;
-    line-height: 1.7;
-  }
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
 
-  /* QUOTE */
-  .quote-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .pull-quote {
-    border-left: 4px solid var(--accent);
-    padding: 24px 32px;
-    background: var(--accent-light);
-    border-radius: 0 6px 6px 0;
-  }
-  .pull-quote p {
-    font-family: var(--heading-font);
-    font-size: 1.3rem;
-    font-style: italic;
-    line-height: 1.65;
-    color: var(--text);
-  }
-  .pull-quote cite {
-    display: block;
-    margin-top: 14px;
-    font-style: normal;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--accent-dark);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+/* ---------- HERO ---------- */
+.page-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.page-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.page-hero .hero-copy{ position:relative; z-index:1; }
+.page-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; max-width:20ch; }
+.page-hero h1 .accent{ color:var(--orange); }
+.page-hero p{ font-size:1.08rem; line-height:1.7; color:var(--ink-soft); max-width:56ch; }
 
-  /* WORKBOOKS */
-  .workbooks-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .workbooks-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-  .workbooks-section > p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 32px;
-    max-width: 640px;
-  }
-  .workbooks-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-  }
-  .workbook-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--teal);
-    padding: 22px 20px;
-    border-radius: 0 0 4px 4px;
-  }
-  .workbook-card h3 {
-    font-family: var(--heading-font);
-    font-size: 0.97rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-    line-height: 1.35;
-  }
-  .workbook-card p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-  .workbook-status {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--teal);
-    font-style: italic;
-  }
+/* ---------- BOOK FEATURE ---------- */
+.book-feature{ padding:16px 0 48px; }
+.book-feature .inner{ display:flex; gap:48px; flex-wrap:wrap; align-items:flex-end; }
+.book-cover{ width:220px; flex-shrink:0; }
+.book-cover img{ width:100%; height:auto; display:block; border:1px solid var(--hair); }
+.book-copy{ flex:1; min-width:280px; max-width:520px; }
+.book-eyebrow{
+font-size:.78rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--orange); margin-bottom:14px;
+}
+.book-copy h2{ font-size:1.6rem; margin-bottom:6px; }
+.book-copy .subtitle{ font-family:'Lora', serif; font-style:italic; color:var(--ink-soft); font-size:1.02rem; margin-bottom:18px; }
+.book-copy p.desc{ color:var(--ink-soft); font-size:1rem; line-height:1.8; margin-bottom:24px; }
 
-  /* ABOUT ALI */
-  .ali-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .ali-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 22px;
-    line-height: 1.3;
-  }
-  .ali-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 18px;
-    max-width: 640px;
-  }
-  .ali-section p:last-child { margin-bottom: 0; }
+.book-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+.btn-primary{
+display:inline-block; background:var(--deep-teal); color:#fff; font-weight:700;
+font-size:.92rem; padding:13px 26px;
+}
+.btn-primary:hover{ background:#043c4c; }
+.btn-secondary{
+display:inline-block; background:transparent; color:var(--ink); font-weight:700;
+font-size:.92rem; padding:12px 24px; border:1px solid var(--ink);
+}
+.btn-secondary:hover{ background:var(--ink); color:#fff; }
 
-  /* CLOSING */
-  .closing-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .closing-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .closing-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 24px;
-    max-width: 600px;
-  }
-  .closing-links {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .btn-primary {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-  .btn-teal {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 12px 26px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
-  .btn-ghost {
-    color: var(--accent-dark);
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
-    padding: 4px 0;
-  }
-  .btn-ghost:hover { border-bottom-color: var(--accent); }
+.sample-box{
+border:1px solid var(--hair); padding:22px 24px 0; width:280px; flex-shrink:0;
+}
+.sample-box .label{ font-size:.72rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--teal-dk); margin-bottom:8px; }
+.sample-box p{ font-size:.92rem; color:var(--ink-soft); margin-bottom:16px; line-height:1.6; }
 
-  footer {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  footer a { color: var(--text-light); text-decoration: none; }
-  footer a:hover { color: var(--text); }
+/* shared solid-colour rectangle button, used for direct-email CTAs */
+.box-btn{
+display:inline-block; background:var(--orange); color:#fff; border:none; font-weight:700; font-size:.92rem; padding:11px 22px; cursor:pointer;
+}
+.box-btn:hover{ background:#e07040; }
 
-  @media (max-width: 600px) {
-    .book-hero h1 { font-size: 2.1rem; }
-    .covers-wrap { flex-direction: column; gap: 16px; }
-    .workbooks-grid { grid-template-columns: 1fr; }
-    .closing-links { flex-direction: column; align-items: flex-start; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+/* ---------- OTHER BOOK ---------- */
+.other-book{ padding:56px 0; border-top:1px solid var(--hair); }
+.other-book .inner{ max-width:640px; }
+.other-book .book-eyebrow{ color:var(--orange); }
+.other-book h2{ font-size:1.4rem; margin-bottom:6px; }
+.other-book .subtitle{ font-family:'Lora', serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:16px; }
+.other-book p.desc{ color:var(--ink-soft); font-size:.96rem; line-height:1.75; margin-bottom:18px; }
+.other-book .launch-note{ margin-bottom:18px; }
+.other-book .launch-note .dot{ background:var(--orange); }
+
+/* ---------- WORKBOOKS ---------- */
+.workbooks{ padding:56px 0 80px; }
+.workbooks-intro{ max-width:60ch; margin-bottom:56px; }
+.workbooks-intro h2{ font-size:1.4rem; margin-bottom:14px; }
+.workbooks-intro p{ color:var(--ink-soft); font-size:.98rem; }
+
+.workbook-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+.workbook-card{ display:flex; flex-direction:column; }
+.workbook-card:nth-child(2){ transform:translateY(30px); }
+.wb-cover{ width:100%; max-width:180px; margin-bottom:22px; }
+.wb-cover img{ width:100%; height:auto; display:block; border:1px solid var(--hair); }
+.wb-icon{ width:64px; margin-bottom:22px; }
+.wb-icon img{ width:100%; height:auto; display:block; }
+.wb-tag{ font-size:.78rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin-bottom:10px; }
+.workbook-card.mp .wb-tag{ color:var(--teal-dk); }
+.workbook-card.rr .wb-tag{ color:var(--burgundy); }
+.workbook-card.hn .wb-tag{ color:var(--periwinkle); }
+.workbook-card h3{ font-size:1.12rem; margin-bottom:10px; }
+.workbook-card p.desc{ color:var(--ink-soft); font-size:.92rem; line-height:1.7; margin-bottom:10px; }
+.standalone-note{ font-size:.84rem; font-weight:600; color:var(--ink); margin-bottom:18px; }
+
+.launch-note{
+font-size:.84rem; font-weight:600; margin-bottom:16px; display:flex; align-items:center; gap:8px;
+}
+.launch-note .dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.workbook-card.mp .launch-note .dot{ background:var(--teal); }
+.workbook-card.rr .launch-note .dot{ background:var(--coral); }
+.workbook-card.hn .launch-note .dot{ background:var(--periwinkle); }
+.launch-note span.text{ color:var(--ink-soft); }
+
+.notify-form{ display:flex; flex-direction:column; gap:10px; max-width:260px; }
+.notify-form input[type=email]{
+padding:11px 14px; border:1px solid var(--hair); font-family:inherit; font-size:.9rem;
+}
+.notify-form button{
+color:#fff; border:none; font-weight:700; font-size:.9rem; padding:11px 20px; cursor:pointer; white-space:nowrap;
+}
+.workbook-card.mp .notify-form button{ background:var(--teal-dk); }
+.workbook-card.mp .notify-form button:hover{ background:#155f6b; }
+.workbook-card.rr .notify-form button{ background:var(--burgundy); }
+.workbook-card.rr .notify-form button:hover{ background:#743338; }
+.workbook-card.hn .notify-form button{ background:var(--periwinkle); }
+.workbook-card.hn .notify-form button:hover{ background:#5a71a0; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+.workbook-grid{ grid-template-columns:1fr; max-width:340px; gap:40px; }
+.workbook-card:nth-child(2){ transform:none; }
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.book-feature .inner{ flex-direction:column; align-items:stretch; }
+.book-cover{ width:180px; }
+.sample-box{ width:auto; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
 </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z4T3EYG12"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8Z4T3EYG12');
-  </script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Ali Heathfield</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html" class="active">Book</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="contact.html" class="nav-contact">Contact</a></li>
-    </ul>
-  </div>
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html" class="current">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
 </nav>
+</div>
+</header>
 
-<main>
+<section class="page-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/h.png" alt=""></div>
+<div class="hero-copy">
+<h1>Start with <span class="accent">what makes sense to you</span></h1>
+<p>Not Done Yet and the workbooks all draw on the same Living Life Well model, but none of them depends on the others. Read the book, start with a workbook, or both, in whichever order suits you.</p>
+</div>
+</div>
+</section>
 
-  <section class="book-hero">
-    <h1>Not Done Yet</h1>
-    <h2>Life After 60: Ten Themes to Create What's Possible</h2>
-    <div class="covers-wrap">
-      <div class="cover-img">
-        <img src="bookcover.png" alt="Not Done Yet — front cover">
-      </div>
-      <div class="cover-img">
-        <img src="backimage.png" alt="Not Done Yet — back cover">
-      </div>
-    </div>
-    <p class="book-closing-line">Ageing is a privilege. This book helps you claim it.</p>
-    <a href="https://www.amazon.co.uk/Not-Done-Yet-Themes-Possible/dp/1066636702/ref=sr_1_1?crid=DIPU24RUDK6E&dib=eyJ2IjoiMSJ9.H_T-yvQcJ-S7Rfi-6AcuNNgRvQLy_x-pqXmtDDQLj0gPxeKMob1IBTpjlbiubVagO7i4XKeGXjHvhVX0oEgONlgaoIpZHBLPqVwnJzIGWP8.bpL6bsKZHU6G56psWTsJcJ0BmuAOKx1uqj6baLePVmY&dib_tag=se&keywords=not+done+yet+life+after+60&qid=1780214262&sprefix=not+done+yet+life+after+60%2Caps%2C107&sr=8-1" target="_blank" class="btn-amazon">Buy on Amazon</a>
-  </section>
+<section class="book-feature">
+<div class="wrap">
+<div class="inner">
+<div class="book-cover">
+<img src="book-covers/ndy-cover.jpg" alt="Not Done Yet book cover">
+</div>
+<div class="book-copy">
+<div class="book-eyebrow">The book</div>
+<h2>Not Done Yet</h2>
+<p class="subtitle">Life After 60: Ten Themes to Create What's Possible</p>
+<p class="desc">You're standing at a crossroads. Perhaps you've just retired and feel unmoored without the structure that work provided. Maybe you've lost a partner and don't recognise the person looking back at you in the mirror. Whatever brought you here, this book shows you how to feel alive, matter, contribute, and design these years rather than simply endure them.</p>
+<div class="book-ctas">
+<a href="https://mybook.to/NotDoneYet" target="_blank" rel="noopener" class="btn-primary">Buy on Amazon →</a>
+</div>
+</div>
+<div class="sample-box">
+<div class="label">Free sample</div>
+<p>Email me and I'll personally send you chapter one.</p>
+<a class="box-btn" href="mailto:hello@aliheathfield.com?subject=Send%20me%20NDY%20Free%20Chapter">Email me for chapter one</a>
+</div>
+</div>
+</div>
+</section>
 
-  <section class="book-section">
-    <p class="section-label">What the Book is About</p>
-    <h2>More than just getting through it.</h2>
-    <p>You've reached a point in life where things have shifted. Maybe significantly. Maybe just quietly, in ways that are hard to name. The roles that used to define you have changed. The structure that used to fill your days has loosened, and somewhere in all of that, you're asking: what now?</p>
-    <p><em>Not Done Yet</em> is for everyone navigating life after 60 who wants more than just getting through it. It's practical, personal, and grounded in real experience, not a cheerful to-do list, not a five-step formula. It's a thoughtful look at ten themes that shape how we live at this stage, and how you can work with them rather than around them.</p>
-    <p>Whether you're rebuilding after loss, exploring what a genuinely good later life looks like, holding steady and wanting to stay that way, or navigating health changes (yours or someone you love), this book meets you where you are.</p>
-    <p>It won't tell you what your life should look like. It'll help you figure out what you want it to look like.</p>
-  </section>
+<section class="workbooks" id="workbooks">
+<div class="wrap">
+<div class="workbooks-intro">
+<h2>The workbooks</h2>
+<p>Each workbook puts one path into practice: the Theme Check-In, the tools, and the guided steps for that stage of life. Maintain &amp; Prevent and Reinvent &amp; Renew launch 9 September 2026. Health Changes is still being written. Be the first to know when your copy is ready.</p>
+</div>
 
-  <section class="themes-section">
-    <p class="section-label">The Ten Themes</p>
-    <h2>The Living Life Well model.</h2>
-    <p>The heart of the book is the Living Life Well model, ten interconnected themes that shape our wellbeing in later life. Think of them as different instruments in an orchestra. Sometimes one plays louder than the others. What matters is noticing when something's out of tune, and knowing how to bring things back into balance.</p>
-    <div class="themes-group">
-      <p class="themes-group-label">The Conductors</p>
-      <p class="themes-group-desc">The inner themes that set the tone for everything else.</p>
-      <div class="themes-pills">
-        <span class="theme-pill conductor">Self</span>
-        <span class="theme-pill conductor">Narrative</span>
-        <span class="theme-pill conductor">Meaning &amp; Purpose</span>
-      </div>
-    </div>
-    <div class="themes-group">
-      <p class="themes-group-label">The Foundations</p>
-      <p class="themes-group-desc">The practical conditions that make everything else possible.</p>
-      <div class="themes-pills">
-        <span class="theme-pill foundation">Environment</span>
-        <span class="theme-pill foundation">Health</span>
-        <span class="theme-pill foundation">Finance</span>
-      </div>
-    </div>
-    <div class="themes-group">
-      <p class="themes-group-label">The Pillars</p>
-      <p class="themes-group-desc">The visible themes that make up the fabric of daily life.</p>
-      <div class="themes-pills">
-        <span class="theme-pill">Activities &amp; Interests</span>
-        <span class="theme-pill">Relationships</span>
-        <span class="theme-pill">Community</span>
-        <span class="theme-pill">Planning</span>
-      </div>
-    </div>
-    <p class="themes-note">A change in one area often creates ripples in others.</p>
-  </section>
+<div class="workbook-grid">
 
-  <section class="book-section">
-    <p class="section-label">Who It's For</p>
-    <h2>If you're still asking what's possible.</h2>
-    <p>This book is for you if you're somewhere in your 60s, 70s, or beyond, and life looks different from how it did a few years ago.</p>
-    <p>Maybe you've lost a partner, a role, or a version of yourself you relied on. Maybe you're heading into retirement and want to get it right. Maybe life is good and you'd like it to stay that way. Maybe health (yours or someone close to you) has become the thing you're organising everything around.</p>
-    <p>Whatever brought you here, if you're still asking what's possible for the years ahead, this book is written for you.</p>
-  </section>
+<div class="workbook-card mp">
+<div class="wb-cover"><img src="book-covers/mp-cover.jpg" alt="Maintain and Prevent workbook cover"></div>
+<div class="wb-tag">Maintain &amp; Prevent</div>
+<h3>Protecting what you love</h3>
+<p class="desc">Maintenance with intention: small tweaks, regular check-ins, and the kind of gentle attention that prevents drift while protecting joy.</p>
+<p class="standalone-note">Stands on its own. No need to read the book first.</p>
+<a href="#" class="box-btn">Buy Now →</a>
+</div>
 
-  <section class="quote-section">
-    <div class="pull-quote">
-      <p>The encore is yours to compose. Make it beautiful, make it true, make it yours.</p>
-      <cite>— Ali Heathfield, <em>Not Done Yet</em></cite>
-    </div>
-  </section>
+<div class="workbook-card rr">
+<div class="wb-cover"><img src="book-covers/rr-cover.jpg" alt="Reinvent and Renew workbook cover"></div>
+<div class="wb-tag">Reinvent &amp; Renew</div>
+<h3>Start building the life you actually want</h3>
+<p class="desc">Intentional reinvention and renewal: exploring possibilities, trying on new identities, and taking the steps that feel right.</p>
+<p class="standalone-note">Stands on its own. No need to read the book first.</p>
+<a href="#" class="box-btn">Buy Now →</a>
+</div>
 
-  <section class="ali-section">
-    <p class="section-label">About Ali</p>
-    <h2>Where this came from.</h2>
-    <p>I spent years as an executive coach, working with leaders navigating change, transitions, and the question of what comes next. Then I found myself facing exactly that question myself.</p>
-    <p>When my husband Brian died, everything shifted. My identity, my structure, my sense of what was possible. I didn't want to just recover. I wanted to rebuild something that was genuinely mine. I went back to studying, completing an MSc in Positive Psychology at Buckinghamshire New University, started painting again, and eventually made my way to Portugal, where I now live.</p>
-    <p>The Living Life Well model in this book isn't theoretical. It came out of my own experience, and that of the many people I've worked with who are navigating this same stage of life.</p>
-    <p>I'm not going to pretend I've got it all worked out. But I've learnt a lot about what helps, what gets in the way, and what it means to age with intention rather than by default.</p>
-    <p>That's what this book is about.</p>
-  </section>
+<div class="workbook-card hn">
+<div class="wb-cover"><img src="book-covers/hc-cover.jpg" alt="Health Changes workbook cover"></div>
+<div class="wb-tag">Health Changes</div>
+<h3>Finding your way through health changes</h3>
+<p class="desc">The Health Navigator path in practice: managing your energy, adapting daily life, and holding onto identity, connection, and purpose when health changes the rules.</p>
+<p class="standalone-note">Stands on its own. No need to read the book first.</p>
+<a href="#" class="box-btn">Register your interest →</a>
+</div>
 
-  <section class="workbooks-section">
-    <p class="section-label">The Companion Workbooks</p>
-    <h2>Take the work further.</h2>
-    <p><em>Not Done Yet</em> comes with a series of companion workbooks, practical, structured guides to help you work through the themes at your own pace.</p>
-    <div class="workbooks-grid">
-      <div class="workbook-card">
-        <h3>Maintain and Prevent</h3>
-        <p>For when life's good and you want to keep it that way.</p>
-        <span class="workbook-status">Available before end of June 2026</span>
-      </div>
-      <div class="workbook-card">
-        <h3>Reinvent and Renew</h3>
-        <p>For when you're ready to actively redesign what comes next.</p>
-        <span class="workbook-status">Available before end of June 2026</span>
-      </div>
-      <div class="workbook-card">
-        <h3>Health Changes</h3>
-        <p>For when health (yours or someone close to you) has become the organising reality of your life.</p>
-        <span class="workbook-status">Available July 2026</span>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="closing-section">
-    <p class="section-label">Stay in Touch</p>
-    <h2>If something here has stayed with you.</h2>
-    <p>You can find Ali writing, thinking out loud, and sharing what she's learning over on Substack, or drop her a message directly. If you'd like to talk about coaching or working together, a free 15-minute tea chat is the place to start. No pressure, no hard sell, just a conversation.</p>
-    <div class="closing-links">
-      <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20Book%20Page" class="btn-primary">Say hello</a>
-      <a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" class="btn-teal">Book a tea chat</a>
-      <a href="https://aliheathfield.substack.com" target="_blank" class="btn-ghost">Subscribe on Substack</a>
-    </div>
-  </section>
+</div>
+</section>
 
-</main>
+<section class="other-book">
+<div class="wrap">
+<div class="inner">
+<div class="book-eyebrow">Also from Ali</div>
+<h2>It's Not Too Late</h2>
+<p class="subtitle">47 short reflections on the Living Life Well themes</p>
+<p class="desc">Born from one question: what does it actually take to live well after 60? These 47 short reflections move past simply managing, towards intention, connection, and what's still possible, shaped by Ali's own experience of rebuilding after loss. Dip in whenever you need a prompt, five minutes at a time, any order, each closing with a short Reflect and Step.</p>
+<div class="launch-note"><span class="dot"></span><span class="text">Coming to Amazon, September 2026</span></div>
+<a class="box-btn" href="mailto:hello@aliheathfield.com?subject=Notify%20me%20-%20It%27s%20Not%20Too%20Late">Email me when it's live</a>
+</div>
+</div>
+</section>
 
 <footer>
-  <span>&copy; 2026 Ali Heathfield</span>
-  <span><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="resources.html">Resources</a> &middot; <a href="archive.html">Archive</a> &middot; <a href="privacy.html">Privacy &amp; Legal</a></span>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
 </footer>
 
 </body>

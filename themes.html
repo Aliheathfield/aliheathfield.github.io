@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ten Themes | Not Done Yet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
+
+/* ---------- HERO ---------- */
+.themes-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.themes-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:640px; }
+.hero-eyebrow{
+font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--teal-dk); margin-bottom:18px;
+}
+.themes-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.themes-hero h1 .accent{ color:var(--orange); }
+.hero-lede{
+font-size:1.08rem; line-height:1.7; color:var(--ink-soft); max-width:56ch;
+}
+
+/* ---------- MODEL STRIP ---------- */
+.model-strip{ padding:8px 0 56px; }
+.model-row{
+display:flex; flex-wrap:wrap; gap:32px; background:#fafafa; padding:32px 30px;
+}
+.model-item{
+flex:1; min-width:220px; padding:0;
+}
+.model-item .model-label{
+font-size:.88rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px;
+}
+.model-item:nth-child(1) .model-label{ color:var(--teal-dk); }
+.model-item:nth-child(2) .model-label{ color:var(--periwinkle); }
+.model-item:nth-child(3) .model-label{ color:var(--burgundy); }
+.model-item p{ font-size:.92rem; color:var(--ink-soft); line-height:1.55; }
+
+/* ---------- THEME GROUPS ---------- */
+.theme-group{ padding:8px 0 64px; }
+.group-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:8px; flex-wrap:wrap; }
+.group-head h2{ font-size:1.35rem; }
+.group-count{ font-size:.82rem; color:var(--ink-soft); }
+.group-intro{ color:var(--ink-soft); font-size:.98rem; max-width:66ch; margin-bottom:28px; }
+
+/* ---------- ACCORDION ---------- */
+details.theme{
+border-bottom:1px solid var(--hair);
+}
+details.theme:first-of-type{ border-top:1px solid var(--hair); }
+
+details.theme summary{
+list-style:none; cursor:pointer;
+display:grid; grid-template-columns:340px 1fr 26px; align-items:center; column-gap:20px;
+padding:22px 4px;
+}
+details.theme summary::-webkit-details-marker{ display:none; }
+
+.theme-name{
+font-family:'Lora', serif; font-weight:600; font-size:1.08rem; color:var(--ink);
+display:flex; align-items:baseline; gap:12px;
+min-width:0; overflow:hidden;
+}
+.theme-dot-ind{
+width:9px; height:9px; border-radius:50%; flex-shrink:0;
+display:inline-block; margin-right:2px; align-self:center;
+}
+.theme-num{ font-size:.8rem; color:var(--ink-soft); font-family:'Source Sans 3', sans-serif; font-weight:600; flex-shrink:0; }
+.theme-hook{
+font-size:.9rem; color:var(--ink-soft); display:none; min-width:0;
+}
+.theme-toggle{
+width:26px; height:26px; border:1px solid var(--hair); border-radius:50%;
+display:flex; align-items:center; justify-content:center; flex-shrink:0;
+position:relative;
+}
+.theme-toggle::before, .theme-toggle::after{
+content:''; position:absolute; background:var(--ink-soft);
+}
+.theme-toggle::before{ width:10px; height:1.5px; }
+.theme-toggle::after{ width:1.5px; height:10px; }
+details[open] .theme-toggle::after{ display:none; }
+details[open] summary{ padding-bottom:10px; }
+
+.theme-body{ padding:0 4px 28px; max-width:74ch; }
+.theme-body p{ color:var(--ink-soft); font-size:.98rem; line-height:1.75; margin-bottom:14px; }
+.theme-shift{
+font-family:'Lora', serif; font-style:italic; color:var(--ink);
+font-size:.98rem; line-height:1.7; padding-left:18px; border-left:2px solid var(--orange);
+}
+.conductors .theme-shift{ border-left-color:var(--teal-dk); }
+.foundations .theme-shift{ border-left-color:var(--periwinkle); }
+.pillars .theme-shift{ border-left-color:var(--burgundy); }
+
+@media (min-width:640px){
+.theme-hook{ display:block; }
+}
+
+/* ---------- HOW THEY WORK TOGETHER ---------- */
+.together{ padding:16px 0 64px; }
+.together-inner{
+background:#fafafa; padding:44px 40px;
+display:flex; flex-wrap:wrap; gap:36px; justify-content:space-between;
+}
+.together-copy{ flex:1; min-width:260px; max-width:60ch; }
+.together-copy h2{ font-size:1.3rem; margin-bottom:16px; }
+.together-copy p{ color:var(--ink-soft); font-size:.98rem; line-height:1.75; margin-bottom:14px; }
+.together-cta{ flex-shrink:0; align-self:center; }
+.together-cta a{
+display:inline-block; background:var(--deep-teal); color:#fff; font-weight:700;
+font-size:.92rem; padding:13px 26px;
+}
+.together-cta a:hover{ background:#043c4c; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:700px){
+.model-row{ flex-direction:column; gap:24px; }
+details.theme summary{ grid-template-columns:220px 1fr 26px; }
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.together-inner{ padding:30px 24px; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html" class="current">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="themes-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/g.png" alt=""></div>
+<div class="hero-copy">
+<div class="hero-eyebrow">The Living Life Well Model</div>
+<h1>Ten themes. One life. <span class="accent">All connected.</span></h1>
+<p class="hero-lede">Ten interconnected themes, organised into three groups. Explore the ones that matter to you right now, and come back to the rest whenever you're ready.</p>
+</div>
+</div>
+</section>
+
+<section class="model-strip">
+<div class="wrap">
+<div class="model-row">
+<div class="model-item">
+<div class="model-label">Conductors</div>
+<p>Set the tone for everything else. Self, Narrative, and Meaning &amp; Purpose.</p>
+</div>
+<div class="model-item">
+<div class="model-label">Foundations</div>
+<p>The practical realities we're working within. Environment, Health, and Finance.</p>
+</div>
+<div class="model-item">
+<div class="model-label">Pillars</div>
+<p>The visible structure of daily life. Activities &amp; Interests, Relationships, Community, and Planning.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="theme-group conductors">
+<div class="wrap">
+<div class="group-head">
+<h2>The Conductors</h2>
+<span class="group-count">3 themes</span>
+</div>
+<p class="group-intro">Self, Narrative, and Meaning &amp; Purpose are about who we are, the story we tell about our life, and what gives our days direction. When the Conductors are steady, everything else tends to follow.</p>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--orange)"></span><span class="theme-num">01</span> Self</div>
+<div class="theme-hook">Who we are beneath the roles</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>We are who we are beneath the roles. Strip away the job titles, the parenting years, the things others expect of us, and who's left? Over 60, many of us find that the roles we've carried for decades are shifting. This theme is about reconnecting with the person underneath, and remembering that we are still becoming.</p>
+<p class="theme-shift">A shift worth noticing: we realise we're so busy being what others need us to be, that we've lost touch with who we actually are, and that reconnecting matters more now than ever.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--teal)"></span><span class="theme-num">02</span> Narrative</div>
+<div class="theme-hook">The stories we tell about life</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>It's the stories we tell about life, not only our own, but also the assumptions we've absorbed about what life after 60 is supposed to look like. Are we telling ourselves "I'm too old to try that" or "I'm finally free to explore"? The narrative we've been running on autopilot might not even be true anymore.</p>
+<p class="theme-shift">A shift worth noticing: small shifts in how we talk about our lives, from "I can't" to "I haven't yet," from "I'm past my prime" to "I'm in a different season," can change what feels possible.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--coral)"></span><span class="theme-num">03</span> Meaning &amp; Purpose</div>
+<div class="theme-hook">What gives our days direction</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Purpose isn't a grand calling. It's what makes us want to get up in the morning: the conversation that matters, the project that engages us, the contribution that feels worthwhile.</p>
+<p class="theme-shift">A shift worth noticing: what used to give our lives meaning, raising children, building a career, may have shifted. That's not a loss. It's an invitation to design what matters now.</p>
+</div>
+</details>
+</div>
+</section>
+
+<section class="theme-group foundations">
+<div class="wrap">
+<div class="group-head">
+<h2>The Foundations</h2>
+<span class="group-count">3 themes</span>
+</div>
+<p class="group-intro">Environment, Health, and Finance are the essentials that support and sustain everything else: where and how we live, our physical and mental capacity, and the resources we have available.</p>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--periwinkle)"></span><span class="theme-num">04</span> Environment</div>
+<div class="theme-hook">Where and how we live</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Environment is where and how we live, but it's not limited to our own four walls. It includes the borrowed spaces we spend time in too: the local park, the coffee shop we return to, the place we go on holiday. These spaces shape our mood, our energy, and our capacity to do what matters to us, just as much as our own home does.</p>
+<p class="theme-shift">A shift worth noticing: a small change, moving a chair to face the window, fixing something we've been putting off, or finding a new café that feels like ours, can shift how a whole day feels.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--burgundy)"></span><span class="theme-num">05</span> Health</div>
+<div class="theme-hook">Our physical and mental capacity</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Health is the foundation that sets our capacity for everything else. It isn't about perfection. It's about what keeps us steady enough to live the life we want.</p>
+<p class="theme-shift">A shift worth noticing: we don't need to overhaul everything. One small health habit, a ten-minute walk, better sleep, one honest conversation about a health concern, often creates ripples that affect everything.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--orange)"></span><span class="theme-num">06</span> Finance</div>
+<div class="theme-hook">The resources we have available</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Money is the foundation that enables choice: the choice to say no to something that drains us, to invest in something that matters, to feel secure.</p>
+<p class="theme-shift">A shift worth noticing: financial clarity isn't about being rich. It's about knowing where we stand, so our choices can be intentional rather than shaped by the anxiety of not knowing.</p>
+</div>
+</details>
+</div>
+</section>
+
+<section class="theme-group pillars">
+<div class="wrap">
+<div class="group-head">
+<h2>The Pillars</h2>
+<span class="group-count">4 themes</span>
+</div>
+<p class="group-intro">Activities &amp; Interests, Relationships, Community, and Planning are what we do, who we do it with, where we belong, and how we organise our time and look ahead.</p>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--teal)"></span><span class="theme-num">07</span> Activities &amp; Interests</div>
+<div class="theme-hook">What fills our time</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Taking on a real project or role that stretches us. Whether that's learning something demanding, mentoring others, leading a community initiative, or creating something (writing, photography, restoration work, local history), these are the activities and roles that connect us to people who care about the same things, give structure to our weeks, and let us contribute meaningfully.</p>
+<p class="theme-shift">A shift worth noticing: a project or role that genuinely engages us and connects us to community isn't just an activity. It's the thread that uses our skills, keeps us growing, and gives our weeks real meaning and purpose.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--coral)"></span><span class="theme-num">08</span> Relationships</div>
+<div class="theme-hook">Our connections with others</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Relationships shift as we age. Some deepen, some fade, some need honest conversations. It's the quality of our relationships, not the number, that sustains us.</p>
+<p class="theme-shift">A shift worth noticing: we might realise that one relationship that feels draining is taking energy away from the relationships that lift us. Sometimes protecting our wellbeing means being clearer about which relationships we make room for.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--periwinkle)"></span><span class="theme-num">09</span> Community</div>
+<div class="theme-hook">Where we belong</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Community is bigger than our close friends. It's the groups, places, and causes where we feel welcomed, valued, and able to contribute. It's where we experience our sense of belonging.</p>
+<p class="theme-shift">A shift worth noticing: we might think we're "not a joiner," but community could be a weekly café, a volunteer role, a local group around something we care about, and the sense of belonging it offers affects everything else.</p>
+</div>
+</details>
+
+<details class="theme">
+<summary>
+<div class="theme-name"><span class="theme-dot-ind" style="background:var(--burgundy)"></span><span class="theme-num">10</span> Planning</div>
+<div class="theme-hook">How we organise and look ahead</div>
+<span class="theme-toggle"></span>
+</summary>
+<div class="theme-body">
+<p>Planning isn't just logistics. It's about having things to look forward to, and keeping our life intentional rather than reactive.</p>
+<p class="theme-shift">A shift worth noticing: when we plan a holiday months ahead, or put a standing coffee date with a friend in the diary, we give ourselves something to look forward to. Life feels different when there's always something ahead of us, rather than waiting to see what happens.</p>
+</div>
+</details>
+</div>
+</section>
+
+<section class="together">
+<div class="wrap">
+<div class="together-inner">
+<div class="together-copy">
+<h2>How they work together</h2>
+<p>When these themes are in balance, life feels manageable and meaningful. They're deeply interconnected, so strengthening one often helps the others adjust naturally. Taking on a real project, learning something demanding, or stepping into a leadership role can expand our community, which deepens our relationships, which in turn strengthens our sense of meaning and purpose.</p>
+<p>When one or more themes need attention, though, everything becomes harder. That's where the workbooks come in: they help you identify which themes need a gentle tune-up, and take small, steady steps to keep your life working well.</p>
+</div>
+<div class="together-cta">
+<a href="book.html#workbooks">Explore the workbooks &rarr;</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>·</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

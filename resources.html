@@ -1,475 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resources — Ali Heathfield</title>
+<title>Resources | Not Done Yet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafaf9;
-    --white: #ffffff;
-    --text: #2d2d2d;
-    --text-light: #666666;
-    --border: #e0ddd8;
-    --accent: #F69E4A;
-    --accent-dark: #E07F1A;
-    --accent-light: #fef3e2;
-    --teal: #3a9b8a;
-    --teal-light: #e8f5f2;
-    --heading-font: 'Lora', Georgia, serif;
-    --body-font: 'Source Sans 3', sans-serif;
-  }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+--band:#fafafa;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body-font);
-    font-size: 19px;
-    line-height: 1.75;
-  }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 740px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .nav-brand {
-    font-family: var(--heading-font);
-    font-size: 1.05rem;
-    color: var(--text);
-    text-decoration: none;
-    font-style: italic;
-  }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-subscribe {
-    color: var(--accent-dark) !important;
-    font-weight: 600 !important;
-  }
-  .nav-subscribe:hover { color: var(--accent) !important; }
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
 
-  .page-header {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 64px 24px 40px;
-    border-bottom: 1px solid var(--border);
-  }
-  .page-header .eyebrow {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 16px;
-  }
-  .page-header h1 {
-    font-family: var(--heading-font);
-    font-size: 2.6rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .page-header h1 em { color: var(--accent); font-style: italic; }
-  .page-header p {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    max-width: 560px;
-    line-height: 1.75;
-  }
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
 
-  .section-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 20px;
-  }
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.content{ max-width:100%; }
 
-  /* SUBSTACK MAIN */
-  .substack-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .substack-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 18px;
-  }
-  .substack-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 620px;
-  }
+/* ---------- HEADER (back to standard, matching every other page) ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
 
-  .substack-box {
-    background: var(--teal-light);
-    border: 1px solid #b8ddd8;
-    border-left: 4px solid var(--teal);
-    padding: 36px;
-    border-radius: 0 6px 6px 0;
-    margin-top: 28px;
-  }
-  .substack-box h3 {
-    font-family: var(--heading-font);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-  .substack-box p {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.75;
-    margin-bottom: 8px;
-    max-width: 520px;
-  }
-  .substack-list {
-    list-style: none;
-    margin: 16px 0 28px 0;
-    padding: 0;
-  }
-  .substack-list li {
-    font-size: 0.97rem;
-    color: var(--text);
-    padding: 5px 0 5px 18px;
-    position: relative;
-    line-height: 1.6;
-  }
-  .substack-list li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
-    font-weight: 600;
-  }
-  .btn-teal {
-    display: inline-block;
-    background: var(--teal);
-    color: var(--white);
-    padding: 13px 28px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-teal:hover { background: #2e8272; transform: translateY(-1px); }
+/* ---------- HERO (standard splash treatment, matching other pages) ---------- */
+.res-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.res-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:640px; }
+.res-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.res-hero h1 .accent{ color:var(--orange); }
+.hero-lede{ font-size:1.08rem; line-height:1.7; color:var(--ink-soft); max-width:56ch; }
 
-  /* LIFE CHECKIN TEASER */
-  .tool-teaser {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .tool-teaser h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 18px;
-  }
-  .tool-teaser p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 620px;
-  }
-  .tool-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
-    padding: 28px 32px;
-    border-radius: 0 0 4px 4px;
-  }
-  .tool-card h3 {
-    font-family: var(--heading-font);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .tool-card p {
-    font-size: 0.97rem;
-    color: var(--text-light);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .tool-card .how {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-style: italic;
-    border-top: 1px solid var(--border);
-    padding-top: 14px;
-    margin-top: 4px;
-    margin-bottom: 0;
-  }
+/* ---------- WHERE AM I NOW: full-bleed band, centred, no border ---------- */
+.band{ background:var(--band); padding:48px 0; margin-bottom:8px; }
+.band .wrap{ text-align:center; }
+.band-eyebrow{ font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
+.band h2{ font-size:1.5rem; margin-bottom:16px; }
+.band p{ font-size:1.02rem; line-height:1.8; color:var(--ink-soft); max-width:64ch; margin:0 auto 24px; }
+.band-btn{ display:inline-block; font-size:.92rem; font-weight:700; padding:13px 26px; background:var(--orange); color:#fff; }
+.band-btn:hover{ background:#e07040; }
 
-  /* WHERE AM I NOW */
-  .whereaminow-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .whereaminow-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 18px;
-  }
-  .whereaminow-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 620px;
-  }
-  .whereaminow-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
-    padding: 28px 32px;
-    border-radius: 0 0 4px 4px;
-  }
-  .whereaminow-card h3 {
-    font-family: var(--heading-font);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .whereaminow-card p {
-    font-size: 0.97rem;
-    color: var(--text-light);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .whereaminow-card .covers {
-    font-size: 0.93rem;
-    color: var(--text-light);
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
+/* ---------- SUBSCRIBE: plain section, no box ---------- */
+.subscribe{ padding:48px 0 8px; }
+.subscribe-eyebrow{ font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--teal-dk); margin-bottom:16px; }
+.subscribe h2{ font-size:1.5rem; margin-bottom:16px; }
+.subscribe > .wrap > p{ font-size:1.02rem; line-height:1.8; color:var(--ink-soft); max-width:70ch; margin-bottom:28px; }
 
-  /* TEA CHAT */
-  .tea-chat-section {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .tea-chat-section h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 18px;
-  }
-  .tea-chat-section p {
-    font-size: 1.02rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 620px;
-  }
-  .tea-chat-box {
-    background: var(--accent-light);
-    border: 1px solid #f5d9a8;
-    border-left: 4px solid var(--accent);
-    padding: 36px;
-    border-radius: 0 6px 6px 0;
-    margin-top: 28px;
-  }
-  .tea-chat-box h3 {
-    font-family: var(--heading-font);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-  .tea-chat-box p {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.75;
-    margin-bottom: 24px;
-    max-width: 520px;
-  }
-  .btn-accent {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 13px 28px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-accent:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.perks{ display:grid; grid-template-columns:repeat(2, 1fr); gap:4px 40px; margin:0 auto 26px; max-width:760px; }
+.perk{ display:flex; align-items:flex-start; gap:12px; padding:10px 0; font-size:.96rem; color:var(--ink-soft); line-height:1.55; font-weight:500; }
+.perk .dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; margin-top:6px; }
 
-  /* PRIVACY */
-  .privacy-note {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 52px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .privacy-box {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--teal);
-    padding: 24px 28px;
-    border-radius: 0 4px 4px 0;
-  }
-  .privacy-box h3 {
-    font-family: var(--heading-font);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .privacy-box p {
-    font-size: 0.93rem;
-    color: var(--text-light);
-    line-height: 1.75;
-  }
+.privacy-note{
+font-size:.86rem; color:var(--ink-soft); max-width:60ch; margin:0 auto 28px;
+padding-left:14px; border-left:2px solid var(--hair); text-align:left;
+}
 
-  footer {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  footer a { color: var(--text-light); text-decoration: none; }
-  footer a:hover { color: var(--text); }
+.subscribe-btn{ display:inline-block; font-size:.92rem; font-weight:700; padding:13px 26px; background:var(--teal-dk); color:#fff; }
+.subscribe-btn:hover{ background:#155e6b; }
 
-  @media (max-width: 600px) {
-    .page-header h1 { font-size: 2rem; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+/* ---------- AUDIO TEASER: coming soon, dashed, centred, deliberately lighter ---------- */
+.audio-teaser{ padding:16px 0 8px; text-align:center; }
+.audio-inner{
+border:1.5px dashed var(--hair);
+padding:32px 36px;
+max-width:820px;
+margin:0 auto;
+}
+.audio-label{ font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--periwinkle); margin-bottom:14px; }
+.audio-inner h3{ font-size:1.2rem; margin-bottom:12px; }
+.audio-inner p{ font-size:.96rem; line-height:1.75; color:var(--ink-soft); max-width:64ch; margin:0 auto; }
+
+/* ---------- TEA CHAT: single closing box ---------- */
+.chat-closer{ padding:40px 0 64px; }
+.chat-inner{
+background:rgba(143,64,70,0.05); padding:40px;
+display:flex; flex-wrap:wrap; gap:32px; justify-content:space-between; align-items:center;
+}
+.chat-copy{ flex:1; min-width:260px; max-width:56ch; }
+.chat-label{ font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--burgundy); margin-bottom:14px; }
+.chat-copy h2{ font-size:1.3rem; margin-bottom:12px; }
+.chat-copy p{ color:var(--ink-soft); font-size:.98rem; line-height:1.75; }
+.chat-cta{ flex-shrink:0; }
+.chat-cta a{
+display:inline-block; background:var(--burgundy); color:#fff; font-weight:700;
+font-size:.92rem; padding:13px 26px;
+}
+.chat-cta a:hover{ background:#743338; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:700px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.perks{ grid-template-columns:1fr; }
+.audio-inner{ padding:26px 22px; }
+.chat-inner{ padding:28px 24px; flex-direction:column; align-items:stretch; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Ali Heathfield</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="resources.html" class="active">Resources</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="contact.html" class="nav-contact">Contact</a></li>
-    </ul>
-  </div>
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>&middot;</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html" class="current">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
 </nav>
+</div>
+</header>
 
-<main>
+<section class="res-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/l.png" alt=""></div>
+<div class="hero-copy">
+<h1>Wherever you are, <span class="accent">there's a free way in.</span></h1>
+<p class="hero-lede">Everything here is free: a five-minute questionnaire, a growing library of writing and tools, or fifteen minutes to talk it through. Start wherever makes sense to you.</p>
+</div>
+</div>
+</section>
 
-  <div class="page-header">
-    <p class="eyebrow">Resources</p>
-    <h1>Stay Connected<br><em>Stay Informed.</em></h1>
-  </div>
+<section class="band">
+<div class="wrap">
+<div class="band-eyebrow">Free &middot; no sign-up</div>
+<h2>Where Am I Now?</h2>
+<p>Not sure where to start? This five-minute questionnaire covers three areas: how life is for you now, where your energy is going, and what you most need right now. No subscription, no sign-up, just a simple way to find your footing.</p>
+<a href="where-am-i-now.html" class="band-btn">Explore Where Am I Now &rarr;</a>
+</div>
+</section>
 
-  <section class="whereaminow-section">
-    <p class="section-label">Free — no subscription needed</p>
-    <h2>Where Am I Now?</h2>
-    <p>Not sure where to start? The Where Am I Now reflection is free to everyone. No subscription, no sign-up. Just a simple five-minute tool to help you find your footing. It covers three areas: how life is for you now, where your energy is going, and what you most need right now.</p>
-    <a href="https://aliheathfield.com/whereaminow" class="btn-accent">Explore Where Am I Now</a>
-  </section>
+<section class="subscribe">
+<div class="wrap">
+<div class="subscribe-eyebrow">Free &middot; via Substack</div>
+<h2>Subscribe to Living Life Well</h2>
+<p>Subscribing is free and means you'll never miss an update, a resource, or an early invitation to new tools and events. Ali publishes regularly: practical insights, honest reflections, and tools for living well after 60. As a welcome gift, you'll receive the Life Check-In, a private, guided reflection across all ten themes of the Living Life Well model, going deeper than Where Am I Now and taking around twenty minutes.</p>
 
-  <section class="substack-section">
-    <p class="section-label">Free — via Substack</p>
-    <h2>Subscribe to <em>Living Life Well.</em></h2>
-    <p>There is much more waiting for you. Subscribing to Living Life Well on Substack is free and means you will never miss an update, a resource, or an early invitation to new tools and events. Ali publishes regularly on Substack: practical insights, honest reflections, and tools for living well after 60. Subscribers also receive the more comprehensive Life Check-In tool, which takes you through all ten themes of the Living Life Well model in depth.</p>
+<div class="perks">
+<div class="perk"><span class="dot" style="background:var(--orange)"></span><span>The Life Check-In, sent as your welcome gift</span></div>
+<div class="perk"><span class="dot" style="background:var(--teal)"></span><span>Practical wisdom from the Living Life Well model</span></div>
+<div class="perk"><span class="dot" style="background:var(--coral)"></span><span>Exclusive excerpts from <em>Not Done Yet</em> before publication</span></div>
+<div class="perk"><span class="dot" style="background:var(--periwinkle)"></span><span>Real stories from people living the model</span></div>
+<div class="perk"><span class="dot" style="background:var(--burgundy)"></span><span>Behind-the-scenes from the writing journey and life in Portugal</span></div>
+<div class="perk"><span class="dot" style="background:var(--teal-dk)"></span><span>First access to new resources, tools, and updates</span></div>
+</div>
 
-    <div class="substack-box">
-      <h3>What subscribers receive</h3>
-      <ul class="substack-list">
-        <li>The Life Check-In tool — free to download via the welcome post</li>
-        <li>Exclusive excerpts from <em>Not Done Yet</em> before publication</li>
-        <li>Practical wisdom from the Living Life Well model</li>
-        <li>Vignettes — real stories of people living the model</li>
-        <li>Behind-the-scenes from the writing journey and life in Portugal</li>
-        <li>First access to new resources, tools, and updates</li>
-      </ul>
-      <a href="https://aliheathfield.substack.com/" target="_blank" class="btn-teal">Subscribe to Living Life Well</a>
-    </div>
-  </section>
+<p class="privacy-note">Your answers to the Life Check-In are completely private. Nothing you enter is sent anywhere or seen by anyone, including Ali.</p>
 
-  <section class="tool-teaser">
-    <p class="section-label">The Life Check-In</p>
-    <h2>Not sure where to begin?</h2>
-    <p>The Life Check-In is a guided reflection across the ten themes of the Living Life Well model. It helps you understand where you are right now, clearly, honestly, and without judgement. It is available free to all subscribers via the welcome post on Substack.</p>
-    <div class="tool-card">
-      <p>A private, guided reflection across 10 life themes: health, relationships, meaning, finances, environment, and more. Takes around 20 minutes. Nothing you enter is sent anywhere or seen by anyone else. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
-      <div class="privacy-box" style="margin: 4px 0 16px;">
-        <h3>A note on privacy</h3>
-        <p>Your answers are private. Nothing you enter is sent anywhere or seen by anyone else, including Ali. When you reach your results, use the Save as PDF button to keep a permanent copy for yourself.</p>
-      </div>
-      <p class="how">Subscribe to <a href="https://aliheathfield.substack.com/" target="_blank" style="color: #3a9b8a; font-weight: 600;"><em>Living Life Well</em> on Substack</a> to receive your free download link.</p>
-    </div>
-  </section>
+<div style="text-align:center">
+<a href="https://aliheathfield.substack.com/" class="subscribe-btn">Subscribe to Living Life Well &rarr;</a>
+</div>
+</div>
+</section>
 
-  <section class="tea-chat-section">
-    <p class="section-label">Let's have a conversation</p>
-    <h2>Not sure if this is for you?</h2>
-    <p>Sometimes you just need 15 minutes to talk it through. Whether you're wondering where to start, what the book is really about, or whether any of this applies to you, a tea chat is the place to ask.</p>
-    <div class="tea-chat-box">
-      <h3>Book a 15-minute tea chat</h3>
-      <p>A relaxed, no-obligation conversation with Ali. Bring your questions, your curiosity, or just a sense that something needs to change. No agenda, no sales pitch. Just a chat over a virtual cup of tea.</p>
-      <a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" class="btn-accent">Book your tea chat</a>
-    </div>
-  </section>
+<section class="audio-teaser">
+<div class="wrap">
+<div class="audio-inner">
+<div class="audio-label">Coming soon</div>
+<h3>Hear it in Ali's voice</h3>
+<p>A short series of audio recordings, Ali reading a few of the key steps from <em>Not Done Yet</em> aloud, for whenever reading isn't the easiest option. Not available yet, but on the way, and free like everything else here.</p>
+</div>
+</div>
+</section>
 
-</main>
+<section class="chat-closer">
+<div class="wrap">
+<div class="chat-inner">
+<div class="chat-copy">
+<div class="chat-label">Not sure yet?</div>
+<h2>Let's have a conversation</h2>
+<p>Sometimes you just need fifteen minutes to talk it through: where to start, what the book's really about, or whether any of this is for you. No agenda, no sales pitch, just a chat over a virtual cup of tea.</p>
+</div>
+<div class="chat-cta">
+<a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" rel="noopener">Book your tea chat &rarr;</a>
+</div>
+</div>
+</div>
+</section>
+
 <footer>
-  <span>© 2026 Ali Heathfield</span>
-  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="book.html">Book</a> · <a href="archive.html">Archive</a> · <a href="privacy.html">Privacy &amp; Legal</a></span>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>&middot;</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
 </footer>
 
 </body>
