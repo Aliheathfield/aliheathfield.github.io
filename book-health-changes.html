@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Changes: Life After 60 | Ali Heathfield</title>
+<meta name="description" content="Health Changes by Ali Heathfield is a practical Life After 60 workbook for navigating health changes, helping you understand their wider impact, prioritise what matters and adapt at your own pace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Health Changes",
+  "alternateName": "Life After 60: Navigating What's Possible",
+  "author": { "@type": "Person", "name": "Ali Heathfield" },
+  "publisher": { "@type": "Organization", "name": "Living Life Well Press" },
+  "datePublished": "2026-10",
+  "isbn": "9781066636747",
+  "url": "https://aliheathfield.com/book-health-changes.html",
+  "description": "Health Changes by Ali Heathfield is a practical Life After 60 workbook for navigating health changes, helping you understand their wider impact, prioritise what matters and adapt at your own pace."
+}
+</script>
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--periwinkle-dk:#5a71a0;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+--pale-teal:#eaf6f7;
+--pale-teal-border:#d3eaec;
+--pale-coral:#fdf1ee;
+--pale-coral-border:#f6d8d1;
+--pale-periwinkle:#eef1f9;
+--pale-periwinkle-border:#dbe1f0;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.content{ max-width:100%; }
+.contained{ max-width:760px; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+/* ---------- NAV DROPDOWN ---------- */
+nav.main-nav li.has-dropdown{ position:relative; }
+nav.main-nav li.has-dropdown > a::after{ content:"▾"; display:inline-block; margin-left:5px; font-size:.7em; color:var(--ink-soft); }
+nav.main-nav .dropdown{
+list-style:none; position:absolute; top:calc(100% + 14px); left:0; margin:0;
+background:var(--paper); border:1px solid var(--hair); border-radius:8px;
+box-shadow:0 10px 26px rgba(0,0,0,.09); padding:8px; min-width:200px;
+display:flex; flex-direction:column; gap:2px;
+opacity:0; visibility:hidden; transform:translateY(4px);
+transition:opacity .15s ease, transform .15s ease, visibility .15s ease;
+z-index:30;
+}
+nav.main-nav li.has-dropdown:hover > .dropdown,
+nav.main-nav li.has-dropdown:focus-within > .dropdown{
+opacity:1; visibility:visible; transform:translateY(0);
+}
+nav.main-nav .dropdown a{ display:block; padding:7px 10px; border-radius:5px; font-size:.9rem; white-space:nowrap; color:var(--ink-soft); }
+nav.main-nav .dropdown a:hover{ background:var(--pale-periwinkle); color:var(--ink); }
+nav.main-nav .dropdown a.current{ color:var(--ink); font-weight:600; }
+@media (max-width:800px){
+nav.main-nav li.has-dropdown{ flex-basis:100%; }
+nav.main-nav li.has-dropdown > a::after{ display:none; }
+nav.main-nav .dropdown{
+position:static; opacity:1; visibility:visible; transform:none;
+box-shadow:none; border:none; background:none; padding:6px 0 0 16px; margin-top:0; min-width:0;
+flex-direction:row; flex-wrap:wrap; gap:6px 16px;
+}
+}
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
+
+.back-link{ display:inline-block; font-size:.86rem; font-weight:600; color:var(--ink-soft); margin-bottom:22px; }
+.back-link:hover{ color:var(--ink); }
+
+/* ---------- HERO / WORKBOOK ---------- */
+.top-block{ padding:40px 0 8px; }
+.book-feature{ padding:0 0 48px; position:relative; overflow:hidden; }
+.book-feature .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.book-feature .inner{ position:relative; z-index:1; display:flex; gap:48px; flex-wrap:wrap; align-items:flex-start; }
+.book-cover{ width:240px; flex-shrink:0; }
+.book-cover img{ width:100%; height:auto; display:block; border:1px solid var(--hair); }
+.book-copy{ flex:1; min-width:280px; }
+.book-eyebrow{
+font-size:.78rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--periwinkle-dk); margin-bottom:14px;
+}
+.book-copy h1{ font-size:clamp(1.8rem, 3.4vw, 2.5rem); margin-bottom:6px; }
+.book-copy .subtitle{ font-family:'Lora', serif; font-style:italic; color:var(--ink-soft); font-size:1.05rem; margin-bottom:18px; }
+.hero-lede{ font-family:'Lora', serif; font-style:italic; font-size:1.15rem; color:var(--ink); margin-bottom:18px; max-width:52ch; }
+.book-copy p.desc{ color:var(--ink-soft); font-size:1rem; line-height:1.8; margin-bottom:18px; max-width:60ch; }
+.book-copy p.desc strong{ color:var(--ink); font-weight:700; }
+
+.launch-note{ font-size:.84rem; font-weight:600; margin:4px 0 16px; display:flex; align-items:center; gap:8px; }
+.launch-note .dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; background:var(--periwinkle); }
+
+/* ---------- MAILERLITE FORM ---------- */
+#mlb2-45024860{ max-width:420px; margin:20px auto 0; text-align:left; }
+#mlb2-45024860 input[type="email"]{
+width:100%; font-family:'Source Sans 3', sans-serif; font-size:.92rem;
+padding:11px 14px; border:1px solid var(--hair); color:var(--ink); background:#fff;
+margin-bottom:12px; box-sizing:border-box;
+}
+#mlb2-45024860 input[type="email"]:focus{ outline:none; border-color:var(--periwinkle-dk); }
+#mlb2-45024860 input[type="email"]::placeholder{ color:var(--ink-soft); }
+#mlb2-45024860 button[type="submit"]{
+display:inline-block; font-size:.92rem; font-weight:700; font-family:'Source Sans 3', sans-serif;
+padding:11px 22px; background:var(--periwinkle-dk); color:#fff; border:none; cursor:pointer;
+}
+#mlb2-45024860 button[type="submit"]:hover{ filter:brightness(0.88); }
+#mlb2-45024860 button.loading{ display:none; }
+#mlb2-45024860 .ml-form-successBody p{ font-size:.92rem; color:var(--ink-soft); line-height:1.6; margin:0; }
+.launch-note span.text{ color:var(--ink-soft); }
+
+.book-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-top:8px; }
+.btn-primary{
+display:inline-block; background:var(--deep-teal); color:#fff; font-weight:700;
+font-size:.92rem; padding:13px 26px;
+}
+.btn-primary:hover{ background:#043c4c; }
+
+/* ---------- SECTIONS ---------- */
+.section{ padding:0; margin-bottom:56px; }
+.section-heading{ font-size:1.4rem; margin-bottom:16px; }
+.section-heading em{ font-style:italic; }
+.section p{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); margin-bottom:16px; max-width:70ch; }
+.section p:last-child{ margin-bottom:0; }
+.section p.lead{ color:var(--ink); font-weight:600; }
+
+.model-tagline{ font-family:'Lora', serif; font-style:italic; color:var(--ink-soft); font-size:1.05rem; margin-bottom:16px; }
+
+/* ---------- POINT GRID (card treatment, matching Not Done Yet's path cards) ---------- */
+.point-grid{ display:grid; gap:24px; margin-top:20px; }
+.point-grid.cols-3{ grid-template-columns:repeat(3, 1fr); }
+.point-grid.cols-2{ grid-template-columns:repeat(2, 1fr); }
+.point-card{
+position:relative;
+border:1px solid var(--hair);
+padding:34px 28px 30px;
+background:var(--paper);
+transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+.point-card:hover{ transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.07); background:var(--pale-periwinkle); border-color:var(--pale-periwinkle-border); }
+.point-card p.lead{ margin-bottom:8px; }
+.point-card p:last-child{ margin-bottom:0; }
+
+/* ---------- MODEL BAND (grey, matching Not Done Yet's Living Life Well Model band) ---------- */
+.model-band{ background:#fafafa; padding:64px 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.big-word{ font-size:1.3rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--periwinkle-dk); margin-bottom:10px; }
+
+/* ---------- TRIAD GRID (Understand / Prioritise / Adapt) ---------- */
+.triad-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; text-align:center; max-width:960px; margin:0 auto; }
+.triad-word{ font-family:'Lora', serif; font-size:clamp(1.5rem, 2.6vw, 1.9rem); font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--periwinkle-dk); margin-bottom:14px; }
+.triad-grid p{ margin:0 auto; max-width:32ch; }
+.triad-grid p.lead{ color:var(--ink); font-weight:700; margin-bottom:8px; }
+
+/* ---------- EMPHASIS QUOTE (pull-out statements) ---------- */
+.emphasis-quote{ margin:40px auto 0; padding:30px 34px; background:var(--pale-periwinkle); border:1px solid var(--pale-periwinkle-border); max-width:700px; text-align:center; }
+.emphasis-quote p{ font-family:'Lora', serif; font-style:italic; font-size:1.1rem; line-height:1.65; color:var(--ink); font-weight:600; margin-bottom:0; max-width:none; }
+
+/* ---------- SHORT STATEMENT (centred pull line) ---------- */
+.short-statement{ text-align:center; max-width:640px; margin:0 auto; }
+.short-statement .section-heading{ color:var(--periwinkle-dk); }
+.short-statement p{ margin-left:auto; margin-right:auto; }
+.short-statement p.closing{ font-family:'Lora', serif; font-style:italic; font-size:1.3rem; color:var(--periwinkle-dk); font-weight:600; margin-top:6px; margin-bottom:0; }
+
+/* ---------- CASCADE SECTION (Health can create a cascade) ---------- */
+.cascade-section{ text-align:center; }
+.highlight-heading{ font-family:'Lora', serif; font-style:italic; font-weight:600; font-size:clamp(1.5rem, 3vw, 2rem); color:var(--periwinkle-dk); max-width:22ch; margin:0 auto 32px; line-height:1.4; }
+.cascade-list{ max-width:640px; margin:0 auto 32px; text-align:left; }
+.cascade-list p{ font-size:1.02rem; color:var(--ink-soft); margin-bottom:22px; max-width:none; }
+.cascade-list p:last-child{ margin-bottom:22px; }
+.cascade-list p:nth-child(1){ margin-left:0; }
+.cascade-list p:nth-child(2){ margin-left:28px; }
+.cascade-list p:nth-child(3){ margin-left:56px; }
+.cascade-list p:nth-child(4){ margin-left:84px; }
+.cascade-list p:nth-child(5){ margin-left:112px; }
+.cascade-section > .contained{ margin:0 auto; text-align:left; }
+.cascade-section .note{ margin-left:auto; margin-right:auto; }
+
+/* ---------- CALLOUT BOX (small centred highlight, e.g. "This is support, not homework.") ---------- */
+.callout-box{ text-align:center; max-width:440px; margin:32px auto 0; padding:22px 30px; background:var(--pale-periwinkle); border:1px solid var(--pale-periwinkle-border); }
+.callout-box p{ font-family:'Lora', serif; font-style:italic; font-weight:600; font-size:1.12rem; color:var(--periwinkle-dk); margin-bottom:0; max-width:none; }
+
+/* ---------- PROJECT GRID (equal-weight card sets) ---------- */
+.project-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px; }
+.project-grid.cols-3{ grid-template-columns:repeat(3, 1fr); }
+.project-card{ border:1px solid var(--hair); padding:40px 32px; background:var(--paper); transition:background .18s ease, border-color .18s ease; }
+.project-card:hover{ background:var(--pale-periwinkle); border-color:var(--pale-periwinkle-border); }
+.project-label{ font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--periwinkle-dk); margin-bottom:18px; }
+.project-card p.lead{ font-size:1.05rem; margin-bottom:14px; }
+.project-card p{ margin-bottom:14px; }
+.project-card p:last-child{ margin-bottom:0; }
+
+.text-link{ display:inline-block; font-weight:700; font-size:.92rem; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:2px; margin-top:8px; }
+.text-link:hover{ color:var(--orange); }
+
+/* ---------- WHITESPACE SECTION (More than managing symptoms) ---------- */
+.whitespace-section{ padding:72px 0; text-align:center; }
+.whitespace-section .inner{ max-width:620px; margin:0 auto; }
+.whitespace-section .highlight-heading{ max-width:18ch; }
+.whitespace-section p.intro{ margin-left:auto; margin-right:auto; }
+.question-list{ margin:28px 0 32px; }
+.question-list p{ font-family:'Lora', serif; font-style:italic; font-size:1.08rem; color:var(--ink); margin-bottom:14px; max-width:none; }
+.question-list p:last-child{ margin-bottom:0; }
+.closing-line{ font-family:'Lora', serif; font-style:italic; font-weight:600; font-size:1.2rem; color:var(--periwinkle-dk); max-width:none; margin-top:8px; }
+
+/* ---------- CALM PANEL (Work at your own pace) ---------- */
+.calm-panel{ background:var(--pale-periwinkle); border:1px solid var(--pale-periwinkle-border); padding:44px 48px; max-width:640px; margin:0 auto; text-align:center; }
+.calm-panel p{ color:var(--ink-soft); margin-bottom:10px; max-width:none; }
+.calm-panel p:last-child{ margin-top:16px; margin-bottom:0; }
+
+/* ---------- COMPACT PANEL (Do I need to read Not Done Yet first?) ---------- */
+.compact-panel{ padding:32px 36px; max-width:600px; }
+.compact-panel .section-heading{ margin-bottom:14px; }
+.compact-panel p{ margin-bottom:12px; }
+.compact-panel p:last-child{ margin-bottom:0; }
+
+/* ---------- CLOSING BAND ---------- */
+.closing-band{ background:var(--pale-periwinkle); padding:64px 0; border-top:1px solid var(--pale-periwinkle-border); }
+.closing-band .cta-section{ text-align:center; margin-bottom:0; }
+.closing-band .hero-lede, .closing-band p{ margin-left:auto; margin-right:auto; }
+.closing-band .launch-note{ justify-content:center; }
+.closing-band .section-heading{ color:var(--periwinkle-dk); max-width:24ch; margin-left:auto; margin-right:auto; }
+
+/* ---------- FINAL CTA ---------- */
+.cta-section{ margin-bottom:44px; }
+
+/* ---------- QUIET WAY OUT ---------- */
+.quiet-out{ text-align:center; padding:8px 0 48px; font-size:.92rem; color:var(--ink-soft); }
+.quiet-out a{ font-weight:600; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:1px; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+footer .wrap.foot-bottom{ display:block; margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.point-grid.cols-3, .point-grid.cols-2{ grid-template-columns:1fr; }
+.triad-grid{ grid-template-columns:1fr; gap:36px; }
+.project-grid, .project-grid.cols-3{ grid-template-columns:1fr; }
+.cascade-list{ text-align:center; }
+.cascade-list p:nth-child(1), .cascade-list p:nth-child(2), .cascade-list p:nth-child(3), .cascade-list p:nth-child(4), .cascade-list p:nth-child(5){ margin-left:0; }
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.book-feature .inner{ flex-direction:column; align-items:stretch; }
+.book-cover{ width:180px; }
+.emphasis-quote{ padding:26px 22px; }
+.project-card{ padding:32px 26px; }
+.compact-panel{ padding:26px 24px; }
+.calm-panel{ padding:32px 26px; }
+.whitespace-section{ padding:56px 0; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>&middot;</span> Health Changes</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li class="has-dropdown"><a href="book.html" class="current">Books</a>
+<ul class="dropdown">
+<li><a href="book-not-done-yet.html">Not Done Yet</a></li>
+<li><a href="book-maintain-and-prevent.html">Maintain &amp; Prevent</a></li>
+<li><a href="book-reinvent-and-renew.html">Reinvent &amp; Renew</a></li>
+<li><a href="book-health-changes.html" class="current">Health Changes</a></li>
+<li><a href="book-its-not-too-late.html">It's Not Too Late</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="living-life-well-model.html">The Model</a>
+<ul class="dropdown">
+<li><a href="themes.html">The Ten Themes</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="about.html">About</a>
+<ul class="dropdown">
+<li><a href="ali-story.html">Ali's Story</a></li>
+</ul>
+</li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<div class="top-block">
+<div class="wrap">
+<a href="book.html" class="back-link">&larr; Back to Books</a>
+</div>
+</div>
+
+<section class="book-feature">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/s.png" alt=""></div>
+<div class="inner">
+<div class="book-cover">
+<img src="book-covers/hc-cover.jpg" alt="Health Changes workbook cover">
+</div>
+<div class="book-copy">
+<div class="book-eyebrow">The workbook</div>
+<h1>Health Changes</h1>
+<p class="subtitle">Life After 60: Navigating What's Possible</p>
+<p class="hero-lede">Health changes things.</p>
+<p class="desc">Sometimes only a little. Sometimes much more. A change may mean adjusting a routine, managing medication, living with less energy or finding different ways to do things you have always enjoyed. At other times, health can reshape daily life, relationships, plans, independence and even how you think about yourself.</p>
+<p class="desc">And sometimes it is not your own health that has changed, but the health of someone you love or care for. <strong>What matters is not whether anyone else considers the change minor or major. What matters is how it is affecting your life.</strong></p>
+<p class="desc">Health Changes is the practical workbook for the Health Navigator path within the Living Life Well Model. It helps you understand what the change is affecting, decide where your limited energy and attention may be most useful, and find practical ways to continue living a life that still contains connection, meaning and things that matter to you.</p>
+<div class="launch-note"><span class="dot"></span><span class="text">Coming October 2026</span></div>
+<div class="book-ctas">
+<a href="#notify-form" class="btn-primary">Register your interest &rarr;</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<div class="section">
+<h2 class="section-heading">This workbook is for you</h2>
+<div class="point-grid cols-3">
+<div class="point-card">
+<p class="lead">Health has started to affect everyday life.</p>
+<p>Appointments, medication, symptoms, energy or physical limitations are taking up more space than they used to.</p>
+</div>
+<div class="point-card">
+<p class="lead">You are adapting to an ongoing condition.</p>
+<p>Life continues, but you are having to make adjustments to accommodate what has changed.</p>
+</div>
+<div class="point-card">
+<p class="lead">A more significant health change has altered the plan.</p>
+<p>Recovery, diagnosis or changing ability has affected how you live and what you can realistically do.</p>
+</div>
+<div class="point-card">
+<p class="lead">Someone you care for is experiencing health changes.</p>
+<p>Their health is changing your routines, responsibilities, relationships or plans too.</p>
+</div>
+<div class="point-card">
+<p class="lead">You do not want health to become your whole identity.</p>
+<p>You want to manage what needs managing without becoming permanently defined by being a patient or carer.</p>
+</div>
+<div class="point-card">
+<p class="lead">You need to know where to put your energy.</p>
+<p>Several areas may feel affected at once, and you want a practical way to decide what matters most now.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<section class="model-band">
+<div class="wrap">
+<h2 class="section-heading" style="text-align:center; margin-bottom:40px;">What this workbook helps you do</h2>
+<div class="triad-grid">
+<div>
+<div class="triad-word">Understand</div>
+<p class="lead">See what health is affecting.</p>
+<p>Health rarely sits in one neat compartment. Look beyond the medical issue itself and notice where the effects are showing up in identity, relationships, activities, finances, environment, purpose, community or plans.</p>
+</div>
+<div>
+<div class="triad-word">Prioritise</div>
+<p class="lead">Decide where your attention will help most.</p>
+<p>You do not have to tackle everything. The workbook helps you identify where the greatest pressure is and where one useful change may make several parts of life easier.</p>
+</div>
+<div>
+<div class="triad-word">Adapt</div>
+<p class="lead">Find ways to live well within what is true now.</p>
+<p>Make practical changes that respect your energy, circumstances and limitations while protecting the parts of life that still matter.</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="wrap" style="padding-top:56px;">
+<div class="content">
+
+<div class="section cascade-section">
+<div class="highlight-heading">The change may begin with health. It rarely ends there.</div>
+<div class="cascade-list">
+<p>Changes in what you can do may affect identity, confidence or purpose.</p>
+<p>Less energy may change your activities.</p>
+<p>That may affect relationships or community.</p>
+<p>Medical costs may affect finances.</p>
+<p>Appointments and medication may reshape routines.</p>
+</div>
+<p class="note">The workbook calls this the cascade effect. Understanding the cascade helps you see the whole picture, rather than assuming that every difficulty has to be solved through better health management.</p>
+<div class="emphasis-quote">
+<p>&ldquo;You do not have to fix everything. You need to find where attention could make the greatest difference.&rdquo;</p>
+</div>
+<p class="note" style="margin-top:28px;">The workbook uses the ten Living Life Well themes to show where the effects are strongest and where one small, intentional change may create positive ripples elsewhere.</p>
+</div>
+
+<div class="section">
+<h2 class="section-heading">How the workbook works</h2>
+<p class="model-tagline">Start where you are, with the energy you have</p>
+<p class="lead">One of the most important things about this workbook is that it is not designed to become another burden.</p>
+<p>You can begin by checking your energy and willingness. If you are unsure where to focus, the Health Concern Check-In helps you see which areas of life are under the most pressure. If you already know what needs attention, you can go directly to the Quick Wins. And if you are ready to go deeper, you can work with individual Living Life Well themes.</p>
+<p>There is no requirement to complete everything. You can use a little or a lot, stop when you need to, and return when circumstances change. The workbook explicitly allows for low, medium and higher-energy approaches, including times when the right choice is simply to put it down and come back later.</p>
+<div class="callout-box">
+<p>This is support, not homework.</p>
+</div>
+</div>
+
+<div class="section">
+<h2 class="section-heading">Three ways to begin</h2>
+<div class="project-grid cols-3">
+<div class="project-card">
+<div class="project-label">Health Concern Check-In</div>
+<p class="lead">When you are not sure where to start</p>
+<p>See where the health change is creating the most pressure across your life and identify the areas that could benefit most from attention.</p>
+</div>
+<div class="project-card">
+<div class="project-label">Quick Wins</div>
+<p class="lead">When you need something useful now</p>
+<p>Ten focused questions help you identify practical actions without having to work through the whole workbook first.</p>
+</div>
+<div class="project-card">
+<div class="project-label">Theme Work</div>
+<p class="lead">When you already know where you want to focus</p>
+<p>Go directly to the Living Life Well theme that needs attention and work at whatever depth feels appropriate.</p>
+</div>
+</div>
+<div class="short-statement" style="margin-top:32px;">
+<p class="closing">You do not have to start at page one. Start with what you need.</p>
+</div>
+</div>
+
+<div class="section">
+<h2 class="section-heading">What you'll find inside</h2>
+<div class="point-grid cols-2">
+<div>
+<p class="lead">A Health Concern Check-In.</p>
+<p>A structured way to see where health is affecting your wider life and decide what deserves attention first.</p>
+</div>
+<div>
+<p class="lead">Quick Wins for immediate clarity.</p>
+<p>Practical questions that help you identify useful actions without demanding a large amount of time or energy.</p>
+</div>
+<div>
+<p class="lead">The ten Living Life Well themes.</p>
+<p>Work more deeply with health, identity, narrative, meaning and purpose, finance, environment, activities and interests, relationships, community and planning.</p>
+</div>
+<div>
+<p class="lead">Ways to keep living beyond health.</p>
+<p>Explore what helps you retain identity, connection, interests, contribution and a sense of ordinary life alongside whatever needs to be managed.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<section class="whitespace-section">
+<div class="wrap">
+<div class="inner">
+<div class="highlight-heading">You are more than what your health is doing.</div>
+<p class="intro">Health may need attention without being allowed to occupy every part of life. The workbook looks at questions such as:</p>
+<div class="question-list">
+<p>How do I hold on to who I am?</p>
+<p>What can I adapt rather than give up?</p>
+<p>How do I stay connected?</p>
+<p>What still gives my life meaning?</p>
+<p>What would make everyday life easier?</p>
+<p>Where do I need more information or support?</p>
+</div>
+<p class="closing-line">The aim is not perfect health management. It is to help health take up no more of your life than it needs to.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<div class="section">
+<div class="calm-panel">
+<h2 class="section-heading" style="color:var(--periwinkle-dk);">Work at your own pace</h2>
+<p>If your health improves, circumstances shift or another Living Life Well path becomes more relevant, you can change direction.</p>
+</div>
+</div>
+
+<div class="section">
+<div class="compact-panel">
+<h2 class="section-heading">Do I need to read <em>Not Done Yet</em> first?</h2>
+<p class="lead">No.</p>
+<p>Health Changes stands on its own. Not Done Yet introduces the whole Living Life Well Model and the three paths. This workbook takes the Health Navigator path and gives you a practical way to work with the effects of health change across your life.</p>
+<p>If this is where you recognise yourself, you can start here.</p>
+<a href="book-not-done-yet.html" class="text-link">Find out more about Not Done Yet &rarr;</a>
+</div>
+</div>
+
+</div>
+</div>
+
+<section class="closing-band" id="notify-form">
+<div class="wrap">
+<div class="cta-section">
+<h2 class="section-heading">Health may have changed the plan. It does not have to become the whole plan.</h2>
+<p class="hero-lede">Health may affect what you can do, how you do it, or how much energy you have available.</p>
+<p style="max-width:60ch; color:var(--ink-soft); margin-bottom:24px; margin-left:auto; margin-right:auto;">Health Changes helps you understand those effects, decide what matters most now and find practical ways to adapt while holding on to identity, connection, meaning and the parts of life that still feel like yours.</p>
+<div class="launch-note"><span class="dot"></span><span class="text">Coming October 2026</span></div>
+<div id="mlb2-45024860" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45024860">
+<form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2347822/forms/196312500556269063/subscribe" data-code="" method="post" target="_blank">
+<div class="ml-form-fieldRow ml-last-item">
+<div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+<input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="Your email address" autocomplete="email">
+</div>
+</div>
+<input type="hidden" name="ml-submit" value="1">
+<input type="hidden" name="anticsrf" value="true">
+<div class="ml-form-embedSubmit">
+<button type="submit" class="primary">Notify me</button>
+<button disabled="disabled" style="display:none;" type="button" class="loading">
+<span class="sr-only">Sending&hellip;</span>
+</button>
+</div>
+</form>
+<div class="ml-form-successBody row-success" style="display:none">
+<p>Thank you &mdash; you're on the list. We'll let you know when the workbook is available.</p>
+</div>
+</div>
+<script>
+function ml_webform_success_45024860() {
+var $ = ml_jQuery || jQuery;
+$('.ml-subscribe-form-45024860 .row-success').show();
+$('.ml-subscribe-form-45024860 form').hide();
+}
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>
+fetch("https://assets.mailerlite.com/jsonp/2347822/forms/196312500556269063/takel")
+</script>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<div class="quiet-out">
+<a href="book.html">Not sure this is where you should start? Back to all the books &rarr;</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Health Changes <span>&middot;</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="living-life-well-model.html">The Model</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

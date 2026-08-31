@@ -52,6 +52,34 @@ nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; f
 nav.main-nav li{ flex-shrink:0; }
 nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
 nav.main-nav a:hover{ color:var(--ink); }
+/* ---------- NAV DROPDOWN ---------- */
+nav.main-nav li.has-dropdown{ position:relative; }
+nav.main-nav li.has-dropdown > a::after{ content:"▾"; display:inline-block; margin-left:5px; font-size:.7em; color:var(--ink-soft); }
+nav.main-nav .dropdown{
+list-style:none; position:absolute; top:calc(100% + 14px); left:0; margin:0;
+background:var(--paper); border:1px solid var(--hair); border-radius:8px;
+box-shadow:0 10px 26px rgba(0,0,0,.09); padding:8px; min-width:200px;
+display:flex; flex-direction:column; gap:2px;
+opacity:0; visibility:hidden; transform:translateY(4px);
+transition:opacity .15s ease, transform .15s ease, visibility .15s ease;
+z-index:30;
+}
+nav.main-nav li.has-dropdown:hover > .dropdown,
+nav.main-nav li.has-dropdown:focus-within > .dropdown{
+opacity:1; visibility:visible; transform:translateY(0);
+}
+nav.main-nav .dropdown a{ display:block; padding:7px 10px; border-radius:5px; font-size:.9rem; white-space:nowrap; color:var(--ink-soft); }
+nav.main-nav .dropdown a:hover{ background:var(--pale-periwinkle); color:var(--ink); }
+nav.main-nav .dropdown a.current{ color:var(--ink); font-weight:600; }
+@media (max-width:800px){
+nav.main-nav li.has-dropdown{ flex-basis:100%; }
+nav.main-nav li.has-dropdown > a::after{ display:none; }
+nav.main-nav .dropdown{
+position:static; opacity:1; visibility:visible; transform:none;
+box-shadow:none; border:none; background:none; padding:6px 0 0 16px; margin-top:0; min-width:0;
+flex-direction:row; flex-wrap:wrap; gap:6px 16px;
+}
+}
 
 /* ---------- HERO ---------- */
 .path-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
@@ -128,6 +156,9 @@ letter-spacing:.04em; margin-top:12px; font-weight:600;
 .cta-card.primary .cta-btn:hover{ background:#043c4c; }
 .cta-card.secondary .cta-btn{ background:var(--orange); color:#fff; }
 .cta-card.secondary .cta-btn:hover{ background:#e07040; }
+.launch-note{ font-size:.84rem; font-weight:600; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.launch-note .dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; background:var(--path); }
+.launch-note span.text{ color:var(--ink-soft); }
 
 /* ---------- QUIET WAY OUT ---------- */
 .quiet-out{ text-align:center; padding:8px 0 48px; font-size:.92rem; color:var(--ink-soft); }
@@ -141,7 +172,7 @@ footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-betw
 footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
 footer nav a{ color:#d7d8db; }
 footer nav a:hover{ color:#fff; }
-.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+footer .wrap.foot-bottom{ display:block; margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
 .foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
 
 @media (max-width:800px){
@@ -168,9 +199,25 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="book.html">Books</a></li>
+<li class="has-dropdown"><a href="book.html">Books</a>
+<ul class="dropdown">
+<li><a href="book-not-done-yet.html">Not Done Yet</a></li>
+<li><a href="book-maintain-and-prevent.html">Maintain &amp; Prevent</a></li>
+<li><a href="book-reinvent-and-renew.html">Reinvent &amp; Renew</a></li>
+<li><a href="book-health-changes.html">Health Changes</a></li>
+<li><a href="book-its-not-too-late.html">It's Not Too Late</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="living-life-well-model.html">The Model</a>
+<ul class="dropdown">
 <li><a href="themes.html">The Ten Themes</a></li>
-<li><a href="about.html">About</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="about.html">About</a>
+<ul class="dropdown">
+<li><a href="ali-story.html">Ali's Story</a></li>
+</ul>
+</li>
 <li><a href="resources.html">Resources</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -234,8 +281,8 @@ and appreciation.
 <div class="cta-card-label">The workbook</div>
 <div class="cta-card-title">Maintain &amp; Prevent</div>
 <div class="cta-card-desc">Ready to get your copy now?</div>
-<!-- TODO: swap for Amazon universal link once provided -->
-<a href="#" class="cta-btn">Buy Now &rarr;</a>
+<div class="launch-note"><span class="dot"></span><span class="text">Launching 8 September 2026</span></div>
+<a href="book-maintain-and-prevent.html" class="cta-btn">Find out more &rarr;</a>
 </div>
 <div class="cta-card secondary">
 <div class="cta-card-label">Not quite sure yet?</div>
@@ -260,7 +307,7 @@ and appreciation.
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="book.html">Books</a></li>
-<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="living-life-well-model.html">The Model</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="resources.html">Resources</a></li>
 <li><a href="contact.html">Contact</a></li>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Living Life Well Model | Not Done Yet</title>
+<meta name="description" content="The Living Life Well Model is Ali Heathfield's framework for living well after 60, ten interconnected themes, organised as Conductors, Foundations and Pillars. A map, not a prescription.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Living Life Well Model",
+  "author": { "@type": "Person", "name": "Ali Heathfield" },
+  "url": "https://aliheathfield.com/living-life-well-model.html",
+  "description": "The Living Life Well Model is Ali Heathfield's framework for living well after 60, ten interconnected themes, organised as Conductors, Foundations and Pillars. A map, not a prescription."
+}
+</script>
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--periwinkle-dk:#5a71a0;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+--pale-orange:#fff1e6;
+--pale-orange-border:#ffdec2;
+--pale-periwinkle:#eef1f9;
+--pale-periwinkle-border:#dbe1f0;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.35rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav li{ flex-shrink:0; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+/* ---------- NAV DROPDOWN ---------- */
+nav.main-nav li.has-dropdown{ position:relative; }
+nav.main-nav li.has-dropdown > a::after{ content:"▾"; display:inline-block; margin-left:5px; font-size:.7em; color:var(--ink-soft); }
+nav.main-nav .dropdown{
+list-style:none; position:absolute; top:calc(100% + 14px); left:0; margin:0;
+background:var(--paper); border:1px solid var(--hair); border-radius:8px;
+box-shadow:0 10px 26px rgba(0,0,0,.09); padding:8px; min-width:200px;
+display:flex; flex-direction:column; gap:2px;
+opacity:0; visibility:hidden; transform:translateY(4px);
+transition:opacity .15s ease, transform .15s ease, visibility .15s ease;
+z-index:30;
+}
+nav.main-nav li.has-dropdown:hover > .dropdown,
+nav.main-nav li.has-dropdown:focus-within > .dropdown{
+opacity:1; visibility:visible; transform:translateY(0);
+}
+nav.main-nav .dropdown a{ display:block; padding:7px 10px; border-radius:5px; font-size:.9rem; white-space:nowrap; color:var(--ink-soft); }
+nav.main-nav .dropdown a:hover{ background:var(--pale-periwinkle); color:var(--ink); }
+nav.main-nav .dropdown a.current{ color:var(--ink); font-weight:600; }
+@media (max-width:800px){
+nav.main-nav li.has-dropdown{ flex-basis:100%; }
+nav.main-nav li.has-dropdown > a::after{ display:none; }
+nav.main-nav .dropdown{
+position:static; opacity:1; visibility:visible; transform:none;
+box-shadow:none; border:none; background:none; padding:6px 0 0 16px; margin-top:0; min-width:0;
+flex-direction:row; flex-wrap:wrap; gap:6px 16px;
+}
+}
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
+
+/* ---------- HERO ---------- */
+.model-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.model-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:660px; }
+.hero-eyebrow{
+font-size:.8rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+color:var(--teal-dk); margin-bottom:18px;
+}
+.model-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:20px; }
+.model-hero h1 .accent{ color:var(--orange); }
+.hero-lede{ font-size:1.08rem; line-height:1.7; color:var(--ink-soft); max-width:58ch; }
+
+/* ---------- SECTIONS ---------- */
+.section-block{ padding:8px 0 56px; }
+.section-block .wrap > .section-heading{ margin-bottom:16px; }
+.section-heading{ font-size:1.4rem; }
+.section-block p{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); margin-bottom:16px; max-width:70ch; }
+.section-block p:last-child{ margin-bottom:0; }
+.text-link{ display:inline-block; margin-top:6px; font-weight:600; color:var(--teal-dk); border-bottom:2px solid currentColor; padding-bottom:2px; }
+
+/* ---------- MODEL INTRO (side-by-side) ---------- */
+.model-intro-grid{ display:flex; gap:48px; flex-wrap:wrap; }
+.model-intro-col{ flex:1; min-width:280px; }
+.model-intro-col p{ max-width:none; }
+
+/* ---------- MAP, NOT A PRESCRIPTION (centred) ---------- */
+.map-section{ text-align:center; }
+.map-section p{ margin-left:auto; margin-right:auto; max-width:640px; }
+.map-section .map-pull{ margin-left:auto; margin-right:auto; }
+.map-section .cta-row{ display:flex; justify-content:center; }
+
+/* ---------- MODEL STRIP (Conductors / Foundations / Pillars) ---------- */
+.model-strip{ padding:8px 0 32px; }
+.model-row{
+display:flex; flex-wrap:wrap; gap:32px; background:#fafafa; padding:32px 30px;
+}
+.model-item{ flex:1; min-width:220px; }
+.model-item .model-label{
+font-size:.88rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px;
+}
+.model-item:nth-child(1) .model-label{ color:var(--teal-dk); }
+.model-item:nth-child(2) .model-label{ color:var(--periwinkle); }
+.model-item:nth-child(3) .model-label{ color:var(--burgundy); }
+.model-item p{ font-size:.92rem; color:var(--ink-soft); line-height:1.55; max-width:none; }
+
+/* ---------- THEME TAGS ---------- */
+.theme-tags{ display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 8px; }
+.theme-tag{
+font-size:.86rem; font-weight:600; color:var(--teal-dk);
+background:var(--pale-periwinkle); border:1px solid var(--pale-periwinkle-border);
+padding:7px 16px; border-radius:20px;
+}
+
+/* ---------- MAP NOT PRESCRIPTION PULL ---------- */
+.map-pull{
+margin:8px 0 0; padding:26px 30px; background:var(--pale-orange); border:1px solid var(--pale-orange-border);
+max-width:640px;
+}
+.map-pull p{ font-family:'Lora', serif; font-style:italic; font-weight:600; color:var(--ink); font-size:1.05rem; line-height:1.6; margin:0; max-width:none; }
+
+/* ---------- GREY BAND ---------- */
+.grey-band{ background:#fafafa; padding:56px 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.grey-band .section-heading{ margin-bottom:16px; }
+
+/* ---------- CTA LINK ROW ---------- */
+.cta-row{ margin-top:24px; }
+.btn-primary{
+display:inline-block; background:var(--deep-teal); color:#fff; font-weight:700;
+font-size:.92rem; padding:13px 26px;
+}
+.btn-primary:hover{ background:#043c4c; }
+
+/* ---------- PATH CARDS (Different ways of using the Model) ---------- */
+.path-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:28px; }
+.path-card{
+position:relative; background:#fff;
+border:1px solid var(--hair);
+padding:34px 28px 30px;
+transition:transform .2s, box-shadow .2s;
+}
+.path-card:nth-child(2){ transform:translateY(30px); }
+.path-card:hover{ transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.07); }
+.path-card:nth-child(2):hover{ transform:translateY(26px); }
+.path-splash{ height:64px; margin-bottom:18px; }
+.path-splash img{ height:100%; width:auto; display:block; }
+.path-card h3{ font-size:1.28rem; margin-bottom:16px; }
+.path-link{ font-weight:600; font-size:.94rem; display:inline-flex; align-items:center; gap:8px; border-bottom:2px solid currentColor; padding-bottom:2px; }
+.path-card.teal .path-link{ color:var(--teal); }
+.path-card.coral .path-link{ color:var(--burgundy); }
+.path-card.periwinkle .path-link{ color:var(--periwinkle); }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+footer .wrap.foot-bottom{ display:block; margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+.path-grid{ grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto; }
+.path-card:nth-child(2), .path-card:nth-child(2):hover{ transform:none; }
+}
+@media (max-width:700px){
+.model-row{ flex-direction:column; gap:24px; }
+.model-intro-grid{ flex-direction:column; gap:24px; }
+}
+@media (max-width:600px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:10px 16px; font-size:.85rem; }
+.grey-band{ padding:40px 0; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>&middot;</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li class="has-dropdown"><a href="book.html">Books</a>
+<ul class="dropdown">
+<li><a href="book-not-done-yet.html">Not Done Yet</a></li>
+<li><a href="book-maintain-and-prevent.html">Maintain &amp; Prevent</a></li>
+<li><a href="book-reinvent-and-renew.html">Reinvent &amp; Renew</a></li>
+<li><a href="book-health-changes.html">Health Changes</a></li>
+<li><a href="book-its-not-too-late.html">It's Not Too Late</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="living-life-well-model.html" class="current">The Model</a>
+<ul class="dropdown">
+<li><a href="themes.html">The Ten Themes</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="about.html">About</a>
+<ul class="dropdown">
+<li><a href="ali-story.html">Ali's Story</a></li>
+</ul>
+</li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="model-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/t.png" alt=""></div>
+<div class="hero-copy">
+<div class="hero-eyebrow">The framework behind everything here</div>
+<h1>A map for the whole of your life, <span class="accent">not just the part that's struggling.</span></h1>
+<p class="hero-lede">Created by Ali Heathfield, the Living Life Well Model is what the books, the workbooks and the three paths are all built on: ten interconnected themes, and one whole life.</p>
+</div>
+</div>
+</section>
+
+<section class="section-block">
+<div class="wrap">
+<div class="model-intro-grid">
+<div class="model-intro-col">
+<h2 class="section-heading">What the Model is</h2>
+<p>The Living Life Well Model is a framework for living well after 60. Rather than focusing on a single problem in isolation, health, or money, or purpose, it looks at life as a whole, across ten interconnected themes.</p>
+<p>Most advice about later life narrows in on one area at a time. The Model starts from a different premise: these areas don't operate separately. A change in one, a health diagnosis, a house move, an empty nest, tends to ripple into several others. Seeing the whole picture makes it easier to recognise where your attention will actually help.</p>
+</div>
+<div class="model-intro-col">
+<h2 class="section-heading">Where it came from</h2>
+<p>Ali Heathfield developed the Living Life Well Model from her own experience of a threshold moment in later life, alongside an MSc in Positive Psychology with Distinction and decades of coaching experience working with people through transition and growth.</p>
+<a href="ali-story.html" class="text-link">Read Ali's story &rarr;</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="model-strip">
+<div class="wrap">
+<h2 class="section-heading">Ten themes, three groups</h2>
+<p>The ten themes are organised into three groups, each playing a different role in how a life fits together.</p>
+<div class="model-row">
+<div class="model-item">
+<div class="model-label">Conductors</div>
+<p>Set the tone for everything else. Self, Narrative, and Meaning &amp; Purpose.</p>
+</div>
+<div class="model-item">
+<div class="model-label">Foundations</div>
+<p>The practical realities we're working within. Environment, Health, and Finance.</p>
+</div>
+<div class="model-item">
+<div class="model-label">Pillars</div>
+<p>The visible structure of daily life. Activities &amp; Interests, Relationships, Community, and Planning.</p>
+</div>
+</div>
+<div class="theme-tags">
+<span class="theme-tag">Self</span>
+<span class="theme-tag">Narrative</span>
+<span class="theme-tag">Meaning &amp; Purpose</span>
+<span class="theme-tag">Environment</span>
+<span class="theme-tag">Health</span>
+<span class="theme-tag">Finance</span>
+<span class="theme-tag">Activities &amp; Interests</span>
+<span class="theme-tag">Relationships</span>
+<span class="theme-tag">Community</span>
+<span class="theme-tag">Planning</span>
+</div>
+</div>
+</section>
+
+<section class="section-block">
+<div class="wrap">
+<h2 class="section-heading">How the themes interact</h2>
+<p>These areas don't sit separately. Strengthening one, taking on a new activity, joining a group, having an honest conversation, often affects several others too. When one or more themes need attention, everything tends to feel harder.</p>
+</div>
+</section>
+
+<section class="section-block map-section">
+<div class="wrap">
+<h2 class="section-heading">A map, not a prescription</h2>
+<p>The Model won't tell you what your life should look like. It helps you see the whole picture, and decide for yourself where your attention may be most useful right now.</p>
+<div class="map-pull">
+<p>The Model is designed as a map, not a prescription.</p>
+</div>
+<div class="cta-row">
+<a href="themes.html" class="btn-primary">Explore the ten themes &rarr;</a>
+</div>
+</div>
+</section>
+
+<section class="grey-band">
+<div class="wrap">
+<h2 class="section-heading">Different ways of using the Model</h2>
+<p>The Model can be used in different ways depending on what is happening in your life. Three practical paths have been developed to help you navigate different circumstances.</p>
+<div class="path-grid">
+
+<div class="path-card teal">
+<div class="path-splash"><img src="splashes/c.png" alt=""></div>
+<h3>Maintain &amp; Prevent</h3>
+<a class="path-link" href="maintain-and-prevent.html">Explore the theme &rarr;</a>
+</div>
+
+<div class="path-card coral">
+<div class="path-splash"><img src="splashes/e.png" alt=""></div>
+<h3>Reinvent &amp; Renew</h3>
+<a class="path-link" href="reinvent-and-renew.html">Explore the theme &rarr;</a>
+</div>
+
+<div class="path-card periwinkle">
+<div class="path-splash"><img src="splashes/f.png" alt=""></div>
+<h3>Health Navigator</h3>
+<a class="path-link" href="health-navigator.html">Explore the theme &rarr;</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>&middot;</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="living-life-well-model.html">The Model</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com?subject=Hello%20from%20the%20footer%20page">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>

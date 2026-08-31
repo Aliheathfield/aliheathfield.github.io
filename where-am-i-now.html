@@ -68,6 +68,34 @@
 nav.main-nav li { flex-shrink: 0; }
   nav.main-nav a { color: var(--ink-soft); text-decoration: none; transition: color .15s; }
   nav.main-nav a:hover { color: var(--ink); }
+/* ---------- NAV DROPDOWN ---------- */
+nav.main-nav li.has-dropdown{ position:relative; }
+nav.main-nav li.has-dropdown > a::after{ content:"▾"; display:inline-block; margin-left:5px; font-size:.7em; color:var(--ink-soft); }
+nav.main-nav .dropdown{
+list-style:none; position:absolute; top:calc(100% + 14px); left:0; margin:0;
+background:var(--paper); border:1px solid var(--hair); border-radius:8px;
+box-shadow:0 10px 26px rgba(0,0,0,.09); padding:8px; min-width:200px;
+display:flex; flex-direction:column; gap:2px;
+opacity:0; visibility:hidden; transform:translateY(4px);
+transition:opacity .15s ease, transform .15s ease, visibility .15s ease;
+z-index:30;
+}
+nav.main-nav li.has-dropdown:hover > .dropdown,
+nav.main-nav li.has-dropdown:focus-within > .dropdown{
+opacity:1; visibility:visible; transform:translateY(0);
+}
+nav.main-nav .dropdown a{ display:block; padding:7px 10px; border-radius:5px; font-size:.9rem; white-space:nowrap; color:var(--ink-soft); }
+nav.main-nav .dropdown a:hover{ background:var(--pale-periwinkle); color:var(--ink); }
+nav.main-nav .dropdown a.current{ color:var(--ink); font-weight:600; }
+@media (max-width:800px){
+nav.main-nav li.has-dropdown{ flex-basis:100%; }
+nav.main-nav li.has-dropdown > a::after{ display:none; }
+nav.main-nav .dropdown{
+position:static; opacity:1; visibility:visible; transform:none;
+box-shadow:none; border:none; background:none; padding:6px 0 0 16px; margin-top:0; min-width:0;
+flex-direction:row; flex-wrap:wrap; gap:6px 16px;
+}
+}
 
   /* ---------- TOOL HERO ---------- */
   .tool-hero { position: relative; padding: 56px 0 40px; overflow: hidden; }
@@ -230,7 +258,7 @@ nav.main-nav li { flex-shrink: 0; }
   footer.site-footer nav ul { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 30px; font-size: .92rem; max-width: 500px; }
   footer.site-footer nav a { color: #d7d8db; text-decoration: none; }
   footer.site-footer nav a:hover { color: #fff; }
-  .foot-bottom { margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: .76rem; color: #a9c6cc; text-align: center; }
+  footer.site-footer .wrap.foot-bottom { display: block; margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: .76rem; color: #a9c6cc; text-align: center; }
   .foot-bottom a { color: #a9c6cc; text-decoration: underline; }
 
   @media (max-width: 900px) {
@@ -266,9 +294,25 @@ nav.main-nav li { flex-shrink: 0; }
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="book.html">Books</a></li>
+<li class="has-dropdown"><a href="book.html">Books</a>
+<ul class="dropdown">
+<li><a href="book-not-done-yet.html">Not Done Yet</a></li>
+<li><a href="book-maintain-and-prevent.html">Maintain &amp; Prevent</a></li>
+<li><a href="book-reinvent-and-renew.html">Reinvent &amp; Renew</a></li>
+<li><a href="book-health-changes.html">Health Changes</a></li>
+<li><a href="book-its-not-too-late.html">It's Not Too Late</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="living-life-well-model.html">The Model</a>
+<ul class="dropdown">
 <li><a href="themes.html">The Ten Themes</a></li>
-<li><a href="about.html">About</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="about.html">About</a>
+<ul class="dropdown">
+<li><a href="ali-story.html">Ali's Story</a></li>
+</ul>
+</li>
 <li><a href="resources.html">Resources</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -437,7 +481,7 @@ nav.main-nav li { flex-shrink: 0; }
         <div class="book-promo">
           <div class="book-promo-label">Going deeper</div>
           <div class="book-title">Not Done Yet</div>
-          <div class="book-sub">Life After 60: Ten Themes to Create What's Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: <a href="https://mybook.to/NotDoneYet" target="_blank" rel="noopener">mybook.to/NotDoneYet</a></div>
+          <div class="book-sub">Life After 60: Ten Themes to Create What's Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: <a href="https://www.amazon.co.uk/dp/1066636702?linkCode=ogi&th=1&psc=1&language=en_GB" target="_blank" rel="noopener">amazon.co.uk</a></div>
         </div>
       </div>
     </div>
@@ -448,7 +492,7 @@ nav.main-nav li { flex-shrink: 0; }
 </div>
 
 <div class="tool-footnote">
-  <p>Questions about this tool? <a href="mailto:ali@aliheathfield.com?subject=Where%20Am%20I%20Now%20Tool%20Question">ali@aliheathfield.com</a></p>
+  <p>Questions about this tool? <a href="mailto:hello@aliheathfield.com?subject=Where%20Am%20I%20Now%20Tool%20Question">hello@aliheathfield.com</a></p>
 </div>
 
 <footer class="site-footer">
@@ -458,7 +502,7 @@ nav.main-nav li { flex-shrink: 0; }
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="book.html">Books</a></li>
-<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="living-life-well-model.html">The Model</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="resources.html">Resources</a></li>
 <li><a href="contact.html">Contact</a></li>
@@ -776,7 +820,7 @@ nav.main-nav li { flex-shrink: 0; }
     doc.setFontSize(10);
     doc.setTextColor(...dark);
     doc.text('Not Done Yet', margin + 4, y + 12);
-    const bookLines = doc.splitTextToSize('Life After 60: Ten Themes to Create What\'s Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: mybook.to/NotDoneYet', contentW - 8);
+    const bookLines = doc.splitTextToSize('Life After 60: Ten Themes to Create What\'s Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: amazon.co.uk', contentW - 8);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8.5);
     doc.text(bookLines, margin + 4, y + 18);
@@ -785,7 +829,7 @@ nav.main-nav li { flex-shrink: 0; }
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(...mid);
-    doc.text('aliheathfield.com/whereaminow  ·  ali@aliheathfield.com', W / 2, 287, { align: 'center' });
+    doc.text('aliheathfield.com/whereaminow  ·  hello@aliheathfield.com', W / 2, 287, { align: 'center' });
 
     doc.save('Where-Am-I-Now.pdf');
   }
@@ -946,7 +990,7 @@ nav.main-nav li { flex-shrink: 0; }
     doc.setFontSize(10);
     doc.setTextColor(...dark);
     doc.text('Not Done Yet', margin + 4, y + 12);
-    const bookLines = doc.splitTextToSize('Life After 60: Ten Themes to Create What\'s Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: mybook.to/NotDoneYet', contentW - 8);
+    const bookLines = doc.splitTextToSize('Life After 60: Ten Themes to Create What\'s Possible goes considerably deeper into each path and the ten themes that shape how to live life well at this stage of life. Now available on Amazon: amazon.co.uk', contentW - 8);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8.5);
     doc.text(bookLines, margin + 4, y + 18);
@@ -954,7 +998,7 @@ nav.main-nav li { flex-shrink: 0; }
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(...mid);
-    doc.text('aliheathfield.com/whereaminow  ·  ali@aliheathfield.com', W / 2, 287, { align: 'center' });
+    doc.text('aliheathfield.com/whereaminow  ·  hello@aliheathfield.com', W / 2, 287, { align: 'center' });
 
     doc.save('Where-Am-I-Now-Results.pdf');
   }

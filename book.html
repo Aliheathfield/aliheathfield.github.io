@@ -48,6 +48,34 @@ nav.main-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 30px; f
 nav.main-nav li{ flex-shrink:0; }
 nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
 nav.main-nav a:hover{ color:var(--ink); }
+/* ---------- NAV DROPDOWN ---------- */
+nav.main-nav li.has-dropdown{ position:relative; }
+nav.main-nav li.has-dropdown > a::after{ content:"▾"; display:inline-block; margin-left:5px; font-size:.7em; color:var(--ink-soft); }
+nav.main-nav .dropdown{
+list-style:none; position:absolute; top:calc(100% + 14px); left:0; margin:0;
+background:var(--paper); border:1px solid var(--hair); border-radius:8px;
+box-shadow:0 10px 26px rgba(0,0,0,.09); padding:8px; min-width:200px;
+display:flex; flex-direction:column; gap:2px;
+opacity:0; visibility:hidden; transform:translateY(4px);
+transition:opacity .15s ease, transform .15s ease, visibility .15s ease;
+z-index:30;
+}
+nav.main-nav li.has-dropdown:hover > .dropdown,
+nav.main-nav li.has-dropdown:focus-within > .dropdown{
+opacity:1; visibility:visible; transform:translateY(0);
+}
+nav.main-nav .dropdown a{ display:block; padding:7px 10px; border-radius:5px; font-size:.9rem; white-space:nowrap; color:var(--ink-soft); }
+nav.main-nav .dropdown a:hover{ background:var(--pale-periwinkle); color:var(--ink); }
+nav.main-nav .dropdown a.current{ color:var(--ink); font-weight:600; }
+@media (max-width:800px){
+nav.main-nav li.has-dropdown{ flex-basis:100%; }
+nav.main-nav li.has-dropdown > a::after{ display:none; }
+nav.main-nav .dropdown{
+position:static; opacity:1; visibility:visible; transform:none;
+box-shadow:none; border:none; background:none; padding:6px 0 0 16px; margin-top:0; min-width:0;
+flex-direction:row; flex-wrap:wrap; gap:6px 16px;
+}
+}
 nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
 
 /* ---------- HERO ---------- */
@@ -103,9 +131,15 @@ display:inline-block; background:var(--orange); color:#fff; border:none; font-we
 }
 .box-btn:hover{ background:#e07040; }
 
+.find-more-link{ display:inline-block; font-weight:700; font-size:.9rem; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:2px; }
+.find-more-link:hover{ color:var(--orange); }
+
 /* ---------- OTHER BOOK ---------- */
 .other-book{ padding:56px 0; border-top:1px solid var(--hair); }
-.other-book .inner{ max-width:640px; }
+.other-book .inner{ max-width:640px; display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; }
+.other-cover{ width:120px; flex-shrink:0; }
+.other-cover img{ width:100%; height:auto; display:block; border:1px solid var(--hair); }
+.other-copy{ flex:1; min-width:260px; }
 .other-book .book-eyebrow{ color:var(--orange); }
 .other-book h2{ font-size:1.4rem; margin-bottom:6px; }
 .other-book .subtitle{ font-family:'Lora', serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:16px; }
@@ -165,7 +199,7 @@ footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-betw
 footer nav ul{ list-style:none; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px 30px; font-size:.92rem; max-width:500px; }
 footer nav a{ color:#d7d8db; }
 footer nav a:hover{ color:#fff; }
-.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+footer .wrap.foot-bottom{ display:block; margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
 .foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
 
 @media (max-width:800px){
@@ -195,9 +229,25 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="book.html" class="current">Books</a></li>
+<li class="has-dropdown"><a href="book.html" class="current">Books</a>
+<ul class="dropdown">
+<li><a href="book-not-done-yet.html">Not Done Yet</a></li>
+<li><a href="book-maintain-and-prevent.html">Maintain &amp; Prevent</a></li>
+<li><a href="book-reinvent-and-renew.html">Reinvent &amp; Renew</a></li>
+<li><a href="book-health-changes.html">Health Changes</a></li>
+<li><a href="book-its-not-too-late.html">It's Not Too Late</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="living-life-well-model.html">The Model</a>
+<ul class="dropdown">
 <li><a href="themes.html">The Ten Themes</a></li>
-<li><a href="about.html">About</a></li>
+</ul>
+</li>
+<li class="has-dropdown"><a href="about.html">About</a>
+<ul class="dropdown">
+<li><a href="ali-story.html">Ali's Story</a></li>
+</ul>
+</li>
 <li><a href="resources.html">Resources</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -210,7 +260,7 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <div class="hero-splash"><img src="splashes/h.png" alt=""></div>
 <div class="hero-copy">
 <h1>Start with <span class="accent">what makes sense to you</span></h1>
-<p>Not Done Yet and the workbooks all draw on the same Living Life Well model, but none of them depends on the others. Read the book, start with a workbook, or both, in whichever order suits you.</p>
+<p>There is no single right way to use the Living Life Well books. You can begin with the main book, choose the workbook that fits where you are now, or start with the shorter reflective ebook. They are connected, but each serves a different purpose.</p>
 </div>
 </div>
 </section>
@@ -222,19 +272,17 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <img src="book-covers/ndy-cover.jpg" alt="Not Done Yet book cover">
 </div>
 <div class="book-copy">
-<div class="book-eyebrow">The book</div>
+<div class="book-eyebrow">The main book</div>
 <h2>Not Done Yet</h2>
 <p class="subtitle">Life After 60: Ten Themes to Create What's Possible</p>
-<p class="desc">You're standing at a crossroads. Perhaps you've just retired and feel unmoored without the structure that work provided. Maybe you've lost a partner and don't recognise the person looking back at you in the mirror. Whatever brought you here, this book shows you how to feel alive, matter, contribute, and design these years rather than simply endure them.</p>
+<p class="desc">Not Done Yet introduces the Living Life Well Model: ten areas of life that can help us understand where we are now, what matters, and what may need attention as we continue to age. It also introduces the three Living Life Well paths: Maintain &amp; Prevent, Reinvent &amp; Renew, and Health Navigator. The book is not about pretending we can control everything that happens. It is about recognising the circumstances we find ourselves in and making intentional choices about how we want to live within them.</p>
+<p class="standalone-note">A good place to start if: you want to understand the whole Living Life Well approach before deciding where to focus.</p>
 <div class="book-ctas">
-<a href="https://mybook.to/NotDoneYet" target="_blank" rel="noopener" class="btn-primary">Buy on Amazon →</a>
+<a href="book-not-done-yet.html" class="find-more-link">Find out more →</a>
+<a href="https://www.amazon.co.uk/dp/1066636702?linkCode=ogi&th=1&psc=1&language=en_GB" target="_blank" rel="noopener" class="btn-primary">Buy on Amazon →</a>
 </div>
 </div>
-<div class="sample-box">
-<div class="label">Free sample</div>
-<p>Email me and I'll personally send you chapter one.</p>
-<a class="box-btn" href="mailto:hello@aliheathfield.com?subject=Send%20me%20NDY%20Free%20Chapter">Email me for chapter one</a>
-</div>
+
 </div>
 </div>
 </section>
@@ -242,8 +290,8 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <section class="workbooks" id="workbooks">
 <div class="wrap">
 <div class="workbooks-intro">
-<h2>The workbooks</h2>
-<p>Each workbook puts one path into practice: the Theme Check-In, the tools, and the guided steps for that stage of life. Maintain &amp; Prevent and Reinvent &amp; Renew launch 9 September 2026. Health Changes is still being written. Be the first to know when your copy is ready.</p>
+<h2>The practical workbooks</h2>
+<p>Each workbook takes one of the three Living Life Well paths and turns it into practical steps. They stand on their own, so you do not have to read Not Done Yet first.</p>
 </div>
 
 <div class="workbook-grid">
@@ -251,30 +299,31 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <div class="workbook-card mp">
 <div class="wb-cover"><img src="book-covers/mp-cover.jpg" alt="Maintain and Prevent workbook cover"></div>
 <div class="wb-tag">Maintain &amp; Prevent</div>
-<h3>Protecting what you love</h3>
-<p class="desc">Maintenance with intention: small tweaks, regular check-ins, and the kind of gentle attention that prevents drift while protecting joy.</p>
-<p class="standalone-note">Stands on its own. No need to read the book first.</p>
-<div class="launch-note"><span class="dot"></span><span class="text">Launching 9 September 2026</span></div>
-<a class="box-btn" href="mailto:hello@aliheathfield.com?subject=Notify%20me%20-%20Maintain%20and%20Prevent">Email me when it's live</a>
+<h3>Life After 60: Protecting What's Possible</h3>
+<p class="desc">For when life is mostly working and you want to keep it that way. This workbook helps you notice what is worth protecting, where small changes may be needed, and how regular check-ins can prevent gradual drift.</p>
+<p class="standalone-note">Choose this if: you want to maintain what is good, strengthen what matters and make small adjustments before problems become bigger.</p>
+<div class="launch-note"><span class="dot"></span><span class="text">Launching 8 September 2026</span></div>
+<a href="book-maintain-and-prevent.html" class="find-more-link">Find out more →</a>
 </div>
 
 <div class="workbook-card rr">
 <div class="wb-cover"><img src="book-covers/rr-cover.jpg" alt="Reinvent and Renew workbook cover"></div>
 <div class="wb-tag">Reinvent &amp; Renew</div>
-<h3>Start building the life you actually want</h3>
-<p class="desc">Intentional reinvention and renewal: exploring possibilities, trying on new identities, and taking the steps that feel right.</p>
-<p class="standalone-note">Stands on its own. No need to read the book first.</p>
-<div class="launch-note"><span class="dot"></span><span class="text">Launching 9 September 2026</span></div>
-<a class="box-btn" href="mailto:hello@aliheathfield.com?subject=Notify%20me%20-%20Reinvent%20and%20Renew">Email me when it's live</a>
+<h3>Life After 60: Creating What's Possible</h3>
+<p class="desc">For when you feel ready for something different. This workbook helps you explore possibilities, try out new directions, rethink old assumptions and take practical steps towards a life that feels more like the one you want now.</p>
+<p class="standalone-note">Choose this if: you are curious about what else might be possible and want help turning ideas into action.</p>
+<div class="launch-note"><span class="dot"></span><span class="text">Launching 8 September 2026</span></div>
+<a href="book-reinvent-and-renew.html" class="find-more-link">Find out more →</a>
 </div>
 
 <div class="workbook-card hn">
 <div class="wb-cover"><img src="book-covers/hc-cover.jpg" alt="Health Changes workbook cover"></div>
 <div class="wb-tag">Health Changes</div>
-<h3>Finding your way through health changes</h3>
-<p class="desc">The Health Navigator path in practice: managing your energy, adapting daily life, and holding onto identity, connection, and purpose when health changes the rules.</p>
-<p class="standalone-note">Stands on its own. No need to read the book first.</p>
-<a href="#" class="box-btn">Register your interest →</a>
+<h3>Life After 60: Navigating What's Possible</h3>
+<p class="desc">For people following the Health Navigator path — when health has changed the plan and you need practical ways to adapt while holding on to identity, connection, purpose and what still matters. This workbook helps you work with the circumstances you are in now, make thoughtful adjustments and keep sight of the parts of life that continue to matter.</p>
+<p class="standalone-note">Choose this if: health is influencing your choices more than it used to and you want practical ways to navigate what has changed.</p>
+<div class="launch-note"><span class="dot"></span><span class="text">Coming October 2026</span></div>
+<a href="book-health-changes.html" class="find-more-link">Find out more →</a>
 </div>
 
 </div>
@@ -285,12 +334,16 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <section class="other-book">
 <div class="wrap">
 <div class="inner">
-<div class="book-eyebrow">Also from Ali</div>
+<div class="other-cover"><img src="book-covers/intl-cover.jpg" alt="It's Not Too Late book cover"></div>
+<div class="other-copy">
+<div class="book-eyebrow">A shorter, reflective read</div>
 <h2>It's Not Too Late</h2>
-<p class="subtitle">47 short reflections on the Living Life Well themes</p>
-<p class="desc">Born from one question: what does it actually take to live well after 60? These 47 short reflections move past simply managing, towards intention, connection, and what's still possible, shaped by Ali's own experience of rebuilding after loss. Dip in whenever you need a prompt, five minutes at a time, any order, each closing with a short Reflect and Step.</p>
+<p class="subtitle">A collection of 47 short reflections on the Living Life Well themes</p>
+<p class="desc">It's Not Too Late is different from the other books. It is a collection of 47 short reflections on the Living Life Well themes, written to be dipped into rather than worked through from beginning to end. Each reflection offers a thought, question or small step to consider.</p>
+<p class="standalone-note">Choose this if: you want something shorter and gentler that encourages you to pause, reflect and think about what might still be possible.</p>
 <div class="launch-note"><span class="dot"></span><span class="text">Coming to Amazon, September 2026</span></div>
-<a class="box-btn" href="mailto:hello@aliheathfield.com?subject=Notify%20me%20-%20It%27s%20Not%20Too%20Late">Email me when it's live</a>
+<a href="book-its-not-too-late.html" class="find-more-link">Find out more →</a>
+</div>
 </div>
 </div>
 </section>
@@ -302,7 +355,7 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="book.html">Books</a></li>
-<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="living-life-well-model.html">The Model</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="resources.html">Resources</a></li>
 <li><a href="contact.html">Contact</a></li>
