@@ -78,6 +78,21 @@ box-shadow:none; border:none; background:none; padding:6px 0 0 16px; margin-top:
 flex-direction:row; flex-wrap:wrap; gap:6px 16px;
 }
 }
+.nav-toggle-input{ display:none; }
+.nav-toggle-btn{ display:none; }
+@media (max-width:800px){
+.site-header .wrap{ position:relative; }
+.nav-toggle-btn{
+display:flex; flex-direction:column; justify-content:center; gap:5px;
+width:32px; height:32px; cursor:pointer; order:2; background:none; border:none; padding:0;
+}
+.nav-toggle-btn span{ display:block; width:100%; height:2px; background:var(--ink); border-radius:2px; transition:transform .2s ease, opacity .2s ease; }
+nav.main-nav{ display:none; order:3; flex-basis:100%; width:100%; margin-top:14px; padding-top:14px; border-top:1px solid var(--hair); }
+.nav-toggle-input:checked ~ nav.main-nav{ display:block; }
+.nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(2){ opacity:0; }
+.nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
 nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
 
 /* ---------- TOP BLOCK ---------- */
@@ -167,6 +182,8 @@ footer .wrap{ flex-direction:column; align-items:flex-start; }
 <header class="site-header">
 <div class="wrap">
 <a href="index.html" class="logo">Ali Heathfield <span>·</span> Not Done Yet</a>
+<input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+<label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu"><span></span><span></span><span></span></label>
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">Home</a></li>
