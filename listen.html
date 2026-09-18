@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listen | Not Done Yet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+--orange:#ff8855;
+--teal:#2b9baf;
+--teal-dk:#1d7a8a;
+--coral:#ec8070;
+--burgundy:#8f4046;
+--periwinkle:#728abf;
+--periwinkle-dk:#5a71a0;
+--ink:#26282c;
+--ink-soft:#5a5d63;
+--hair:#e9e9ec;
+--paper:#ffffff;
+--deep-teal:#065165;
+--band:#fafafa;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+font-family:'Source Sans 3', sans-serif;
+color:var(--ink);
+background:var(--paper);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+
+h1,h2,h3{ font-family:'Lora', serif; font-weight:600; line-height:1.25; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.content{ max-width:100%; }
+
+/* ---------- HEADER ---------- */
+header.site-header{ padding:26px 0; border-bottom:1px solid var(--hair); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.logo{ font-family:'Lora', serif; font-weight:600; font-size:1.2rem; letter-spacing:.01em; }
+.logo span{ color:var(--orange); }
+nav.main-nav ul{ list-style:none; display:flex; gap:30px; font-size:0.92rem; font-weight:500; }
+nav.main-nav a{ color:var(--ink-soft); transition:color .15s; }
+nav.main-nav a:hover{ color:var(--ink); }
+nav.main-nav a.current{ color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:3px; }
+
+/* ---------- HERO ---------- */
+.page-hero{ position:relative; padding:56px 0 40px; overflow:hidden; }
+.page-hero .wrap{ position:relative; }
+.hero-splash{
+position:absolute; z-index:0; pointer-events:none;
+width:clamp(64px, 12.7vw, 150px); height:clamp(64px, 12.7vw, 150px);
+top:clamp(4px, 1vw, 10px); right:clamp(16px, 12.7vw, 150px);
+display:flex; align-items:flex-start; justify-content:flex-end;
+}
+.hero-splash img{ max-width:100%; max-height:100%; width:auto; height:auto; display:block; }
+.hero-copy{ position:relative; z-index:1; max-width:680px; }
+.page-hero h1{ font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:20px; }
+.page-hero h1 .accent{ color:var(--orange); }
+.hero-lede{ font-size:1.08rem; line-height:1.7; color:var(--ink-soft); max-width:58ch; }
+
+/* ---------- SECTION GROUP LABELS ---------- */
+.group-label{
+font-size:1.7rem; font-weight:600; color:var(--ink); margin:0 0 10px;
+}
+.group-intro{ color:var(--ink-soft); font-size:1.02rem; max-width:70ch; margin-bottom:8px; }
+.book-subheading{ font-family:'Lora', serif; font-style:italic; font-weight:500; font-size:1.1rem; color:var(--ink); margin:24px 0 6px; }
+.book-subintro{ color:var(--ink-soft); font-size:.96rem; max-width:70ch; margin-bottom:8px; }
+.entry-group{ padding:8px 0 16px; }
+.entry-group + .entry-group{ border-top:1px solid var(--hair); padding-top:48px; margin-top:8px; }
+
+/* ---------- CONVERSATION / EXCERPT ROWS (alternating) ---------- */
+.entries{ padding:8px 0 64px; }
+
+.convo-row{
+display:grid;
+grid-template-columns: 5fr 6fr;
+gap:56px;
+align-items:center;
+padding:44px 0;
+border-top:1px solid var(--hair);
+}
+.convo-row:first-child{ border-top:none; padding-top:0; }
+.convo-row.reverse .convo-media{ order:2; }
+.convo-row.reverse .convo-text{ order:1; }
+
+.convo-media{
+padding:32px;
+border-left:4px solid transparent;
+border-right:4px solid transparent;
+}
+.convo-media.orange{ background:rgba(255,136,85,0.06); }
+.convo-media.periwinkle{ background:rgba(114,138,191,0.07); }
+.convo-row:not(.reverse) .convo-media.orange{ border-left-color:var(--orange); }
+.convo-row:not(.reverse) .convo-media.periwinkle{ border-left-color:var(--periwinkle); }
+.convo-row.reverse .convo-media.orange{ border-right-color:var(--orange); }
+.convo-row.reverse .convo-media.periwinkle{ border-right-color:var(--periwinkle); }
+
+.convo-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin-bottom:12px; }
+.convo-media.orange .convo-eyebrow{ color:#e07040; }
+.convo-media.periwinkle .convo-eyebrow{ color:var(--periwinkle); }
+
+.convo-media h2{ font-size:1.4rem; margin-bottom:14px; }
+
+.player-box audio{ width:100%; display:block; }
+
+.convo-text .desc{ font-size:1.02rem; line-height:1.85; color:var(--ink-soft); }
+.convo-text .desc em{ font-style:italic; }
+
+@media (max-width:900px){
+.convo-row{ grid-template-columns:1fr; gap:24px; padding:32px 0; }
+.convo-row.reverse .convo-media,
+.convo-row.reverse .convo-text{ order:initial; }
+.entry-group + .entry-group{ padding-top:32px; }
+}
+
+/* ---------- QUIET WAY OUT ---------- */
+.quiet-out{ text-align:center; padding:8px 0 48px; font-size:.98rem; color:var(--ink-soft); }
+.quiet-out a{ font-weight:700; color:var(--ink); border-bottom:2px solid var(--orange); padding-bottom:1px; }
+
+/* ---------- FOOTER ---------- */
+footer{ background:var(--deep-teal); color:#fff; padding:56px 0 34px; }
+footer .wrap{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; }
+.foot-logo{ font-family:'Lora', serif; font-size:1.15rem; margin-bottom:10px; }
+.foot-logo span{ color:var(--orange); }
+footer nav ul{ list-style:none; display:flex; flex-direction:column; gap:10px; font-size:.92rem; }
+footer nav a{ color:#d7d8db; }
+footer nav a:hover{ color:#fff; }
+.foot-bottom{ margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14); font-size:.76rem; color:#a9c6cc; text-align:center; }
+.foot-bottom a{ color:#a9c6cc; text-decoration:underline; }
+
+@media (max-width:800px){
+.hero-splash{
+position:static; width:56px; height:56px; margin-bottom:16px;
+display:flex; align-items:flex-start; justify-content:flex-start;
+}
+}
+@media (max-width:700px){
+.wrap{ padding:0 20px; }
+nav.main-nav ul{ gap:16px; font-size:.85rem; }
+footer .wrap{ flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a href="index.html" class="logo">Ali Heathfield <span>&middot;</span> Not Done Yet</a>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="themes.html">The Ten Themes</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="listen.html" class="current">Listen</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="wrap">
+<div class="hero-splash"><img src="splashes/u.png" alt=""></div>
+<div class="hero-copy">
+<h1>Listen <span class="accent">to Ali</span></h1>
+<p class="hero-lede">Radio and podcast conversations, and Ali reading a few steps from her own books aloud. Everything here is free to listen to, whenever suits you.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="content">
+
+<section class="entries">
+
+<div class="entry-group">
+<h2 class="group-label">In Conversation</h2>
+<p class="group-intro">Radio spots and guest conversations, wherever Ali's talked about living life well.</p>
+
+<div class="convo-row">
+<div class="convo-media orange">
+<div class="convo-eyebrow">Good Morning Portugal &middot; 8 September 2026</div>
+<h2>Life Online, Life Offline</h2>
+<div class="player-box">
+<audio controls src="conversations/good-morning-portugal-8-september-2026.mp3"></audio>
+</div>
+</div>
+<div class="convo-text">
+<p class="desc">Ali talks with Carl on Good Morning Portugal about the balance between digital life and real life after moving abroad. Drawing on recently redesigning her website and publishing three books, with AI's help for editing but never for writing, and as a user of all things digital herself, she talks about using it as a bridge to life offline rather than being a substitute. She looks at the potential risks of building an online community, and shows how digital connection can be used well or misunderstood, illustrated with a story about a father and son playing online chess. Portuguese cafe culture, its slower pace of life, and the loneliness paradox of a hyper-connected generation all come into it. The conversation also touches on ageing as a permanent state of change, and how embracing that idea can shape our whole approach to it. Ali points to her free check-in and fifteen-minute tea chat on her website, both there to encourage and support.</p>
+</div>
+</div>
+
+<div class="convo-row reverse">
+<div class="convo-media periwinkle">
+<div class="convo-eyebrow">Portugal Talk Radio &middot; July 2026</div>
+<h2>The Honeymoon Period</h2>
+<div class="player-box">
+<audio controls src="conversations/portugal-talk-radio-honeymoon-period-july-2026.mp3"></audio>
+</div>
+</div>
+<div class="convo-text">
+<p class="desc">Ali joins Carl on Portugal Talk Radio to talk about the honeymoon period of moving abroad, and the quieter "what have I done?" moment that so often follows it. The conversation moves into identity: which parts of who we were are worth holding on to, which labels (manager, parent, partner) we're ready to loosen, and how small, low-stakes "what if" projects can help us find what actually fits, without a dramatic overhaul. Ali also introduces the three Living Life Well paths and talks about writing <em>Not Done Yet</em>.</p>
+</div>
+</div>
+
+<div class="convo-row">
+<div class="convo-media orange">
+<div class="convo-eyebrow">Portugal Talk Radio &middot; July 2026 &middot; short clip</div>
+<h2>Who Am I</h2>
+<div class="player-box">
+<audio controls src="conversations/who-am-i-portugal-talk-radio.mp3"></audio>
+</div>
+</div>
+<div class="convo-text">
+<p class="desc">Carl at Good Morning Portugal calls her a "Renaissance woman": author, coach, and encourager who has rebuilt a life more than once. Here, in her own words, is who she really is. A short clip from Portugal Talk Radio in which Ali gives her elevator pitch: who she is and why people find their way to aliheathfield.com. She talks about being an encourager, someone people come to for listening and for the one question they haven't thought to ask themselves, whether that's after a move, a loss of community, or a change in health. The clip closes on why we all benefit from someone outside our own circle, without preconceptions, leading straight into <em>Not Done Yet</em>, out now on Amazon.</p>
+</div>
+</div>
+
+</div>
+
+<div class="entry-group" id="from-the-books">
+<h2 class="group-label">From the Books</h2>
+<p class="group-intro">When reading isn't the easiest option.</p>
+<h3 class="book-subheading">From It's Not Too Late</h3>
+<p class="book-subintro">A few of the steps read aloud by Ali.</p>
+
+<div class="convo-row reverse">
+<div class="convo-media periwinkle">
+<div class="convo-eyebrow">It's Not Too Late &middot; Step 27</div>
+<h2>The We That Matters</h2>
+<div class="player-box">
+<audio controls src="book-excerpts/step-27-the-we-that-matters.mp3"></audio>
+</div>
+</div>
+<div class="convo-text">
+<p class="desc">In Step 27, Ali sets out the difference between the "we" we're born into by accident of geography and circumstance, and the "we" we choose and actively build. After 60, she explains, that distinction becomes harder to miss, as some of the communities that once gave us a sense of belonging, the workplace, the school gate, a neighbourhood we've since left, quietly dissolve. She describes what genuine community actually does: reciprocity, shared purpose, and the experience of being properly known rather than simply recognised, and why it's one of the strongest predictors of wellbeing as we age. The step closes with what it takes to build that kind of community deliberately: seeking out new contexts, showing up consistently, and having the courage to stay somewhere long enough that it stops feeling new.</p>
+</div>
+</div>
+
+<div class="convo-row">
+<div class="convo-media orange">
+<div class="convo-eyebrow">It's Not Too Late &middot; Step 46</div>
+<h2>Ageing is Not Optional</h2>
+<div class="player-box">
+<audio controls src="book-excerpts/step-46-ageing-is-not-optional.mp3"></audio>
+</div>
+</div>
+<div class="convo-text">
+<p class="desc">Step 46 opens with something that sounds almost too obvious to say, that ageing isn't optional, before pointing out how many of us live as though it might be, avoiding the conversations, the planning, and the adaptations that ageing calls for. Ali sets out what that resistance actually costs: harder conversations left too late, adaptations not made, and a kind of ongoing argument with reality that stops us being present in the life we actually have. She also pushes back on the purely negative cultural story about ageing, pointing to research showing happiness tends to rise and anxiety fall in later life. The step's central point is that while ageing itself isn't a choice, how we meet it is, through honesty, planning, and investing in what matters, rather than denial.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+</div>
+</div>
+
+<div class="quiet-out">
+<p>Want to work with Ali directly? <a href="https://calendly.com/aliheathfield/15-minute-tea-chat" target="_blank" rel="noopener">Book a free tea chat &rarr;</a></p>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="foot-logo">Not Done Yet <span>&middot;</span> Ali Heathfield</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="book.html">Books</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="listen.html">Listen</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap foot-bottom">&copy; 2026 Ali Heathfield &nbsp;&middot;&nbsp; <a href="mailto:hello@aliheathfield.com">hello@aliheathfield.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+</footer>
+
+</body>
+</html>
